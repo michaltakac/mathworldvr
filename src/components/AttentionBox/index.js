@@ -3,8 +3,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const propTypes = {
-  attentionBoxVisible: PropTypes.bool.isRequired,
-  toggleAttentionBox: PropTypes.func.isRequired,
+  attentionBoxVisible: PropTypes.bool,
+  toggleAttentionBox: PropTypes.func,
 }
 
 const AttentionBox = ({ attentionBoxVisible, toggleAttentionBox }) => {

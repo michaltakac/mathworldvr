@@ -8,7 +8,7 @@ import {
   RightController,
   Plane,
 } from 'components'
-import { AttentionBox, Calculator, FunctionBox, SettingsPanel } from 'containers'
+import { AttentionBox, Calculator, FunctionBox, ParametricFunction, SettingsPanel } from 'containers'
 
 class App extends React.Component {
   componentDidMount() {
@@ -29,7 +29,11 @@ class App extends React.Component {
         <LeftController />
         <RightController />
 
-        <FunctionBox />
+        <FunctionBox>
+          { /* Function mesh with grid */ }
+          <ParametricFunction />
+        </FunctionBox>
+
         <Calculator />
 
         <SettingsPanel

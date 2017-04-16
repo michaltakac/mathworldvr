@@ -7,7 +7,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case ActionTypes.FUNCTION_BOX_SET_POSITION:
-      return { ...state, equation: action.equation }
+      return { ...state, position: action.position }
     default: return state
   }
 }

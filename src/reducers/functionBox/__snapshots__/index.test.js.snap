@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`functionBox FUNCTION_BOX_SET_POSITION 1`] = `
+Object {
+  "position": Object {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+  },
+}
+`;

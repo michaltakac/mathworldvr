@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Entity } from 'aframe-react'
-import { ParametricFunction } from 'containers'
 
 const propTypes = {
+  children: PropTypes.any,
   position: PropTypes.object,
 }
 
-const FunctionBox = ({ position }) => (
+const FunctionBox = ({ position, ...props }) => (
   <Entity
     id="function-box"
     className="interactive"
@@ -20,8 +20,7 @@ const FunctionBox = ({ position }) => (
     dynamic-body
     stop-flying
   >
-    { /* Function mesh with grid */ }
-    <ParametricFunction />
+    { props.children }
   </Entity>
 )
 

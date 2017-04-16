@@ -1,13 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Mock = (props = {}) => <span>{props.children}</span>;
+module.exports = new Proxy({}, {
+  get: (target, property) => {
+    const Mock = (props) => <span>{props.children}</span>
 
-Mock.displayName = 'Mock';
-Mock.propTypes = {
-  children: PropTypes.any,
-};
+    Mock.displayName = property
+    Mock.propTypes = {
+      children: PropTypes.any,
+    }
 
-exports = module.exports = new Proxy({}, {
-  get: () => Mock,
-});
+    return Mock
+  },
+})

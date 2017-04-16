@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calculator CALCULATOR_BACKSPACE 1`] = `
+Object {
+  "displayText": "x^2 + y^",
+}
+`;
+
+exports[`calculator CALCULATOR_CLEAR_TEXT 1`] = `
+Object {
+  "displayText": "",
+}
+`;
+
+exports[`calculator CALCULATOR_WRITE_TEXT 1`] = `
+Object {
+  "displayText": "x^2 + y^2123 * cos(pi)",
+}
+`;

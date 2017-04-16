@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`settings SETTINGS_SET_FUNCTION_COLOR 1`] = `
+Object {
+  "functionColor": "#fff",
+  "segments": 30,
+  "xMax": 1,
+  "xMin": -1,
+  "yMax": 1,
+  "yMin": -1,
+  "zMax": 4,
+  "zMin": -4,
+}
+`;
+
+exports[`settings SETTINGS_SET_SEGMENTS 1`] = `
+Object {
+  "functionColor": "#bada55",
+  "segments": 15,
+  "xMax": 1,
+  "xMin": -1,
+  "yMax": 1,
+  "yMin": -1,
+  "zMax": 4,
+  "zMin": -4,
+}
+`;
+
+exports[`settings SETTINGS_SET_X_MAX 1`] = `
+Object {
+  "functionColor": "#bada55",
+  "segments": 30,
+  "xMax": 999,
+  "xMin": -1,
+  "yMax": 1,
+  "yMin": -1,
+  "zMax": 4,
+  "zMin": -4,
+}
+`;
+
+exports[`settings SETTINGS_SET_X_MIN 1`] = `
+Object {
+  "functionColor": "#bada55",
+  "segments": 30,
+  "xMax": 1,
+  "xMin": -999,
+  "yMax": 1,
+  "yMin": -1,
+  "zMax": 4,
+  "zMin": -4,
+}
+`;
+
+exports[`settings SETTINGS_SET_Y_MAX 1`] = `
+Object {
+  "functionColor": "#bada55",
+  "segments": 30,
+  "xMax": 1,
+  "xMin": -1,
+  "yMax": 999,
+  "yMin": -1,
+  "zMax": 4,
+  "zMin": -4,
+}
+`;
+
+exports[`settings SETTINGS_SET_Y_MIN 1`] = `
+Object {
+  "functionColor": "#bada55",
+  "segments": 30,
+  "xMax": 1,
+  "xMin": -1,
+  "yMax": 1,
+  "yMin": -999,
+  "zMax": 4,
+  "zMin": -4,
+}
+`;
+
+exports[`settings SETTINGS_SET_Z_MAX 1`] = `
+Object {
+  "functionColor": "#bada55",
+  "segments": 30,
+  "xMax": 1,
+  "xMin": -1,
+  "yMax": 1,
+  "yMin": -1,
+  "zMax": 999,
+  "zMin": -4,
+}
+`;
+
+exports[`settings SETTINGS_SET_Z_MIN 1`] = `
+Object {
+  "functionColor": "#bada55",
+  "segments": 30,
+  "xMax": 1,
+  "xMin": -1,
+  "yMax": 1,
+  "yMin": -1,
+  "zMax": 4,
+  "zMin": -999,
+}
+`;

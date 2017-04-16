@@ -51,7 +51,7 @@ export default class CalcButton extends React.Component {
     return (
       <Entity
         id={id}
-        className="interactive button"
+        className="interactive"
         geometry={{ primitive: 'box', height, width, depth }}
         material={{ shader: 'flat', side: 'double', color: buttonColor, opacity }}
         scale={{ x: 0.5, y: 0.5, z: 0.5 }}

@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Calculator renders the tree consistently 1`] = `
+<a-entity
+  className="interactive calculator"
+  id="text-box"
+>
+  <span />
+  <a-entity>
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
+  </a-entity>
+  <a-entity
+    id="sld-disclaimer"
+  >
+    <a-entity
+      id="sld-logo"
+    />
+    <span />
+  </a-entity>
+</a-entity>
+`;

@@ -1,54 +1,2217 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Calculator renders the entity consistently 1`] = `
-<a-entity
-  className="interactive calculator"
-  id="text-box"
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <Entity
+    className="interactive calculator"
+    dynamic-body={true}
+    geometry="primitive: box; width: 0.88; height: 0.65; depth: 0.01;"
+    grabbable={true}
+    id="text-box"
+    material="shader: flat; side: double; color: #8d8547; "
+    position="-0.03 1.2 -0.26"
+    rotation="-45 0 0"
+    scale="1 1 1"
+    stretchable={true}
 >
-  <span />
-  <a-entity>
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-    <span />
-  </a-entity>
-  <a-entity
-    id="sld-disclaimer"
-  >
-    <a-entity
-      id="sld-logo"
+    <Text
+        align="center"
+        color="#fff"
+        id="calc-display"
+        position={
+            Object {
+                "x": 0,
+                "y": 0.26,
+                "z": 0,
+              }
+        }
+        value={undefined}
+        width={0.5}
+        zOffset={0.01}
     />
-    <span />
-  </a-entity>
-</a-entity>
+    <Entity
+        position={
+            Object {
+                "x": 0,
+                "y": 0.08,
+                "z": 0,
+              }
+        }
+    >
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-update"
+            position={
+                Object {
+                    "x": -0.28,
+                    "y": -0.19,
+                    "z": 0.03,
+                  }
+            }
+            text="Update"
+            value={undefined}
+            width={0.43}
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-sin"
+            position={
+                Object {
+                    "x": -0.37,
+                    "y": 0.09,
+                    "z": 0.03,
+                  }
+            }
+            text="sin"
+            value="sin("
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-cos"
+            position={
+                Object {
+                    "x": -0.28,
+                    "y": 0.09,
+                    "z": 0.03,
+                  }
+            }
+            text="cos"
+            value="cos("
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-tan"
+            position={
+                Object {
+                    "x": -0.19,
+                    "y": 0.09,
+                    "z": 0.03,
+                  }
+            }
+            text="tan"
+            value="tan("
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-sqrt"
+            position={
+                Object {
+                    "x": -0.37,
+                    "y": 0,
+                    "z": 0.03,
+                  }
+            }
+            text="sqrt"
+            value="sqrt("
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-log"
+            position={
+                Object {
+                    "x": -0.28,
+                    "y": 0,
+                    "z": 0.03,
+                  }
+            }
+            text="log"
+            value="log("
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-ln"
+            position={
+                Object {
+                    "x": -0.19,
+                    "y": 0,
+                    "z": 0.03,
+                  }
+            }
+            text="ln"
+            value="ln("
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-e"
+            position={
+                Object {
+                    "x": -0.37,
+                    "y": -0.09,
+                    "z": 0.03,
+                  }
+            }
+            text="e"
+            value="e"
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-abs"
+            position={
+                Object {
+                    "x": -0.28,
+                    "y": -0.09,
+                    "z": 0.03,
+                  }
+            }
+            text="abs"
+            value="abs("
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-square"
+            position={
+                Object {
+                    "x": -0.19,
+                    "y": -0.09,
+                    "z": 0.03,
+                  }
+            }
+            text="^"
+            value="^"
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-parent-left"
+            position={
+                Object {
+                    "x": 0.19,
+                    "y": 0.09,
+                    "z": 0.03,
+                  }
+            }
+            text="("
+            value="("
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-parent-right"
+            position={
+                Object {
+                    "x": 0.19,
+                    "y": 0,
+                    "z": 0.03,
+                  }
+            }
+            text=")"
+            value=")"
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-plus"
+            position={
+                Object {
+                    "x": 0.28,
+                    "y": 0.09,
+                    "z": 0.03,
+                  }
+            }
+            text="+"
+            value="+"
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-minus"
+            position={
+                Object {
+                    "x": 0.28,
+                    "y": 0,
+                    "z": 0.03,
+                  }
+            }
+            text="-"
+            value="-"
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-multiply"
+            position={
+                Object {
+                    "x": 0.28,
+                    "y": -0.09,
+                    "z": 0.03,
+                  }
+            }
+            text="*"
+            value="*"
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-divide"
+            position={
+                Object {
+                    "x": 0.28,
+                    "y": -0.18,
+                    "z": 0.03,
+                  }
+            }
+            text="/"
+            value="/"
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-exp"
+            position={
+                Object {
+                    "x": 0.19,
+                    "y": -0.09,
+                    "z": 0.03,
+                  }
+            }
+            text="exp"
+            value="exp("
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-pi"
+            position={
+                Object {
+                    "x": 0.19,
+                    "y": -0.18,
+                    "z": 0.03,
+                  }
+            }
+            text="pi"
+            value="pi"
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-1"
+            position={
+                Object {
+                    "x": -0.09,
+                    "y": -0.09,
+                    "z": 0.03,
+                  }
+            }
+            text="1"
+            value="1"
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-2"
+            position={
+                Object {
+                    "x": 0,
+                    "y": -0.09,
+                    "z": 0.03,
+                  }
+            }
+            text="2"
+            value="2"
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-3"
+            position={
+                Object {
+                    "x": 0.09,
+                    "y": -0.09,
+                    "z": 0.03,
+                  }
+            }
+            text="3"
+            value="3"
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-4"
+            position={
+                Object {
+                    "x": -0.09,
+                    "y": 0,
+                    "z": 0.03,
+                  }
+            }
+            text="4"
+            value="4"
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-5"
+            position={
+                Object {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0.03,
+                  }
+            }
+            text="5"
+            value="5"
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-6"
+            position={
+                Object {
+                    "x": 0.09,
+                    "y": 0,
+                    "z": 0.03,
+                  }
+            }
+            text="6"
+            value="6"
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-7"
+            position={
+                Object {
+                    "x": -0.09,
+                    "y": 0.09,
+                    "z": 0.03,
+                  }
+            }
+            text="7"
+            value="7"
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-8"
+            position={
+                Object {
+                    "x": 0,
+                    "y": 0.09,
+                    "z": 0.03,
+                  }
+            }
+            text="8"
+            value="8"
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-9"
+            position={
+                Object {
+                    "x": 0.09,
+                    "y": 0.09,
+                    "z": 0.03,
+                  }
+            }
+            text="9"
+            value="9"
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-0"
+            position={
+                Object {
+                    "x": 0,
+                    "y": -0.18,
+                    "z": 0.03,
+                  }
+            }
+            text="0"
+            value="0"
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-dot"
+            position={
+                Object {
+                    "x": -0.09,
+                    "y": -0.18,
+                    "z": 0.03,
+                  }
+            }
+            text="."
+            value="."
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-comma"
+            position={
+                Object {
+                    "x": 0.09,
+                    "y": -0.18,
+                    "z": 0.03,
+                  }
+            }
+            text=","
+            value=","
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-backspace"
+            position={
+                Object {
+                    "x": 0.37,
+                    "y": 0.09,
+                    "z": 0.03,
+                  }
+            }
+            text="<-"
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-clear"
+            position={
+                Object {
+                    "x": 0.37,
+                    "y": 0,
+                    "z": 0.03,
+                  }
+            }
+            text="clr"
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-x"
+            position={
+                Object {
+                    "x": 0.37,
+                    "y": -0.09,
+                    "z": 0.03,
+                  }
+            }
+            text="x"
+            value="x"
+        />
+        <CalcButton
+            actionToTrigger={undefined}
+            id="calc-y"
+            position={
+                Object {
+                    "x": 0.37,
+                    "y": -0.18,
+                    "z": 0.03,
+                  }
+            }
+            text="y"
+            value="y"
+        />
+    </Entity>
+    <Entity
+        id="sld-disclaimer"
+        position={
+            Object {
+                "x": -0.09,
+                "y": -0.29,
+                "z": 0.02,
+              }
+        }
+    >
+        <Entity
+            geometry={
+                Object {
+                    "height": 1,
+                    "primitive": "plane",
+                    "width": 1,
+                  }
+            }
+            id="sld-logo"
+            material={
+                Object {
+                    "height": 1024,
+                    "opacity": 1,
+                    "shader": "flat",
+                    "side": "front",
+                    "src": "url(sld-logo.png)",
+                    "transparent": true,
+                    "width": 1024,
+                  }
+            }
+            position={
+                Object {
+                    "x": -0.18,
+                    "y": 0.05,
+                    "z": 0.01,
+                  }
+            }
+            scale={
+                Object {
+                    "x": 0.14,
+                    "y": 0.14,
+                    "z": 0.14,
+                  }
+            }
+        />
+        <Text
+            align="center"
+            color="#fff"
+            lineHeight={50}
+            position={
+                Object {
+                    "x": 0.24,
+                    "y": 0.05,
+                    "z": -0.01,
+                  }
+            }
+            value="Disclaimer: This is an experimental project\\\\n made by VR team at Sleighdogs GmbH with some help from Technical University in Kosice (Slovakia).\\\\n If grabbing with HTC Vive / Oculus Touch controllers doesn't work,\\\\n try to reload the page with your controllers connected!\\\\n http://sld.gs/"
+            width={0.3}
+        />
+    </Entity>
+</Entity>,
+  "nodes": Array [
+    <Entity
+      className="interactive calculator"
+      dynamic-body={true}
+      geometry="primitive: box; width: 0.88; height: 0.65; depth: 0.01;"
+      grabbable={true}
+      id="text-box"
+      material="shader: flat; side: double; color: #8d8547; "
+      position="-0.03 1.2 -0.26"
+      rotation="-45 0 0"
+      scale="1 1 1"
+      stretchable={true}
+>
+      <Text
+            align="center"
+            color="#fff"
+            id="calc-display"
+            position={
+                  Object {
+                        "x": 0,
+                        "y": 0.26,
+                        "z": 0,
+                      }
+            }
+            value={undefined}
+            width={0.5}
+            zOffset={0.01}
+      />
+      <Entity
+            position={
+                  Object {
+                        "x": 0,
+                        "y": 0.08,
+                        "z": 0,
+                      }
+            }
+      >
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-update"
+                  position={
+                        Object {
+                              "x": -0.28,
+                              "y": -0.19,
+                              "z": 0.03,
+                            }
+                  }
+                  text="Update"
+                  value={undefined}
+                  width={0.43}
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-sin"
+                  position={
+                        Object {
+                              "x": -0.37,
+                              "y": 0.09,
+                              "z": 0.03,
+                            }
+                  }
+                  text="sin"
+                  value="sin("
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-cos"
+                  position={
+                        Object {
+                              "x": -0.28,
+                              "y": 0.09,
+                              "z": 0.03,
+                            }
+                  }
+                  text="cos"
+                  value="cos("
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-tan"
+                  position={
+                        Object {
+                              "x": -0.19,
+                              "y": 0.09,
+                              "z": 0.03,
+                            }
+                  }
+                  text="tan"
+                  value="tan("
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-sqrt"
+                  position={
+                        Object {
+                              "x": -0.37,
+                              "y": 0,
+                              "z": 0.03,
+                            }
+                  }
+                  text="sqrt"
+                  value="sqrt("
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-log"
+                  position={
+                        Object {
+                              "x": -0.28,
+                              "y": 0,
+                              "z": 0.03,
+                            }
+                  }
+                  text="log"
+                  value="log("
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-ln"
+                  position={
+                        Object {
+                              "x": -0.19,
+                              "y": 0,
+                              "z": 0.03,
+                            }
+                  }
+                  text="ln"
+                  value="ln("
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-e"
+                  position={
+                        Object {
+                              "x": -0.37,
+                              "y": -0.09,
+                              "z": 0.03,
+                            }
+                  }
+                  text="e"
+                  value="e"
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-abs"
+                  position={
+                        Object {
+                              "x": -0.28,
+                              "y": -0.09,
+                              "z": 0.03,
+                            }
+                  }
+                  text="abs"
+                  value="abs("
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-square"
+                  position={
+                        Object {
+                              "x": -0.19,
+                              "y": -0.09,
+                              "z": 0.03,
+                            }
+                  }
+                  text="^"
+                  value="^"
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-parent-left"
+                  position={
+                        Object {
+                              "x": 0.19,
+                              "y": 0.09,
+                              "z": 0.03,
+                            }
+                  }
+                  text="("
+                  value="("
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-parent-right"
+                  position={
+                        Object {
+                              "x": 0.19,
+                              "y": 0,
+                              "z": 0.03,
+                            }
+                  }
+                  text=")"
+                  value=")"
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-plus"
+                  position={
+                        Object {
+                              "x": 0.28,
+                              "y": 0.09,
+                              "z": 0.03,
+                            }
+                  }
+                  text="+"
+                  value="+"
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-minus"
+                  position={
+                        Object {
+                              "x": 0.28,
+                              "y": 0,
+                              "z": 0.03,
+                            }
+                  }
+                  text="-"
+                  value="-"
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-multiply"
+                  position={
+                        Object {
+                              "x": 0.28,
+                              "y": -0.09,
+                              "z": 0.03,
+                            }
+                  }
+                  text="*"
+                  value="*"
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-divide"
+                  position={
+                        Object {
+                              "x": 0.28,
+                              "y": -0.18,
+                              "z": 0.03,
+                            }
+                  }
+                  text="/"
+                  value="/"
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-exp"
+                  position={
+                        Object {
+                              "x": 0.19,
+                              "y": -0.09,
+                              "z": 0.03,
+                            }
+                  }
+                  text="exp"
+                  value="exp("
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-pi"
+                  position={
+                        Object {
+                              "x": 0.19,
+                              "y": -0.18,
+                              "z": 0.03,
+                            }
+                  }
+                  text="pi"
+                  value="pi"
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-1"
+                  position={
+                        Object {
+                              "x": -0.09,
+                              "y": -0.09,
+                              "z": 0.03,
+                            }
+                  }
+                  text="1"
+                  value="1"
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-2"
+                  position={
+                        Object {
+                              "x": 0,
+                              "y": -0.09,
+                              "z": 0.03,
+                            }
+                  }
+                  text="2"
+                  value="2"
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-3"
+                  position={
+                        Object {
+                              "x": 0.09,
+                              "y": -0.09,
+                              "z": 0.03,
+                            }
+                  }
+                  text="3"
+                  value="3"
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-4"
+                  position={
+                        Object {
+                              "x": -0.09,
+                              "y": 0,
+                              "z": 0.03,
+                            }
+                  }
+                  text="4"
+                  value="4"
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-5"
+                  position={
+                        Object {
+                              "x": 0,
+                              "y": 0,
+                              "z": 0.03,
+                            }
+                  }
+                  text="5"
+                  value="5"
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-6"
+                  position={
+                        Object {
+                              "x": 0.09,
+                              "y": 0,
+                              "z": 0.03,
+                            }
+                  }
+                  text="6"
+                  value="6"
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-7"
+                  position={
+                        Object {
+                              "x": -0.09,
+                              "y": 0.09,
+                              "z": 0.03,
+                            }
+                  }
+                  text="7"
+                  value="7"
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-8"
+                  position={
+                        Object {
+                              "x": 0,
+                              "y": 0.09,
+                              "z": 0.03,
+                            }
+                  }
+                  text="8"
+                  value="8"
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-9"
+                  position={
+                        Object {
+                              "x": 0.09,
+                              "y": 0.09,
+                              "z": 0.03,
+                            }
+                  }
+                  text="9"
+                  value="9"
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-0"
+                  position={
+                        Object {
+                              "x": 0,
+                              "y": -0.18,
+                              "z": 0.03,
+                            }
+                  }
+                  text="0"
+                  value="0"
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-dot"
+                  position={
+                        Object {
+                              "x": -0.09,
+                              "y": -0.18,
+                              "z": 0.03,
+                            }
+                  }
+                  text="."
+                  value="."
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-comma"
+                  position={
+                        Object {
+                              "x": 0.09,
+                              "y": -0.18,
+                              "z": 0.03,
+                            }
+                  }
+                  text=","
+                  value=","
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-backspace"
+                  position={
+                        Object {
+                              "x": 0.37,
+                              "y": 0.09,
+                              "z": 0.03,
+                            }
+                  }
+                  text="<-"
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-clear"
+                  position={
+                        Object {
+                              "x": 0.37,
+                              "y": 0,
+                              "z": 0.03,
+                            }
+                  }
+                  text="clr"
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-x"
+                  position={
+                        Object {
+                              "x": 0.37,
+                              "y": -0.09,
+                              "z": 0.03,
+                            }
+                  }
+                  text="x"
+                  value="x"
+            />
+            <CalcButton
+                  actionToTrigger={undefined}
+                  id="calc-y"
+                  position={
+                        Object {
+                              "x": 0.37,
+                              "y": -0.18,
+                              "z": 0.03,
+                            }
+                  }
+                  text="y"
+                  value="y"
+            />
+      </Entity>
+      <Entity
+            id="sld-disclaimer"
+            position={
+                  Object {
+                        "x": -0.09,
+                        "y": -0.29,
+                        "z": 0.02,
+                      }
+            }
+      >
+            <Entity
+                  geometry={
+                        Object {
+                              "height": 1,
+                              "primitive": "plane",
+                              "width": 1,
+                            }
+                  }
+                  id="sld-logo"
+                  material={
+                        Object {
+                              "height": 1024,
+                              "opacity": 1,
+                              "shader": "flat",
+                              "side": "front",
+                              "src": "url(sld-logo.png)",
+                              "transparent": true,
+                              "width": 1024,
+                            }
+                  }
+                  position={
+                        Object {
+                              "x": -0.18,
+                              "y": 0.05,
+                              "z": 0.01,
+                            }
+                  }
+                  scale={
+                        Object {
+                              "x": 0.14,
+                              "y": 0.14,
+                              "z": 0.14,
+                            }
+                  }
+            />
+            <Text
+                  align="center"
+                  color="#fff"
+                  lineHeight={50}
+                  position={
+                        Object {
+                              "x": 0.24,
+                              "y": 0.05,
+                              "z": -0.01,
+                            }
+                  }
+                  value="Disclaimer: This is an experimental project\\\\n made by VR team at Sleighdogs GmbH with some help from Technical University in Kosice (Slovakia).\\\\n If grabbing with HTC Vive / Oculus Touch controllers doesn't work,\\\\n try to reload the page with your controllers connected!\\\\n http://sld.gs/"
+                  width={0.3}
+            />
+      </Entity>
+</Entity>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance":  {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 2,
+      "_context": Object {},
+      "_currentElement": <Calculator />,
+      "_debugID": 82,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": StatelessComponent {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {},
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 1,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <Entity
+          className="interactive calculator"
+          dynamic-body={true}
+          geometry="primitive: box; width: 0.88; height: 0.65; depth: 0.01;"
+          grabbable={true}
+          id="text-box"
+          material="shader: flat; side: double; color: #8d8547; "
+          position="-0.03 1.2 -0.26"
+          rotation="-45 0 0"
+          scale="1 1 1"
+          stretchable={true}
+>
+          <Text
+                    align="center"
+                    color="#fff"
+                    id="calc-display"
+                    position={
+                              Object {
+                                        "x": 0,
+                                        "y": 0.26,
+                                        "z": 0,
+                                      }
+                    }
+                    value={undefined}
+                    width={0.5}
+                    zOffset={0.01}
+          />
+          <Entity
+                    position={
+                              Object {
+                                        "x": 0,
+                                        "y": 0.08,
+                                        "z": 0,
+                                      }
+                    }
+          >
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-update"
+                              position={
+                                        Object {
+                                                  "x": -0.28,
+                                                  "y": -0.19,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="Update"
+                              value={undefined}
+                              width={0.43}
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-sin"
+                              position={
+                                        Object {
+                                                  "x": -0.37,
+                                                  "y": 0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="sin"
+                              value="sin("
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-cos"
+                              position={
+                                        Object {
+                                                  "x": -0.28,
+                                                  "y": 0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="cos"
+                              value="cos("
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-tan"
+                              position={
+                                        Object {
+                                                  "x": -0.19,
+                                                  "y": 0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="tan"
+                              value="tan("
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-sqrt"
+                              position={
+                                        Object {
+                                                  "x": -0.37,
+                                                  "y": 0,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="sqrt"
+                              value="sqrt("
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-log"
+                              position={
+                                        Object {
+                                                  "x": -0.28,
+                                                  "y": 0,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="log"
+                              value="log("
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-ln"
+                              position={
+                                        Object {
+                                                  "x": -0.19,
+                                                  "y": 0,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="ln"
+                              value="ln("
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-e"
+                              position={
+                                        Object {
+                                                  "x": -0.37,
+                                                  "y": -0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="e"
+                              value="e"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-abs"
+                              position={
+                                        Object {
+                                                  "x": -0.28,
+                                                  "y": -0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="abs"
+                              value="abs("
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-square"
+                              position={
+                                        Object {
+                                                  "x": -0.19,
+                                                  "y": -0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="^"
+                              value="^"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-parent-left"
+                              position={
+                                        Object {
+                                                  "x": 0.19,
+                                                  "y": 0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="("
+                              value="("
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-parent-right"
+                              position={
+                                        Object {
+                                                  "x": 0.19,
+                                                  "y": 0,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text=")"
+                              value=")"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-plus"
+                              position={
+                                        Object {
+                                                  "x": 0.28,
+                                                  "y": 0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="+"
+                              value="+"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-minus"
+                              position={
+                                        Object {
+                                                  "x": 0.28,
+                                                  "y": 0,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="-"
+                              value="-"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-multiply"
+                              position={
+                                        Object {
+                                                  "x": 0.28,
+                                                  "y": -0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="*"
+                              value="*"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-divide"
+                              position={
+                                        Object {
+                                                  "x": 0.28,
+                                                  "y": -0.18,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="/"
+                              value="/"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-exp"
+                              position={
+                                        Object {
+                                                  "x": 0.19,
+                                                  "y": -0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="exp"
+                              value="exp("
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-pi"
+                              position={
+                                        Object {
+                                                  "x": 0.19,
+                                                  "y": -0.18,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="pi"
+                              value="pi"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-1"
+                              position={
+                                        Object {
+                                                  "x": -0.09,
+                                                  "y": -0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="1"
+                              value="1"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-2"
+                              position={
+                                        Object {
+                                                  "x": 0,
+                                                  "y": -0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="2"
+                              value="2"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-3"
+                              position={
+                                        Object {
+                                                  "x": 0.09,
+                                                  "y": -0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="3"
+                              value="3"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-4"
+                              position={
+                                        Object {
+                                                  "x": -0.09,
+                                                  "y": 0,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="4"
+                              value="4"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-5"
+                              position={
+                                        Object {
+                                                  "x": 0,
+                                                  "y": 0,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="5"
+                              value="5"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-6"
+                              position={
+                                        Object {
+                                                  "x": 0.09,
+                                                  "y": 0,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="6"
+                              value="6"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-7"
+                              position={
+                                        Object {
+                                                  "x": -0.09,
+                                                  "y": 0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="7"
+                              value="7"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-8"
+                              position={
+                                        Object {
+                                                  "x": 0,
+                                                  "y": 0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="8"
+                              value="8"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-9"
+                              position={
+                                        Object {
+                                                  "x": 0.09,
+                                                  "y": 0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="9"
+                              value="9"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-0"
+                              position={
+                                        Object {
+                                                  "x": 0,
+                                                  "y": -0.18,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="0"
+                              value="0"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-dot"
+                              position={
+                                        Object {
+                                                  "x": -0.09,
+                                                  "y": -0.18,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="."
+                              value="."
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-comma"
+                              position={
+                                        Object {
+                                                  "x": 0.09,
+                                                  "y": -0.18,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text=","
+                              value=","
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-backspace"
+                              position={
+                                        Object {
+                                                  "x": 0.37,
+                                                  "y": 0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="<-"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-clear"
+                              position={
+                                        Object {
+                                                  "x": 0.37,
+                                                  "y": 0,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="clr"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-x"
+                              position={
+                                        Object {
+                                                  "x": 0.37,
+                                                  "y": -0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="x"
+                              value="x"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-y"
+                              position={
+                                        Object {
+                                                  "x": 0.37,
+                                                  "y": -0.18,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="y"
+                              value="y"
+                    />
+          </Entity>
+          <Entity
+                    id="sld-disclaimer"
+                    position={
+                              Object {
+                                        "x": -0.09,
+                                        "y": -0.29,
+                                        "z": 0.02,
+                                      }
+                    }
+          >
+                    <Entity
+                              geometry={
+                                        Object {
+                                                  "height": 1,
+                                                  "primitive": "plane",
+                                                  "width": 1,
+                                                }
+                              }
+                              id="sld-logo"
+                              material={
+                                        Object {
+                                                  "height": 1024,
+                                                  "opacity": 1,
+                                                  "shader": "flat",
+                                                  "side": "front",
+                                                  "src": "url(sld-logo.png)",
+                                                  "transparent": true,
+                                                  "width": 1024,
+                                                }
+                              }
+                              position={
+                                        Object {
+                                                  "x": -0.18,
+                                                  "y": 0.05,
+                                                  "z": 0.01,
+                                                }
+                              }
+                              scale={
+                                        Object {
+                                                  "x": 0.14,
+                                                  "y": 0.14,
+                                                  "z": 0.14,
+                                                }
+                              }
+                    />
+                    <Text
+                              align="center"
+                              color="#fff"
+                              lineHeight={50}
+                              position={
+                                        Object {
+                                                  "x": 0.24,
+                                                  "y": 0.05,
+                                                  "z": -0.01,
+                                                }
+                              }
+                              value="Disclaimer: This is an experimental project\\\\n made by VR team at Sleighdogs GmbH with some help from Technical University in Kosice (Slovakia).\\\\n If grabbing with HTC Vive / Oculus Touch controllers doesn't work,\\\\n try to reload the page with your controllers connected!\\\\n http://sld.gs/"
+                              width={0.3}
+                    />
+          </Entity>
+</Entity>,
+        "_debugID": 83,
+        "_renderedOutput": <Entity
+          className="interactive calculator"
+          dynamic-body={true}
+          geometry="primitive: box; width: 0.88; height: 0.65; depth: 0.01;"
+          grabbable={true}
+          id="text-box"
+          material="shader: flat; side: double; color: #8d8547; "
+          position="-0.03 1.2 -0.26"
+          rotation="-45 0 0"
+          scale="1 1 1"
+          stretchable={true}
+>
+          <Text
+                    align="center"
+                    color="#fff"
+                    id="calc-display"
+                    position={
+                              Object {
+                                        "x": 0,
+                                        "y": 0.26,
+                                        "z": 0,
+                                      }
+                    }
+                    value={undefined}
+                    width={0.5}
+                    zOffset={0.01}
+          />
+          <Entity
+                    position={
+                              Object {
+                                        "x": 0,
+                                        "y": 0.08,
+                                        "z": 0,
+                                      }
+                    }
+          >
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-update"
+                              position={
+                                        Object {
+                                                  "x": -0.28,
+                                                  "y": -0.19,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="Update"
+                              value={undefined}
+                              width={0.43}
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-sin"
+                              position={
+                                        Object {
+                                                  "x": -0.37,
+                                                  "y": 0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="sin"
+                              value="sin("
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-cos"
+                              position={
+                                        Object {
+                                                  "x": -0.28,
+                                                  "y": 0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="cos"
+                              value="cos("
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-tan"
+                              position={
+                                        Object {
+                                                  "x": -0.19,
+                                                  "y": 0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="tan"
+                              value="tan("
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-sqrt"
+                              position={
+                                        Object {
+                                                  "x": -0.37,
+                                                  "y": 0,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="sqrt"
+                              value="sqrt("
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-log"
+                              position={
+                                        Object {
+                                                  "x": -0.28,
+                                                  "y": 0,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="log"
+                              value="log("
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-ln"
+                              position={
+                                        Object {
+                                                  "x": -0.19,
+                                                  "y": 0,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="ln"
+                              value="ln("
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-e"
+                              position={
+                                        Object {
+                                                  "x": -0.37,
+                                                  "y": -0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="e"
+                              value="e"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-abs"
+                              position={
+                                        Object {
+                                                  "x": -0.28,
+                                                  "y": -0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="abs"
+                              value="abs("
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-square"
+                              position={
+                                        Object {
+                                                  "x": -0.19,
+                                                  "y": -0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="^"
+                              value="^"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-parent-left"
+                              position={
+                                        Object {
+                                                  "x": 0.19,
+                                                  "y": 0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="("
+                              value="("
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-parent-right"
+                              position={
+                                        Object {
+                                                  "x": 0.19,
+                                                  "y": 0,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text=")"
+                              value=")"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-plus"
+                              position={
+                                        Object {
+                                                  "x": 0.28,
+                                                  "y": 0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="+"
+                              value="+"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-minus"
+                              position={
+                                        Object {
+                                                  "x": 0.28,
+                                                  "y": 0,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="-"
+                              value="-"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-multiply"
+                              position={
+                                        Object {
+                                                  "x": 0.28,
+                                                  "y": -0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="*"
+                              value="*"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-divide"
+                              position={
+                                        Object {
+                                                  "x": 0.28,
+                                                  "y": -0.18,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="/"
+                              value="/"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-exp"
+                              position={
+                                        Object {
+                                                  "x": 0.19,
+                                                  "y": -0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="exp"
+                              value="exp("
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-pi"
+                              position={
+                                        Object {
+                                                  "x": 0.19,
+                                                  "y": -0.18,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="pi"
+                              value="pi"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-1"
+                              position={
+                                        Object {
+                                                  "x": -0.09,
+                                                  "y": -0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="1"
+                              value="1"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-2"
+                              position={
+                                        Object {
+                                                  "x": 0,
+                                                  "y": -0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="2"
+                              value="2"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-3"
+                              position={
+                                        Object {
+                                                  "x": 0.09,
+                                                  "y": -0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="3"
+                              value="3"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-4"
+                              position={
+                                        Object {
+                                                  "x": -0.09,
+                                                  "y": 0,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="4"
+                              value="4"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-5"
+                              position={
+                                        Object {
+                                                  "x": 0,
+                                                  "y": 0,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="5"
+                              value="5"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-6"
+                              position={
+                                        Object {
+                                                  "x": 0.09,
+                                                  "y": 0,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="6"
+                              value="6"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-7"
+                              position={
+                                        Object {
+                                                  "x": -0.09,
+                                                  "y": 0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="7"
+                              value="7"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-8"
+                              position={
+                                        Object {
+                                                  "x": 0,
+                                                  "y": 0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="8"
+                              value="8"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-9"
+                              position={
+                                        Object {
+                                                  "x": 0.09,
+                                                  "y": 0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="9"
+                              value="9"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-0"
+                              position={
+                                        Object {
+                                                  "x": 0,
+                                                  "y": -0.18,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="0"
+                              value="0"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-dot"
+                              position={
+                                        Object {
+                                                  "x": -0.09,
+                                                  "y": -0.18,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="."
+                              value="."
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-comma"
+                              position={
+                                        Object {
+                                                  "x": 0.09,
+                                                  "y": -0.18,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text=","
+                              value=","
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-backspace"
+                              position={
+                                        Object {
+                                                  "x": 0.37,
+                                                  "y": 0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="<-"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-clear"
+                              position={
+                                        Object {
+                                                  "x": 0.37,
+                                                  "y": 0,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="clr"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-x"
+                              position={
+                                        Object {
+                                                  "x": 0.37,
+                                                  "y": -0.09,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="x"
+                              value="x"
+                    />
+                    <CalcButton
+                              actionToTrigger={undefined}
+                              id="calc-y"
+                              position={
+                                        Object {
+                                                  "x": 0.37,
+                                                  "y": -0.18,
+                                                  "z": 0.03,
+                                                }
+                              }
+                              text="y"
+                              value="y"
+                    />
+          </Entity>
+          <Entity
+                    id="sld-disclaimer"
+                    position={
+                              Object {
+                                        "x": -0.09,
+                                        "y": -0.29,
+                                        "z": 0.02,
+                                      }
+                    }
+          >
+                    <Entity
+                              geometry={
+                                        Object {
+                                                  "height": 1,
+                                                  "primitive": "plane",
+                                                  "width": 1,
+                                                }
+                              }
+                              id="sld-logo"
+                              material={
+                                        Object {
+                                                  "height": 1024,
+                                                  "opacity": 1,
+                                                  "shader": "flat",
+                                                  "side": "front",
+                                                  "src": "url(sld-logo.png)",
+                                                  "transparent": true,
+                                                  "width": 1024,
+                                                }
+                              }
+                              position={
+                                        Object {
+                                                  "x": -0.18,
+                                                  "y": 0.05,
+                                                  "z": 0.01,
+                                                }
+                              }
+                              scale={
+                                        Object {
+                                                  "x": 0.14,
+                                                  "y": 0.14,
+                                                  "z": 0.14,
+                                                }
+                              }
+                    />
+                    <Text
+                              align="center"
+                              color="#fff"
+                              lineHeight={50}
+                              position={
+                                        Object {
+                                                  "x": 0.24,
+                                                  "y": 0.05,
+                                                  "z": -0.01,
+                                                }
+                              }
+                              value="Disclaimer: This is an experimental project\\\\n made by VR team at Sleighdogs GmbH with some help from Technical University in Kosice (Slovakia).\\\\n If grabbing with HTC Vive / Oculus Touch controllers doesn't work,\\\\n try to reload the page with your controllers connected!\\\\n http://sld.gs/"
+                              width={0.3}
+                    />
+          </Entity>
+</Entity>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <Calculator />,
+}
 `;

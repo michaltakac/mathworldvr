@@ -12,7 +12,7 @@ describe('Calculator', () => {
   })
 
   it('renders the entity consistently', () => {
-    const entityWrapper = renderer.create(<Calculator />).toJSON()
+    const entityWrapper = shallow(<Calculator />)
     expect(entityWrapper).toMatchSnapshot()
   })
 })

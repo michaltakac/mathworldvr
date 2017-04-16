@@ -28,7 +28,7 @@ const AttentionBox = ({ attentionBoxVisible, toggleAttentionBox }) => {
         </p>
 
         <p style={{ color: '#fff', margin: '0 auto', textAlign: 'center', marginTop: 10 }}>
-          Check the code at <a href="https://github.com/michaltakac/mathworld" target="_blank" style={{ color: '#81d1ef' }}>https://github.com/michaltakac/mathworld</a>.
+          Check the code at <a href="https://github.com/michaltakac/mathworldvr/" target="_blank" style={{ color: '#81d1ef' }}>https://github.com/michaltakac/mathworldvr/</a>.
         </p>
 
         <p style={{ color: '#fff', margin: '0 auto', textAlign: 'center', marginTop: 10 }}>

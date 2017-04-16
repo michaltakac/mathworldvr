@@ -4,7 +4,6 @@
 
 <p align="center">WebVR math platform made with A-Frame, Three.js, React, Redux.</p>
 
-
 <p align="center">
   <a href="https://travis-ci.org/michaltakac/mathworldvr"><img src="https://img.shields.io/travis/michaltakac/mathworldvr.svg?style=flat-square" alt="Build Status"></a>
   <a href="https://codecov.io/gh/michaltakac/mathworldvr">

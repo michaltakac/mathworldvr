@@ -2,6 +2,6 @@
 
 exports[`ui UI_ATTENTIONBOX_TOGGLE 1`] = `
 Object {
-  "attentionBoxVisible": true,
+  "attentionBoxVisible": false,
 }
 `;

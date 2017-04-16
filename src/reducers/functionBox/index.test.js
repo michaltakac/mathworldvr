@@ -5,6 +5,11 @@ const initialState = {
 }
 
 describe('functionBox', () => {
+  it('should return the initial state', () => {
+    const next = reducer(initialState, {})
+    expect(next).toEqual(initialState)
+  })
+
   it('FUNCTION_BOX_SET_POSITION', () => {
     const next = reducer(initialState, { type: 'FUNCTION_BOX_SET_POSITION', position: { x: 0, y: 0, z: 0 } })
     expect(next).toMatchSnapshot()

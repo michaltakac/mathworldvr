@@ -1,5 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
+import { shallow } from 'enzyme'
 import CalcButton from '.'
 
 jest.mock('react-dom')
@@ -22,5 +23,12 @@ describe('CalcButton', () => {
       <CalcButton />
     ).toJSON()
     expect(tree.props.className).toBe('interactive')
+  })
+
+  it('renders the entity consistently', () => {
+    const action = jest.fn()
+    const entityWrapper = shallow(<CalcButton id="calc-button" actionToTrigger={action} value="test" />)
+
+    expect(entityWrapper).toMatchSnapshot()
   })
 })

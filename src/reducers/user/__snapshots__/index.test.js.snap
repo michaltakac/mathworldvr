@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`user USER_SET_POSITION 1`] = `
+Object {
+  "position": Object {
+    "x": 10,
+    "y": 0,
+    "z": 10,
+  },
+}
+`;

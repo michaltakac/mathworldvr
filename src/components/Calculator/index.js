@@ -4,11 +4,11 @@ import { Entity } from 'aframe-react'
 import { CalcButton, Text } from 'components'
 
 const propTypes = {
-  displayText: PropTypes.string.isRequired,
-  writeText: PropTypes.func.isRequired,
-  backspace: PropTypes.func.isRequired,
-  clearText: PropTypes.func.isRequired,
-  updateEquation: PropTypes.func.isRequired,
+  displayText: PropTypes.string,
+  writeText: PropTypes.func,
+  backspace: PropTypes.func,
+  clearText: PropTypes.func,
+  updateEquation: PropTypes.func,
 }
 
 const Calculator = ({ displayText, writeText, backspace, clearText, updateEquation }) => {

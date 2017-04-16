@@ -11,16 +11,18 @@ export default class CalcButton extends React.Component {
     width: PropTypes.number,
     height: PropTypes.number,
     position: PropTypes.object,
+    text: PropTypes.string,
     textColor: PropTypes.string,
     textWidth: PropTypes.number,
     value: PropTypes.string,
   }
 
   static defaultProps = {
-    value: 'Text',
+    value: '',
     width: 0.15,
     height: 0.15,
     position: { x: 0, y: 0, z: 0 },
+    text: 'Text',
     textColor: '#000',
     buttonColor: '#bada55',
     textWidth: 0.8,
@@ -33,20 +35,23 @@ export default class CalcButton extends React.Component {
       depth: 0.02,
       opacity: 1,
     }
+
+    this.startIntersection = this.startIntersection.bind(this)
+    this.endIntersection = this.endIntersection.bind(this)
   }
 
-  startIntersection = () => {
-    const { actionToTrigger } = this.props
+  startIntersection() {
+    const { actionToTrigger, value } = this.props
     this.setState({ depth: 0, opacity: 0.2 })
-    actionToTrigger()
+    actionToTrigger(value)
   }
 
-  endIntersection = () => {
+  endIntersection() {
     this.setState({ depth: 0.02, opacity: 1 })
   }
 
   render() {
-    const { id, position, value, width, height, buttonColor, textColor, textWidth } = this.props
+    const { id, position, width, height, buttonColor, text, textColor, textWidth } = this.props
     const { depth, opacity } = this.state
     return (
       <Entity
@@ -64,7 +69,7 @@ export default class CalcButton extends React.Component {
         }}
       >
         <Text
-          value={value}
+          value={text}
           color={textColor}
           align="center"
           zOffset={0.02}

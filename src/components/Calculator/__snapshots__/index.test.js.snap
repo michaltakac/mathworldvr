@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Calculator renders the tree consistently 1`] = `
+exports[`Calculator renders the entity consistently 1`] = `
 <a-entity
   className="interactive calculator"
   id="text-box"

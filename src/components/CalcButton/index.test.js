@@ -23,4 +23,11 @@ describe('CalcButton', () => {
     ).toJSON()
     expect(tree.props.className).toBe('interactive')
   })
+
+  it('renders the entity consistently', () => {
+    const action = jest.fn()
+    const tree = renderer.create(<CalcButton id="calc-button" actionToTrigger={action} value="test" />)
+
+    expect(tree).toMatchSnapshot()
+  })
 })

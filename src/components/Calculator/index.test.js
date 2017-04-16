@@ -10,7 +10,7 @@ describe('Calculator', () => {
     expect(tree.type).toBe('a-entity')
   })
 
-  it('renders the tree consistently', () => {
+  it('renders the entity consistently', () => {
     const tree = renderer.create(<Calculator />).toJSON()
     expect(tree).toMatchSnapshot()
   })

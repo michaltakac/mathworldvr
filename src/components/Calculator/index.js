@@ -41,48 +41,49 @@ const Calculator = ({ displayText, writeText, backspace, clearText, updateEquati
         { /* Update button */ }
         <CalcButton
           id="calc-update"
-          value="Update"
+          text="Update"
+          value={displayText}
           position={{ x: -0.28, y: -0.19, z: 0.03 }}
           width={0.43}
-          actionToTrigger={() => updateEquation(displayText)}
+          actionToTrigger={updateEquation}
         />
 
-        <CalcButton value="sin" position={{ x: -0.37, y: 0.09, z: 0.03 }} id="calc-sin" actionToTrigger={() => writeText('sin(')} />
-        <CalcButton value="cos" position={{ x: -0.28, y: 0.09, z: 0.03 }} id="calc-cos" actionToTrigger={() => writeText('cos(')} />
-        <CalcButton value="tan" position={{ x: -0.19, y: 0.09, z: 0.03 }} id="calc-tan" actionToTrigger={() => writeText('tan(')} />
-        <CalcButton value="sqrt" position={{ x: -0.37, y: 0, z: 0.03 }} id="calc-sqrt" actionToTrigger={() => writeText('sqrt(')} />
-        <CalcButton value="log" position={{ x: -0.28, y: 0, z: 0.03 }} id="calc-log" actionToTrigger={() => writeText('log(')} />
-        <CalcButton value="ln" position={{ x: -0.19, y: 0, z: 0.03 }} id="calc-ln" actionToTrigger={() => writeText('ln(')} />
-        <CalcButton value="e" position={{ x: -0.37, y: -0.09, z: 0.03 }} id="calc-e" actionToTrigger={() => writeText('e')} />
-        <CalcButton value="abs" position={{ x: -0.28, y: -0.09, z: 0.03 }} id="calc-abs" actionToTrigger={() => writeText('abs(')} />
-        <CalcButton value="^" position={{ x: -0.19, y: -0.09, z: 0.03 }} id="calc-square" actionToTrigger={() => writeText('^')} />
+        <CalcButton text="sin" position={{ x: -0.37, y: 0.09, z: 0.03 }} id="calc-sin" value="sin(" actionToTrigger={writeText} />
+        <CalcButton text="cos" position={{ x: -0.28, y: 0.09, z: 0.03 }} id="calc-cos" value="cos(" actionToTrigger={writeText} />
+        <CalcButton text="tan" position={{ x: -0.19, y: 0.09, z: 0.03 }} id="calc-tan" value="tan(" actionToTrigger={writeText} />
+        <CalcButton text="sqrt" position={{ x: -0.37, y: 0, z: 0.03 }} id="calc-sqrt" value="sqrt(" actionToTrigger={writeText} />
+        <CalcButton text="log" position={{ x: -0.28, y: 0, z: 0.03 }} id="calc-log" value="log(" actionToTrigger={writeText} />
+        <CalcButton text="ln" position={{ x: -0.19, y: 0, z: 0.03 }} id="calc-ln" value="ln(" actionToTrigger={writeText} />
+        <CalcButton text="e" position={{ x: -0.37, y: -0.09, z: 0.03 }} id="calc-e" value="e" actionToTrigger={writeText} />
+        <CalcButton text="abs" position={{ x: -0.28, y: -0.09, z: 0.03 }} id="calc-abs" value="abs(" actionToTrigger={writeText} />
+        <CalcButton text="^" position={{ x: -0.19, y: -0.09, z: 0.03 }} id="calc-square" value="^" actionToTrigger={writeText} />
 
-        <CalcButton value="(" position={{ x: 0.19, y: 0.09, z: 0.03 }} id="calc-parent-left" actionToTrigger={() => writeText('(')} />
-        <CalcButton value=")" position={{ x: 0.19, y: 0, z: 0.03 }} id="calc-parent-right" actionToTrigger={() => writeText(')')} />
-        <CalcButton value="+" position={{ x: 0.28, y: 0.09, z: 0.03 }} id="calc-plus" actionToTrigger={() => writeText('+')} />
-        <CalcButton value="-" position={{ x: 0.28, y: 0, z: 0.03 }} id="calc-minus" actionToTrigger={() => writeText('-')} />
-        <CalcButton value="*" position={{ x: 0.28, y: -0.09, z: 0.03 }} id="calc-multiply" actionToTrigger={() => writeText('*')} />
-        <CalcButton value="/" position={{ x: 0.28, y: -0.18, z: 0.03 }} id="calc-divide" actionToTrigger={() => writeText('/')} />
-        <CalcButton value="exp" position={{ x: 0.19, y: -0.09, z: 0.03 }} id="calc-exp" actionToTrigger={() => writeText('exp(')} />
-        <CalcButton value="pi" position={{ x: 0.19, y: -0.18, z: 0.03 }} id="calc-pi" actionToTrigger={() => writeText('pi')} />
+        <CalcButton text="(" position={{ x: 0.19, y: 0.09, z: 0.03 }} id="calc-parent-left" value="(" actionToTrigger={writeText} />
+        <CalcButton text=")" position={{ x: 0.19, y: 0, z: 0.03 }} id="calc-parent-right" value=")" actionToTrigger={writeText} />
+        <CalcButton text="+" position={{ x: 0.28, y: 0.09, z: 0.03 }} id="calc-plus" value="+" actionToTrigger={writeText} />
+        <CalcButton text="-" position={{ x: 0.28, y: 0, z: 0.03 }} id="calc-minus" value="-" actionToTrigger={writeText} />
+        <CalcButton text="*" position={{ x: 0.28, y: -0.09, z: 0.03 }} id="calc-multiply" value="*" actionToTrigger={writeText} />
+        <CalcButton text="/" position={{ x: 0.28, y: -0.18, z: 0.03 }} id="calc-divide" value="/" actionToTrigger={writeText} />
+        <CalcButton text="exp" position={{ x: 0.19, y: -0.09, z: 0.03 }} id="calc-exp" value="exp(" actionToTrigger={writeText} />
+        <CalcButton text="pi" position={{ x: 0.19, y: -0.18, z: 0.03 }} id="calc-pi" value="pi" actionToTrigger={writeText} />
 
-        <CalcButton value="1" position={{ x: -0.09, y: -0.09, z: 0.03 }} id="calc-1" actionToTrigger={() => writeText('1')} />
-        <CalcButton value="2" position={{ x: 0, y: -0.09, z: 0.03 }} id="calc-2" actionToTrigger={() => writeText('2')} />
-        <CalcButton value="3" position={{ x: 0.09, y: -0.09, z: 0.03 }} id="calc-3" actionToTrigger={() => writeText('3')} />
-        <CalcButton value="4" position={{ x: -0.09, y: 0, z: 0.03 }} id="calc-4" actionToTrigger={() => writeText('4')} />
-        <CalcButton value="5" position={{ x: 0, y: 0, z: 0.03 }} id="calc-5" actionToTrigger={() => writeText('5')} />
-        <CalcButton value="6" position={{ x: 0.09, y: 0, z: 0.03 }} id="calc-6" actionToTrigger={() => writeText('6')} />
-        <CalcButton value="7" position={{ x: -0.09, y: 0.09, z: 0.03 }} id="calc-7" actionToTrigger={() => writeText('7')} />
-        <CalcButton value="8" position={{ x: 0, y: 0.09, z: 0.03 }} id="calc-8" actionToTrigger={() => writeText('8')} />
-        <CalcButton value="9" position={{ x: 0.09, y: 0.09, z: 0.03 }} id="calc-9" actionToTrigger={() => writeText('9')} />
-        <CalcButton value="0" position={{ x: 0, y: -0.18, z: 0.03 }} id="calc-0" actionToTrigger={() => writeText('0')} />
-        <CalcButton value="." position={{ x: -0.09, y: -0.18, z: 0.03 }} id="calc-dot" actionToTrigger={() => writeText('.')} />
-        <CalcButton value="," position={{ x: 0.09, y: -0.18, z: 0.03 }} id="calc-comma" actionToTrigger={() => writeText(',')} />
+        <CalcButton text="1" position={{ x: -0.09, y: -0.09, z: 0.03 }} id="calc-1" value="1" actionToTrigger={writeText} />
+        <CalcButton text="2" position={{ x: 0, y: -0.09, z: 0.03 }} id="calc-2" value="2" actionToTrigger={writeText} />
+        <CalcButton text="3" position={{ x: 0.09, y: -0.09, z: 0.03 }} id="calc-3" value="3" actionToTrigger={writeText} />
+        <CalcButton text="4" position={{ x: -0.09, y: 0, z: 0.03 }} id="calc-4" value="4" actionToTrigger={writeText} />
+        <CalcButton text="5" position={{ x: 0, y: 0, z: 0.03 }} id="calc-5" value="5" actionToTrigger={writeText} />
+        <CalcButton text="6" position={{ x: 0.09, y: 0, z: 0.03 }} id="calc-6" value="6" actionToTrigger={writeText} />
+        <CalcButton text="7" position={{ x: -0.09, y: 0.09, z: 0.03 }} id="calc-7" value="7" actionToTrigger={writeText} />
+        <CalcButton text="8" position={{ x: 0, y: 0.09, z: 0.03 }} id="calc-8" value="8" actionToTrigger={writeText} />
+        <CalcButton text="9" position={{ x: 0.09, y: 0.09, z: 0.03 }} id="calc-9" value="9" actionToTrigger={writeText} />
+        <CalcButton text="0" position={{ x: 0, y: -0.18, z: 0.03 }} id="calc-0" value="0" actionToTrigger={writeText} />
+        <CalcButton text="." position={{ x: -0.09, y: -0.18, z: 0.03 }} id="calc-dot" value="." actionToTrigger={writeText} />
+        <CalcButton text="," position={{ x: 0.09, y: -0.18, z: 0.03 }} id="calc-comma" value="," actionToTrigger={writeText} />
 
-        <CalcButton value="<-" position={{ x: 0.37, y: 0.09, z: 0.03 }} id="calc-backspace" actionToTrigger={backspace} />
-        <CalcButton value="clr" position={{ x: 0.37, y: 0, z: 0.03 }} id="calc-clear" actionToTrigger={clearText} />
-        <CalcButton value="x" position={{ x: 0.37, y: -0.09, z: 0.03 }} id="calc-x" actionToTrigger={() => writeText('x')} />
-        <CalcButton value="y" position={{ x: 0.37, y: -0.18, z: 0.03 }} id="calc-y" actionToTrigger={() => writeText('y')} />
+        <CalcButton text="<-" position={{ x: 0.37, y: 0.09, z: 0.03 }} id="calc-backspace" actionToTrigger={backspace} />
+        <CalcButton text="clr" position={{ x: 0.37, y: 0, z: 0.03 }} id="calc-clear" actionToTrigger={clearText} />
+        <CalcButton text="x" position={{ x: 0.37, y: -0.09, z: 0.03 }} id="calc-x" value="x" actionToTrigger={writeText} />
+        <CalcButton text="y" position={{ x: 0.37, y: -0.18, z: 0.03 }} id="calc-y" value="y" actionToTrigger={writeText} />
       </Entity>
       { /* --- END OF BUTTONS --- */ }
 

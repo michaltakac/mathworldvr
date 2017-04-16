@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalcButton renders the entity consistently 1`] = `
+<a-entity
+  className="interactive"
+  id="calc-button"
+>
+  <span />
+</a-entity>
+`;

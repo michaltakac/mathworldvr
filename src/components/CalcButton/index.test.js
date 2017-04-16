@@ -1,6 +1,5 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { shallow } from 'enzyme'
 import CalcButton from '.'
 
 jest.mock('react-dom')
@@ -27,8 +26,8 @@ describe('CalcButton', () => {
 
   it('renders the entity consistently', () => {
     const action = jest.fn()
-    const entityWrapper = shallow(<CalcButton id="calc-button" actionToTrigger={action} value="test" />)
+    const tree = renderer.create(<CalcButton id="calc-button" actionToTrigger={action} value="test" />)
 
-    expect(entityWrapper).toMatchSnapshot()
+    expect(tree).toMatchSnapshot()
   })
 })

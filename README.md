@@ -7,8 +7,11 @@
 <p align="center">
   <a href="https://travis-ci.org/michaltakac/mathworldvr"><img src="https://img.shields.io/travis/michaltakac/mathworldvr.svg?style=flat-square" alt="Build Status"></a>
   <a href="https://codecov.io/gh/michaltakac/mathworldvr">
-    <img src="https://codecov.io/gh/michaltakac/mathworldvr/branch/master/graph/badge.svg" alt="Coverage Status">
+    <img src="https://img.shields.io/codecov/c/github/michaltakac/mathworldvr.svg?style=flat-square" alt="Coverage Status">
   </a>
+  <a href="https://codeclimate.com/github/michaltakac/mathworldvr/"><img src="https://img.shields.io/codeclimate/github/michaltakac/mathworldvr.svg?style=flat-square" alt="Code climate"></a>
+  <img src="https://img.shields.io/github/tag/michaltakac/mathworldvr.svg?style=flat-square" alt="Tag">
+  <img src="https://img.shields.io/github/license/michaltakac/mathworldvr.svg?style=flat-square" alt="License">
 </p>
 
 ## Usage

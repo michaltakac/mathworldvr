@@ -9,4 +9,9 @@ describe('Calculator', () => {
     const tree = renderer.create(<Calculator />).toJSON()
     expect(tree.type).toBe('a-entity')
   })
+
+  it('renders the tree consistently', () => {
+    const tree = renderer.create(<Calculator />).toJSON()
+    expect(tree).toMatchSnapshot()
+  })
 })

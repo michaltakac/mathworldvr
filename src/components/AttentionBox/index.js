@@ -23,7 +23,7 @@ const AttentionBox = ({ attentionBoxVisible, toggleAttentionBox }) => {
 
         <p style={{ color: '#fff', margin: '0 auto', textAlign: 'center', marginTop: 10 }}>
           This project is designed for HTC Vive with controllers.
-          Vive support currently only works in newest, experimental versions of Chromium and Firefox Nightly browsers.
+          Vive support currently only works in Firefox, Firefox Nightly and experimental versions of Chromium browsers.
           For more information check <a href="https://webvr.info/" target="_blank" style={{ color: '#81d1ef' }}>https://webvr.info/</a>.
         </p>
 
@@ -34,7 +34,7 @@ const AttentionBox = ({ attentionBoxVisible, toggleAttentionBox }) => {
         <p style={{ color: '#fff', margin: '0 auto', textAlign: 'center', marginTop: 10 }}>
           We would like to hear feedback from you. What should MathworldVR become?
           What do you expect in fully-featured app? Please contact us at: <br /><br />
-          <a href="mailto:michal@sld.gs" style={{ color: '#81d1ef' }}>michal@sld.gs</a><br />
+          <a href="mailto:hello@michaltakac.com" style={{ color: '#81d1ef' }}>hello@michaltakac.com</a><br />
           <a href="mailto:maros@sld.gs" style={{ color: '#81d1ef' }}>maros@sld.gs</a><br /><br />
           <img src="sld-logo-icon.png" width="80px" alt="Sleighdogs" style={{ display: 'initial' }} />
         </p>

@@ -23,7 +23,7 @@ const AttentionBox = ({ attentionBoxVisible, toggleAttentionBox }) => {
 
         <p style={{ color: '#fff', margin: '0 auto', textAlign: 'center', marginTop: 10 }}>
           This project is designed for HTC Vive with controllers.
-          Vive support currently only works in Firefox, Firefox Nightly and experimental versions of Chromium browsers.
+          Vive support currently only works in Firefox, Firefox Nightly and experimental versions of Chromium.
           For more information check <a href="https://webvr.info/" target="_blank" style={{ color: '#81d1ef' }}>https://webvr.info/</a>.
         </p>
 

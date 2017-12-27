@@ -16,7 +16,7 @@
 
 ## Usage
 
-- Download and install a [WebVR-enabled browser](https://webvr.info/get-chrome/). Currently only the experimental Chromium build on Windows supports the Vive controllers. (You will need to enable these flags for WebVR and Gamepad Extensions: `chrome://flags#enable-webvr` and `chrome://flags#enable-gamepad-extensions`.)
+- Download and install a [WebVR-enabled browser](https://webvr.info/get-chrome/). Currently only Firefox, Firefox Nightly and experimental versions of Chromium supports the Vive controllers. (You will need to enable these flags for WebVR and Gamepad Extensions: `chrome://flags#enable-webvr` and `chrome://flags#enable-gamepad-extensions`.)
 - Visit [http://vr.sld.gs/mathworldvr/](http://vr.sld.gs/mathworldvr/) and play with the math functions.
 
 ## Libraries
@@ -49,7 +49,7 @@ const Calculator = ({ backspace }) => {
 }
 ```
 
-Calculator container (a.k.a HoC - Higher-order Component):
+Calculator container:
 
 ```javascript
 import { connect } from 'react-redux'
@@ -98,7 +98,7 @@ export default class CalcButton extends React.Component {
 ### Prerequisites
 
 - [node.js](http://nodejs.org) Node 6+
-- [git](https://git-scm.com/downloads) git cmd tool is required
+- [git](https://git-scm.com/downloads) cmd tool is required
 
 First, fork the project. Then:
 

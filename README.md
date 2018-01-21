@@ -17,7 +17,7 @@
 ## Usage
 
 - Download and install a [WebVR-enabled browser](https://webvr.info/get-chrome/). Currently only Firefox, Firefox Nightly and experimental versions of Chromium supports the Vive controllers. (You will need to enable these flags for WebVR and Gamepad Extensions: `chrome://flags#enable-webvr` and `chrome://flags#enable-gamepad-extensions`.)
-- Visit [http://vr.sld.gs/mathworldvr/](http://vr.sld.gs/mathworldvr/) and play with the math functions.
+- Visit [http://vr.sld.gs/mathworldvr/](https://mathworldvr.michaltakac.com) and play with the math functions.
 
 ## Libraries
 

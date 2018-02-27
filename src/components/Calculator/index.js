@@ -86,28 +86,6 @@ const Calculator = ({ displayText, writeText, backspace, clearText, updateEquati
         <CalcButton text="y" position={{ x: 0.37, y: -0.18, z: 0.03 }} id="calc-y" value="y" actionToTrigger={writeText} />
       </Entity>
       { /* --- END OF BUTTONS --- */ }
-
-      <Entity id="sld-disclaimer" position={{ x: -0.09, y: -0.29, z: 0.02 }}>
-        <Entity
-          id="sld-logo"
-          geometry={{ primitive: 'plane', width: 1, height: 1 }}
-          material={{ transparent: true, opacity: 1, shader: 'flat', src: 'url(sld-logo.png)', side: 'front', height: 1024, width: 1024 }}
-          position={{ x: -0.18, y: 0.05, z: 0.01 }}
-          scale={{ x: 0.14, y: 0.14, z: 0.14 }}
-        />
-        <Text
-          color="#fff"
-          align="center"
-          value="Disclaimer: This is an experimental project\n
-            made by VR team at Sleighdogs GmbH with some help from Technical University in Kosice (Slovakia).\n
-            If grabbing with HTC Vive / Oculus Touch controllers doesn't work,\n
-            try to reload the page with your controllers connected!\n
-            http://sld.gs/"
-          position={{ x: 0.24, y: 0.05, z: -0.01 }}
-          width={0.3}
-          lineHeight={50}
-        />
-      </Entity>
     </Entity>
   )
 }

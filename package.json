@@ -12,7 +12,7 @@
     "clean": "del 'build/!(.git*|Procfile)**'",
     "build:copy": "copyfiles -u 1 public/* public/**/* build",
     "build:clean": "rimraf \"build/!(.git*|Procfile)**\"",
-    "build:static": "webpack --config webpack.static.config.js",
+    "build:static": "webpack --config webpack.config.js",
     "build:prod": "cross-env NODE_ENV=production webpack -p",
     "prebuild": "npm run build:clean && npm run build:copy",
     "build": "cross-env NODE_ENV=production webpack",

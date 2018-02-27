@@ -15,7 +15,8 @@
     "build:static": "webpack --config webpack.static.config.js",
     "build:prod": "cross-env NODE_ENV=production webpack -p",
     "prebuild": "npm run build:clean && npm run build:copy",
-    "build": "cross-env NODE_ENV=production webpack"
+    "build": "cross-env NODE_ENV=production webpack",
+    "deploy": "npm run build:static && cd build && now -n mathworldvr"
   },
   "repository": {
     "type": "git",

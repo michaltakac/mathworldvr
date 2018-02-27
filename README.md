@@ -1,6 +1,6 @@
 <h1 align="center">MathworldVR</h1>
 
-<p align="center"><a href="http://vr.sld.gs/mathworldvr/" target="_blank"><img width="500" alt="MathworldVR" src="https://raw.githubusercontent.com/michaltakac/mathworldvr/master/public/mathworldvr.jpg"></a></p>
+<p align="center"><a href="https://mathworldvr.com/" target="_blank"><img width="500" alt="MathworldVR" src="https://raw.githubusercontent.com/michaltakac/mathworldvr/master/public/mathworldvr.jpg"></a></p>
 
 <p align="center">WebVR math platform made with A-Frame, Three.js, React, Redux.</p>
 
@@ -17,7 +17,7 @@
 ## Usage
 
 - Download and install a [WebVR-enabled browser](https://webvr.info/get-chrome/). Currently only Firefox, Firefox Nightly and experimental versions of Chromium supports the Vive controllers. (You will need to enable these flags for WebVR and Gamepad Extensions: `chrome://flags#enable-webvr` and `chrome://flags#enable-gamepad-extensions`.)
-- Visit [http://vr.sld.gs/mathworldvr/](https://mathworldvr.michaltakac.com) and play with the math functions.
+- Visit [https://mathworldvr.com/](https://mathworldvr.com/) and play with the math functions.
 
 ## Libraries
 

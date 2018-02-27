@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const WebpackMd5Hash = require('webpack-md5-hash')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 const ip = process.env.IP || '0.0.0.0'
 const port = process.env.PORT || 3000
@@ -71,7 +72,7 @@ if (DEBUG) {
       minChunks: isVendor,
     }),
     new WebpackMd5Hash(),
-    new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
+    new UglifyJSPlugin(),
   ])
 }
 

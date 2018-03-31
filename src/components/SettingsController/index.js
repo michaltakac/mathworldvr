@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Entity } from 'aframe-react'
 
 const propTypes = {
-  initialState: PropTypes.object.isRequired,
+  initialState: PropTypes.any.isRequired,
   actionToTrigger: PropTypes.func,
   min: PropTypes.number,
   max: PropTypes.number,

@@ -7,7 +7,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case ActionTypes.PARAMETRIC_FUNCTION_SET_EQUATION:
-      return { ...state, equation: action.equation }
+      return { ...state, equation: action.payload }
     default: return state
   }
 }

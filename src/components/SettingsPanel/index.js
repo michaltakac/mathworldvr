@@ -41,7 +41,8 @@ const SettingsPanel = ({
   ...props
 }) => {
   return (
-    <Entity datgui={{ name, controllerLeft, controllerRight }} {...props}>
+    <Entity {...props}>
+      <Entity datgui={{ name, controllerLeft, controllerRight }} />
       <SettingsController type="slider" name="xMin" step={0.01} min={-20} max={20} initialState={-1} actionToTrigger={setXMin} />
       <SettingsController type="slider" name="yMin" step={0.01} min={-20} max={20} initialState={-1} actionToTrigger={setYMin} />
       <SettingsController type="slider" name="zMin" step={0.01} min={-20} max={20} initialState={-4} actionToTrigger={setZMin} />

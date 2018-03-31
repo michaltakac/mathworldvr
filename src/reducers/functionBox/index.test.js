@@ -11,7 +11,7 @@ describe('functionBox', () => {
   })
 
   it('FUNCTION_BOX_SET_POSITION', () => {
-    const next = reducer(initialState, { type: 'FUNCTION_BOX_SET_POSITION', position: { x: 0, y: 0, z: 0 } })
+    const next = reducer(initialState, { type: 'FUNCTION_BOX_SET_POSITION', payload: { x: 0, y: 0, z: 0 } })
     expect(next).toMatchSnapshot()
   })
 })

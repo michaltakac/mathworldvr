@@ -1,10 +1,23 @@
 import AFRAME from 'aframe';
 
+let gui
+
+function bindInput( el, input ){
+  el.addEventListener('triggerdown', function(){
+    input.pressed( true );
+  });
+  el.addEventListener('triggerup', function(){
+    input.pressed( false );
+  });
+  el.addEventListener('gripdown', function(){
+    input.gripped( true );
+  });
+  el.addEventListener('gripup', function(){
+    input.gripped( false );
+  });
+}
+
 AFRAME.registerComponent('datgui', {
-  name: {
-    type: 'string',
-    default: 'settings'
-  },
   schema: {
     controllerRight: {
       type: 'selector',
@@ -19,26 +32,19 @@ AFRAME.registerComponent('datgui', {
       default: 'controls'
     }
   },
-  init: function(){
-    const gui = dat.GUIVR.create( this.data.name );
-    this.el.setObject3D('gui', gui );
-    this.el.gui = gui;
-    const scene = this.el.sceneEl.object3D;
-
-    function bindInput( el, input ){
-      el.addEventListener('triggerdown', function(){
-        input.pressed( true );
-      });
-      el.addEventListener('triggerup', function(){
-        input.pressed( false );
-      });
-      el.addEventListener('gripdown', function(){
-        input.gripped( true );
-      });
-      el.addEventListener('gripup', function(){
-        input.gripped( false );
-      });
+  init() {
+    const canvas = this.el.sceneEl.canvas;
+    // Wait for canvas to load.
+    if (!canvas) {
+      this.el.sceneEl.addEventListener('render-target-loaded', this.init.bind(this));
+      return;
     }
+
+    gui = dat.GUIVR.create( this.data.name );
+
+    this.el.setObject3D('gui', gui );
+
+    const scene = this.el.sceneEl.object3D;
 
     const controllerRightEl = this.data.controllerRight;
     if (controllerRightEl){
@@ -60,7 +66,7 @@ AFRAME.registerComponent('datgui', {
     if (this.data.name){
       gui.name(this.data.name);
     }
-  },
+  }
 });
 
 AFRAME.registerComponent( 'datguicontroller', {
@@ -107,35 +113,33 @@ AFRAME.registerComponent( 'datguicontroller', {
       default: undefined
     }
   },
-  init: function() {
-    const that = this;
+  init() {
     const canvas = this.el.sceneEl.canvas;
+
     // Wait for canvas to load.
     if (!canvas) {
       this.el.sceneEl.addEventListener('render-target-loaded', this.init.bind(this));
       return;
     }
 
-    const gui = that.el.parentNode.gui;
-
-    switch (that.data.type){
+    switch (this.data.type){
       case 'slider':
-        that.controller = gui.add({[that.data.name]: that.data.initialState}, that.data.name, that.data.min, that.data.max).step(that.data.step);
+        this.controller = gui.add({[this.data.name]: this.data.initialState}, this.data.name, this.data.min, this.data.max).step(this.data.step);
         break;
       case 'dropdown':
-        that.controller = gui.add({[that.data.name]: that.data.initialState}, that.data.name, that.data.options);
+        this.controller = gui.add({[this.data.name]: this.data.initialState}, this.data.name, this.data.options);
         break;
       case 'checkbox':
-        that.controller = gui.add(that.data.initialState, that.data.name);
+        this.controller = gui.add(this.data.initialState, this.data.name);
         break;
       case 'button':
-        that.controller = gui.add({ fn: that.data.actionToTrigger }, 'fn');
+        this.controller = gui.add({ fn: this.data.actionToTrigger }, 'fn');
         break;
     }
 
-    if ( that.controller && that.controller.onChange ){
-      that.controller.onChange(function(v){
-        that.data.actionToTrigger(v)
+    if ( this.controller && this.controller.onChange ){
+      this.controller.onChange((v) => {
+        this.data.actionToTrigger(v)
       });
     }
   }

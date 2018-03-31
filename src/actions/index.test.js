@@ -5,7 +5,7 @@ describe('actions', () => {
     const text = 'x * y'
     const expectedAction = {
       type: actions.CALCULATOR_WRITE_TEXT,
-      text,
+      payload: text,
     }
     expect(actions.calculatorWriteText(text)).toEqual(expectedAction)
   })
@@ -28,7 +28,7 @@ describe('actions', () => {
     const position = { x: 0, y: 0, z: 0 }
     const expectedAction = {
       type: actions.FUNCTION_BOX_SET_POSITION,
-      position,
+      payload: position,
     }
     expect(actions.functionBoxSetPosition(position)).toEqual(expectedAction)
   })
@@ -37,7 +37,7 @@ describe('actions', () => {
     const equation = 'x * y'
     const expectedAction = {
       type: actions.PARAMETRIC_FUNCTION_SET_EQUATION,
-      equation,
+      payload: equation,
     }
     expect(actions.parametricFunctionSetEquation(equation)).toEqual(expectedAction)
   })
@@ -46,7 +46,7 @@ describe('actions', () => {
     const xMin = -999
     const expectedAction = {
       type: actions.SETTINGS_SET_X_MIN,
-      xMin,
+      payload: xMin,
     }
     expect(actions.settingsSetXMin(xMin)).toEqual(expectedAction)
   })
@@ -55,7 +55,7 @@ describe('actions', () => {
     const yMin = -999
     const expectedAction = {
       type: actions.SETTINGS_SET_Y_MIN,
-      yMin,
+      payload: yMin,
     }
     expect(actions.settingsSetYMin(yMin)).toEqual(expectedAction)
   })
@@ -64,7 +64,7 @@ describe('actions', () => {
     const zMin = -999
     const expectedAction = {
       type: actions.SETTINGS_SET_Z_MIN,
-      zMin,
+      payload: zMin,
     }
     expect(actions.settingsSetZMin(zMin)).toEqual(expectedAction)
   })
@@ -73,7 +73,7 @@ describe('actions', () => {
     const xMax = 999
     const expectedAction = {
       type: actions.SETTINGS_SET_X_MAX,
-      xMax,
+      payload: xMax,
     }
     expect(actions.settingsSetXMax(xMax)).toEqual(expectedAction)
   })
@@ -82,7 +82,7 @@ describe('actions', () => {
     const yMax = 999
     const expectedAction = {
       type: actions.SETTINGS_SET_Y_MAX,
-      yMax,
+      payload: yMax,
     }
     expect(actions.settingsSetYMax(yMax)).toEqual(expectedAction)
   })
@@ -91,7 +91,7 @@ describe('actions', () => {
     const zMax = 999
     const expectedAction = {
       type: actions.SETTINGS_SET_Z_MAX,
-      zMax,
+      payload: zMax,
     }
     expect(actions.settingsSetZMax(zMax)).toEqual(expectedAction)
   })
@@ -100,7 +100,7 @@ describe('actions', () => {
     const segments = 15
     const expectedAction = {
       type: actions.SETTINGS_SET_SEGMENTS,
-      segments,
+      payload: segments,
     }
     expect(actions.settingsSetSegments(segments)).toEqual(expectedAction)
   })
@@ -109,7 +109,7 @@ describe('actions', () => {
     const functionColor = '#fff'
     const expectedAction = {
       type: actions.SETTINGS_SET_FUNCTION_COLOR,
-      functionColor,
+      payload: functionColor,
     }
     expect(actions.settingsSetFunctionColor(functionColor)).toEqual(expectedAction)
   })
@@ -125,7 +125,7 @@ describe('actions', () => {
     const position = { x: 0, y: 0, z: 0 }
     const expectedAction = {
       type: actions.USER_SET_POSITION,
-      position,
+      payload: position,
     }
     expect(actions.userSetPosition(position)).toEqual(expectedAction)
   })

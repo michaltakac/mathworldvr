@@ -14,21 +14,21 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case ActionTypes.SETTINGS_SET_X_MIN:
-      return { ...state, xMin: action.xMin }
+      return { ...state, xMin: action.payload }
     case ActionTypes.SETTINGS_SET_Y_MIN:
-      return { ...state, yMin: action.yMin }
+      return { ...state, yMin: action.payload }
     case ActionTypes.SETTINGS_SET_Z_MIN:
-      return { ...state, zMin: action.zMin }
+      return { ...state, zMin: action.payload }
     case ActionTypes.SETTINGS_SET_X_MAX:
-      return { ...state, xMax: action.xMax }
+      return { ...state, xMax: action.payload }
     case ActionTypes.SETTINGS_SET_Y_MAX:
-      return { ...state, yMax: action.yMax }
+      return { ...state, yMax: action.payload }
     case ActionTypes.SETTINGS_SET_Z_MAX:
-      return { ...state, zMax: action.zMax }
+      return { ...state, zMax: action.payload }
     case ActionTypes.SETTINGS_SET_SEGMENTS:
-      return { ...state, segments: action.segments }
+      return { ...state, segments: action.payload }
     case ActionTypes.SETTINGS_SET_FUNCTION_COLOR:
-      return { ...state, functionColor: action.functionColor }
+      return { ...state, functionColor: action.payload }
     default: return state
   }
 }

@@ -2,13 +2,14 @@
 
 exports[`SettingsPanel renders the tree consistently 1`] = `
 <a-entity>
-  <span />
-  <span />
-  <span />
-  <span />
-  <span />
-  <span />
-  <span />
-  <span />
+  <a-entity />
+  <a-entity />
+  <a-entity />
+  <a-entity />
+  <a-entity />
+  <a-entity />
+  <a-entity />
+  <a-entity />
+  <a-entity />
 </a-entity>
 `;

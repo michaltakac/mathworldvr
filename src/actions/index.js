@@ -23,7 +23,7 @@ export const USER_SET_POSITION = 'USER_SET_POSITION'
 // Action creators
 export const calculatorWriteText = (text) => ({
   type: CALCULATOR_WRITE_TEXT,
-  text,
+  payload: text,
 })
 
 export const calculatorBackspace = () => ({
@@ -36,52 +36,52 @@ export const calculatorClearText = () => ({
 
 export const functionBoxSetPosition = (position) => ({
   type: FUNCTION_BOX_SET_POSITION,
-  position,
+  payload: position,
 })
 
 export const parametricFunctionSetEquation = (equation) => ({
   type: PARAMETRIC_FUNCTION_SET_EQUATION,
-  equation,
+  payload: equation,
 })
 
 export const settingsSetXMin = (xMin) => ({
   type: SETTINGS_SET_X_MIN,
-  xMin,
+  payload: xMin,
 })
 
 export const settingsSetYMin = (yMin) => ({
   type: SETTINGS_SET_Y_MIN,
-  yMin,
+  payload: yMin,
 })
 
 export const settingsSetZMin = (zMin) => ({
   type: SETTINGS_SET_Z_MIN,
-  zMin,
+  payload: zMin,
 })
 
 export const settingsSetXMax = (xMax) => ({
   type: SETTINGS_SET_X_MAX,
-  xMax,
+  payload: xMax,
 })
 
 export const settingsSetYMax = (yMax) => ({
   type: SETTINGS_SET_Y_MAX,
-  yMax,
+  payload: yMax,
 })
 
 export const settingsSetZMax = (zMax) => ({
   type: SETTINGS_SET_Z_MAX,
-  zMax,
+  payload: zMax,
 })
 
 export const settingsSetSegments = (segments) => ({
   type: SETTINGS_SET_SEGMENTS,
-  segments,
+  payload: segments,
 })
 
 export const settingsSetFunctionColor = (functionColor) => ({
   type: SETTINGS_SET_FUNCTION_COLOR,
-  functionColor,
+  payload: functionColor,
 })
 
 export const uiAttentionboxToggle = () => ({
@@ -90,5 +90,5 @@ export const uiAttentionboxToggle = () => ({
 
 export const userSetPosition = (position) => ({
   type: USER_SET_POSITION,
-  position,
+  payload: position,
 })

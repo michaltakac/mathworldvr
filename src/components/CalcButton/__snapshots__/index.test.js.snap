@@ -5,6 +5,6 @@ exports[`CalcButton renders the entity consistently 1`] = `
   className="interactive"
   id="calc-button"
 >
-  <span />
+  <a-entity />
 </a-entity>
 `;

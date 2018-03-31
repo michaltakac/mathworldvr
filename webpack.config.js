@@ -16,6 +16,7 @@ const isVendor = ({ userRequest }) => (
 )
 
 const config = {
+  mode: DEBUG ? 'production' : 'development',
   devtool: DEBUG ? 'source-map' : false,
   entry: {
     app: ['babel-polyfill', path.join(__dirname, 'src')],
@@ -65,12 +66,7 @@ if (DEBUG) {
   ])
 } else {
   config.output.filename = '[name].[chunkHash].js'
-
   config.plugins = config.plugins.concat([
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: isVendor,
-    }),
     new WebpackMd5Hash(),
     new UglifyJSPlugin(),
   ])

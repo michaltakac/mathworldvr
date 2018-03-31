@@ -44,7 +44,6 @@ class App extends React.Component {
         />
 
         <Sky />
-        <Lights />
         <Plane />
       </VRScene>
     )

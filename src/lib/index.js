@@ -1,4 +1,5 @@
 // Vendor
+import './scene-utils'
 import './datguivr'
 
 // MathworldVR components

@@ -7,7 +7,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case ActionTypes.CALCULATOR_WRITE_TEXT:
-      return { ...state, displayText: `${state.displayText}${action.text}` }
+      return { ...state, displayText: `${state.displayText}${action.payload}` }
     case ActionTypes.CALCULATOR_BACKSPACE:
       return { ...state, displayText: state.displayText.slice(0, -1) }
     case ActionTypes.CALCULATOR_CLEAR_TEXT:

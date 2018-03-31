@@ -13,6 +13,7 @@ new WebpackDevServer(webpack(config), {
   stats: false,
   historyApiFallback: true,
   contentBase: 'public',
+  disableHostCheck: true
 }).listen(port, ip, (err) => {
   if (err) {
     return console.log(err)

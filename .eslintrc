@@ -3,9 +3,6 @@
   "extends": [
     "airbnb"
   ],
-  "plugins": [
-    "no-unused-vars-rest"
-  ],
   "env": {
     "browser": true,
     "jest": true
@@ -37,7 +34,6 @@
     "import/prefer-default-export": 0,
     "react/require-default-props": 0,
     "react/forbid-prop-types": 0,
-    "react/jsx-filename-extension": [2, {"extensions": [".js", ".jsx"]}],
-    "no-unused-vars-rest/no-unused-vars": [2, {"ignoreDestructuredVarsWithRest": true}]
+    "react/jsx-filename-extension": [2, {"extensions": [".js", ".jsx"]}]
   }
 }

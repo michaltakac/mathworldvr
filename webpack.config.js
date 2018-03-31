@@ -19,7 +19,7 @@ const config = {
   mode: DEBUG ? 'production' : 'development',
   devtool: DEBUG ? 'source-map' : false,
   entry: {
-    app: ['babel-polyfill', path.join(__dirname, 'src')],
+    app: ['@babel/polyfill', path.join(__dirname, 'src')],
   },
   output: {
     path: path.join(__dirname, 'build'),

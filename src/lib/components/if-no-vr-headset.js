@@ -14,12 +14,6 @@ AFRAME.registerComponent('if-no-vr-headset', {
   update: function () {
     var self = this;
 
-    // Don't count mobile as VR.
-    if (this.el.sceneEl.isMobile) {
-      this.setProperties();
-      return;
-    }
-
     // Check VRDisplays to determine if headset is connected.
     navigator.getVRDisplays().then(function (displays) {
       // Special case for WebVR emulator.

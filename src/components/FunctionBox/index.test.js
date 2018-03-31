@@ -12,9 +12,7 @@ describe('FunctionBox', () => {
   })
 
   it('is interactable with super-hands', () => {
-    const tree = renderer.create(
-      <FunctionBox />
-    ).toJSON()
+    const tree = renderer.create(<FunctionBox />).toJSON()
     expect(tree.props.className).toBe('interactive')
   })
 

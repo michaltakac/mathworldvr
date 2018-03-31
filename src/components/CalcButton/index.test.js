@@ -11,16 +11,12 @@ describe('CalcButton', () => {
   })
 
   it('renders <a-entity> with id', () => {
-    const tree = renderer.create(
-      <CalcButton id="calc-button" />
-    ).toJSON()
+    const tree = renderer.create(<CalcButton id="calc-button" />).toJSON()
     expect(tree.props.id).toBe('calc-button')
   })
 
   it('is interactable with super-hands', () => {
-    const tree = renderer.create(
-      <CalcButton />
-    ).toJSON()
+    const tree = renderer.create(<CalcButton />).toJSON()
     expect(tree.props.className).toBe('interactive')
   })
 

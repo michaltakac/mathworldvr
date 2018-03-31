@@ -51,14 +51,20 @@ export default class CalcButton extends React.Component {
   }
 
   render() {
-    const { id, position, width, height, buttonColor, text, textColor, textWidth } = this.props
+    const {
+      id, position, width, height, buttonColor, text, textColor, textWidth,
+    } = this.props
     const { depth, opacity } = this.state
     return (
       <Entity
         id={id}
         className="interactive"
-        geometry={{ primitive: 'box', height, width, depth }}
-        material={{ shader: 'flat', side: 'double', color: buttonColor, opacity }}
+        geometry={{
+          primitive: 'box', height, width, depth,
+        }}
+        material={{
+          shader: 'flat', side: 'double', color: buttonColor, opacity,
+        }}
         scale={{ x: 0.5, y: 0.5, z: 0.5 }}
         position={position}
         hoverable

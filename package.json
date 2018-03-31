@@ -9,6 +9,7 @@
     "test:watch": "npm test -- --watch",
     "coverage": "npm test -- --coverage && opn coverage/lcov-report/index.html",
     "lint": "eslint 'src/**/*.js' webpack.config.js server.js",
+    "lint:fix": "eslint --fix 'src/**/*.js' webpack.config.js server.js",
     "clean": "del 'build/!(.git*|Procfile)**'",
     "build:copy": "copyfiles -u 1 public/* public/**/* build",
     "build:clean": "rimraf \"build/!(.git*|Procfile)**\"",
@@ -52,11 +53,14 @@
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.42",
     "@babel/core": "^7.0.0-beta.42",
+    "@babel/polyfill": "^7.0.0-beta.42",
     "@babel/preset-env": "^7.0.0-beta.42",
     "@babel/preset-flow": "^7.0.0-beta.42",
     "@babel/preset-react": "^7.0.0-beta.42",
     "@babel/preset-stage-0": "^7.0.0-beta.42",
+    "babel-core": "^7.0.0-0",
     "babel-eslint": "^8.2.2",
+    "babel-jest": "^22.4.3",
     "babel-loader": "^8.0.0-beta",
     "copyfiles": "^2.0.0",
     "cross-env": "^5.1.4",
@@ -91,7 +95,6 @@
     "webpack-md5-hash": "0.0.6"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.0.0-beta.42",
     "aframe": "^0.8.1",
     "aframe-event-set-component": "^4.1.1",
     "aframe-extras": "^4.0.0",

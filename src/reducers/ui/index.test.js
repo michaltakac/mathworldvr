@@ -10,14 +10,11 @@ describe('ui', () => {
     expect(next).toEqual(initialState)
   })
 
-  it('should return the initial state', () => {
-    expect(
-      reducer(initialState, { type: 'UI_ATTENTIONBOX_TOGGLE' })
-    ).toEqual(
-      {
-        attentionBoxVisible: false,
-      },
-    )
+  it('should close the attention box', () => {
+    const next = reducer(initialState, { type: 'UI_ATTENTIONBOX_TOGGLE' })
+    expect(next).toEqual({
+      attentionBoxVisible: false,
+    })
   })
 
   it('UI_ATTENTIONBOX_TOGGLE', () => {

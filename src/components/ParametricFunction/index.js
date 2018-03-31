@@ -14,7 +14,9 @@ const propTypes = {
   functionColor: PropTypes.string,
 }
 
-const ParametricFuntion = ({ equation, segments, xMin, xMax, yMin, yMax, zMin, zMax, functionColor }) => {
+const ParametricFuntion = ({
+  equation, segments, xMin, xMax, yMin, yMax, zMin, zMax, functionColor,
+}) => {
   return (
     <Entity
       id="function-mesh"

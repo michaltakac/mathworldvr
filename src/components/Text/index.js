@@ -16,7 +16,6 @@ const propTypes = {
 
 const defaultProps = {
   color: '#000',
-  value: 'Default text',
   width: 0,
   lineHeight: 38,
   letterSpacing: 0,
@@ -24,10 +23,14 @@ const defaultProps = {
   opacity: 1,
   zOffset: 0,
 }
-const Text = ({ align, color, letterSpacing, lineHeight, opacity, value, width, zOffset, ...props }) => {
+const Text = ({
+  align, color, letterSpacing, lineHeight, opacity, value, width, zOffset, ...props
+}) => {
   return (
     <Entity
-      text={{ value, width, align, letterSpacing, lineHeight, color, opacity, zOffset }}
+      text={{
+        value, width, align, letterSpacing, lineHeight, color, opacity, zOffset,
+      }}
       {...props}
     >
       {props.children}

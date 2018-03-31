@@ -11,7 +11,9 @@ const propTypes = {
   updateEquation: PropTypes.func,
 }
 
-const Calculator = ({ displayText, writeText, backspace, clearText, updateEquation }) => {
+const Calculator = ({
+  displayText, writeText, backspace, clearText, updateEquation,
+}) => {
   return (
     <Entity
       className="interactive calculator"

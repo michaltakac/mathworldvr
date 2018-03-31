@@ -10,7 +10,7 @@
     <img src="https://img.shields.io/codecov/c/github/michaltakac/mathworldvr.svg?style=flat-square" alt="Coverage Status">
   </a>
   <a href="https://codeclimate.com/github/michaltakac/mathworldvr/"><img src="https://img.shields.io/codeclimate/github/michaltakac/mathworldvr.svg?style=flat-square" alt="Code climate"></a>
-  <img src="https://img.shields.io/badge/tested_with-jest-99424f.svg" alt="tested with jest">
+  <img src="https://img.shields.io/badge/tested_with-jest-99424f.svg?style=flat-square" alt="tested with jest">
   <img src="https://img.shields.io/github/tag/michaltakac/mathworldvr.svg?style=flat-square" alt="Tag">
   <img src="https://img.shields.io/github/license/michaltakac/mathworldvr.svg?style=flat-square" alt="License">
 </p>

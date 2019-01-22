@@ -1,4 +1,3 @@
-export * from "./App";
 export * from "./AttentionBox";
 export * from "./CalcButton";
 export * from "./Calculator";

@@ -1,13 +1,13 @@
-import AFRAME, { THREE } from 'aframe';
+import AFRAME, { THREE } from "aframe";
 
-AFRAME.registerComponent('sphere-collider', {
+AFRAME.registerComponent("sphere-collider", {
   schema: {
-    objects: {default: ''},
-    state: {default: 'collided'},
-    radius: {default: 0.09}
+    objects: { default: "" },
+    state: { default: "collided" },
+    radius: { default: 0.09 }
   },
 
-  init: function () {
+  init: function() {
     this.els = [];
     this.collisions = [];
   },
@@ -15,7 +15,7 @@ AFRAME.registerComponent('sphere-collider', {
   /**
    * Update list of entities to test for collision.
    */
-  update: function () {
+  update: function() {
     var data = this.data;
     var objectEls;
 
@@ -30,18 +30,20 @@ AFRAME.registerComponent('sphere-collider', {
     this.els = Array.prototype.slice.call(objectEls);
   },
 
-  tick: (function () {
+  tick: (function() {
     var position = new THREE.Vector3(),
-        meshPosition = new THREE.Vector3();
-    return function () {
+      meshPosition = new THREE.Vector3();
+    return function() {
       var el = this.el,
-          data = this.data,
-          mesh = el.getObject3D('mesh'),
-          collisions = [];
+        data = this.data,
+        mesh = el.getObject3D("mesh"),
+        collisions = [];
 
-      if (!mesh) { return; }
+      if (!mesh) {
+        return;
+      }
 
-      position.copy(el.getAttribute('position'));
+      position.copy(el.getAttribute("position"));
 
       // Update collisions.
       this.els.forEach(intersect);
@@ -49,21 +51,23 @@ AFRAME.registerComponent('sphere-collider', {
       collisions.forEach(handleHit);
       // No collisions.
       if (collisions.length === 0) {
-        el.emit('hit', {el: null});
+        el.emit("hit", { el: null });
       }
       // Updated the state of the elements that are not intersected anymore.
-      this.collisions.filter(function (el) {
-        return collisions.indexOf(el) === -1;
-      }).forEach(function removeState (el) {
-        el.removeState(data.state);
-      });
+      this.collisions
+        .filter(function(el) {
+          return collisions.indexOf(el) === -1;
+        })
+        .forEach(function removeState(el) {
+          el.removeState(data.state);
+        });
       // Store new collisions
       this.collisions = collisions;
 
       // AABB collision detection
-      function intersect (el) {
+      function intersect(el) {
         var radius,
-            mesh = el.getObject3D('mesh');
+          mesh = el.getObject3D("mesh");
 
         if (!mesh) return;
 
@@ -72,18 +76,22 @@ AFRAME.registerComponent('sphere-collider', {
         radius = mesh.geometry.boundingSphere.radius;
         var scaleMultiplicator = el.object3D.scale.getComponent(0);
 
-        const isButtonOrCalculator = (el.classList.contains('button') || el.classList.contains('calculator'));
-        var totalRadius = isButtonOrCalculator ? data.radius : ((radius * scaleMultiplicator) + data.radius);
+        const isButtonOrCalculator =
+          el.classList.contains("button") ||
+          el.classList.contains("calculator");
+        var totalRadius = isButtonOrCalculator
+          ? data.radius
+          : radius * scaleMultiplicator + data.radius;
 
         if (position.distanceTo(meshPosition) < totalRadius) {
           collisions.push(el);
         }
       }
 
-      function handleHit (hitEl) {
-        hitEl.emit('hit');
+      function handleHit(hitEl) {
+        hitEl.emit("hit");
         hitEl.addState(data.state);
-        el.emit('hit', {el: hitEl});
+        el.emit("hit", { el: hitEl });
       }
     };
   })()

@@ -1,7 +1,7 @@
 import React from "react";
 import { Entity } from "aframe-react";
 
-export type ParametricFuntion = {
+export type ParametricFunction = {
   equation: string;
   segments: number;
   xMin: number;
@@ -13,7 +13,7 @@ export type ParametricFuntion = {
   functionColor: string;
 };
 
-export const ParametricFuntion = ({
+export const ParametricFunction = ({
   equation,
   segments,
   xMin,
@@ -23,7 +23,7 @@ export const ParametricFuntion = ({
   zMin,
   zMax,
   functionColor
-}: ParametricFuntion) => {
+}: ParametricFunction) => {
   return (
     <Entity
       id="function-mesh"

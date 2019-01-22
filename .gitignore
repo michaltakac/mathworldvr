@@ -9,6 +9,7 @@
 # production
 /build
 /dist
+/.next
 
 # storybook
 /build-storybook

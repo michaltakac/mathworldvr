@@ -1,24 +1,24 @@
-import AFRAME from 'aframe';
+import AFRAME from "aframe";
 
-AFRAME.registerComponent('stop-flying', {
-  init: function () {
+AFRAME.registerComponent("stop-flying", {
+  init: function() {
     // Bind event handlers
     this.onGripOpen = this.onGripOpen.bind(this);
   },
 
-  play: function () {
+  play: function() {
     var el = this.el;
-    el.addEventListener('grab-end', this.onGripOpen);
+    el.addEventListener("grab-end", this.onGripOpen);
   },
 
-  pause: function () {
+  pause: function() {
     var el = this.el;
-    el.removeEventListener('grab-end', this.onGripOpen);
+    el.removeEventListener("grab-end", this.onGripOpen);
   },
 
-  onGripOpen: function (evt) {
+  onGripOpen: function(evt) {
     var el = this.el;
-    el.body.velocity.set(0,0,0);
-    el.body.angularVelocity.set(0,0,0);
+    el.body.velocity.set(0, 0, 0);
+    el.body.angularVelocity.set(0, 0, 0);
   }
 });

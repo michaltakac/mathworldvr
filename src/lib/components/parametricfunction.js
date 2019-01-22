@@ -1,27 +1,28 @@
-import AFRAME, { THREE } from 'aframe';
-import math from 'mathjs';
+import AFRAME, { THREE } from "aframe";
+import math from "mathjs";
 
 var graphMesh;
 
-AFRAME.registerComponent('parametricfunction', {
+AFRAME.registerComponent("parametricfunction", {
   schema: {
-    equation: { type: 'string', default: '' },
-    segments: { type: 'number', default: 20 },
-    xMin: { type: 'number', default: -5 },
-    xMax: { type: 'number', default: 5 },
-    yMin: { type: 'number', default: -5 },
-    yMax: { type: 'number', default: 5 },
-    zMin: { type: 'number', default: -5 },
-    zMax: { type: 'number', default: 5 },
-    functionColor: { type: 'string', default: '#bada55' }
+    equation: { type: "string", default: "" },
+    segments: { type: "number", default: 20 },
+    xMin: { type: "number", default: -5 },
+    xMax: { type: "number", default: 5 },
+    yMin: { type: "number", default: -5 },
+    yMax: { type: "number", default: 5 },
+    zMin: { type: "number", default: -5 },
+    zMax: { type: "number", default: 5 },
+    functionColor: { type: "string", default: "#bada55" }
   },
 
   init: function() {
     const el = this.el;
-    const canvas = el.sceneEl.canvas;
+    console.log(this, el);
+    const canvas = el.sceneEl && el.sceneEl.canvas;
     // Wait for canvas to load.
     if (!canvas) {
-      el.sceneEl.addEventListener('render-target-loaded', this.init.bind(this));
+      el.sceneEl.addEventListener("render-target-loaded", this.init.bind(this));
       return;
     }
   },
@@ -29,7 +30,7 @@ AFRAME.registerComponent('parametricfunction', {
   update: function(oldData) {
     var scene = this.el.object3D;
     // Equation parser
-    var equation = 'f(x,y) = ' + this.data.equation;
+    var equation = "f(x,y) = " + this.data.equation;
 
     var parser = math.parser();
     try {
@@ -38,7 +39,7 @@ AFRAME.registerComponent('parametricfunction', {
       return;
     }
     //parser.eval(equation);
-    const f1 = parser.get('f');
+    const f1 = parser.get("f");
     parser.clear();
 
     var segments = this.data.segments;
@@ -57,13 +58,20 @@ AFRAME.registerComponent('parametricfunction', {
     xRange = xMax - xMin;
     yRange = yMax - yMin;
 
-    this.mainMaterial = new THREE.MeshBasicMaterial( { color: this.data.functionColor, side: THREE.DoubleSide } );
-    this.wireframeMaterial = new THREE.MeshBasicMaterial( { color: 0x00008, wireframe: true, transparent: true } );
-    this.functionMaterial = [ this.mainMaterial, this.wireframeMaterial ];
+    this.mainMaterial = new THREE.MeshBasicMaterial({
+      color: this.data.functionColor,
+      side: THREE.DoubleSide
+    });
+    this.wireframeMaterial = new THREE.MeshBasicMaterial({
+      color: 0x00008,
+      wireframe: true,
+      transparent: true
+    });
+    this.functionMaterial = [this.mainMaterial, this.wireframeMaterial];
 
     function meshFunction(x, y) {
-      x = (xRange * x) + xMin;
-      y = (yRange * y) + yMin;
+      x = xRange * x + xMin;
+      y = yRange * y + yMin;
       var z = f1(x, y);
       // console.log('x is ' + x + ', y is ' + y + ', and f(x,y) = ' + z);
       if (isNaN(z)) {
@@ -79,22 +87,31 @@ AFRAME.registerComponent('parametricfunction', {
       }
 
       return new THREE.Vector3(x, z, y);
-    };
+    }
 
     // true => sensible image tile repeat...
-    var graphGeometry = new THREE.ParametricGeometry( meshFunction, segments, segments, true );
+    var graphGeometry = new THREE.ParametricGeometry(
+      meshFunction,
+      segments,
+      segments,
+      true
+    );
 
     if (graphMesh) {
       scene.remove(graphMesh);
       // renderer.deallocateObject( graphMesh );
     }
 
-    graphMesh = new THREE.SceneUtils.createMultiMaterialObject(graphGeometry, this.functionMaterial);
+    graphMesh = new THREE.SceneUtils.createMultiMaterialObject(
+      graphGeometry,
+      this.functionMaterial
+    );
     graphMesh.doubleSided = true;
     scene.add(graphMesh);
   },
 
   remove: function() {
-    this.el.object3D.remove(scene.getObjectByName('parametricfunction'));
+    var scene = this.el.object3D;
+    this.el.object3D.remove(scene.getObjectByName("parametricfunction"));
   }
 });

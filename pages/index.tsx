@@ -1,27 +1,58 @@
-// Libraries used by MathworldVR (Three.js, out custom A-Frame components, etc.)
-import "../src/lib";
+import React from "react";
+import { injectGlobal } from "styled-components";
+import {
+  Lights,
+  Sky,
+  VRScene,
+  LeftController,
+  RightController,
+  Plane,
+  // TODO: these should be containers
+  AttentionBox,
+  Calculator,
+  FunctionBox,
+  ParametricFunction,
+  SettingsPanel
+} from "../src/components";
 
-import * as React from "react";
-import physics from "aframe-physics-system";
-
-class VRScene extends React.Component {
+class App extends React.Component {
   componentDidMount() {
-    // A-frame Components by community
-    require("aframe");
-    require("aframe-teleport-controls");
-    require("super-hands");
-    // Initialize aframe-physics-system
-    physics.registerAll();
+    injectGlobal`
+      body {
+        margin: 0;
+      }
+      .a-canvas {
+        position: relative;
+      }
+    `;
   }
 
   render() {
-    // Using a-scene because aframe-react's Scene component
-    // is rendered last (it's how React works), thus physics
-    // is not applied before components are rendered, so they fall...
-    // https://github.com/facebook/react/issues/5737#issuecomment-167352763
-    // TODO: use React.Suspense
-    return <a-scene physics="gravity: 0">{this.props.children}</a-scene>;
+    return (
+      <VRScene>
+        <AttentionBox />
+        <LeftController />
+        <RightController />
+
+        <FunctionBox>
+          {/* Function mesh with grid */}
+          <ParametricFunction />
+        </FunctionBox>
+
+        <Calculator />
+
+        <SettingsPanel
+          name="Function settings"
+          position={{ x: -0.37, y: 1.93, z: -0.34 }}
+          rotation={{ x: 10, y: 30, z: 0 }}
+          scale={{ x: 0.5, y: 0.5, z: 0.5 }}
+        />
+
+        <Sky />
+        <Plane />
+      </VRScene>
+    );
   }
 }
 
-export default VRScene;
+export default App;

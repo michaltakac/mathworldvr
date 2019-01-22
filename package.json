@@ -117,6 +117,7 @@
     "react-dom": "^16.7.0",
     "react-ga": "^2.5.6",
     "styled-components": "^3.4.10",
-    "super-hands": "^2.1.0"
+    "super-hands": "^2.1.0",
+    "three": "^0.100.0"
   }
 }

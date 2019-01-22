@@ -6,5 +6,661 @@
       "file": "static/chunks/0.js",
       "publicPath": "static/chunks/0.js"
     }
+  ],
+  "aframe-physics-system": [
+    {
+      "id": "./node_modules/aframe-physics-system/index.js",
+      "name": "./node_modules/aframe-physics-system/index.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "../../../lib/CANNON-shape2mesh": [
+    {
+      "id": "./node_modules/aframe-physics-system/lib/CANNON-shape2mesh.js",
+      "name": "./node_modules/aframe-physics-system/lib/CANNON-shape2mesh.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./src/components/body/body": [
+    {
+      "id": "./node_modules/aframe-physics-system/src/components/body/body.js",
+      "name": "./node_modules/aframe-physics-system/src/components/body/body.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./src/components/body/dynamic-body": [
+    {
+      "id": "./node_modules/aframe-physics-system/src/components/body/dynamic-body.js",
+      "name": "./node_modules/aframe-physics-system/src/components/body/dynamic-body.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./src/components/body/static-body": [
+    {
+      "id": "./node_modules/aframe-physics-system/src/components/body/static-body.js",
+      "name": "./node_modules/aframe-physics-system/src/components/body/static-body.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./src/components/constraint": [
+    {
+      "id": "./node_modules/aframe-physics-system/src/components/constraint.js",
+      "name": "./node_modules/aframe-physics-system/src/components/constraint.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./src/components/math": [
+    {
+      "id": "./node_modules/aframe-physics-system/src/components/math/index.js",
+      "name": "./node_modules/aframe-physics-system/src/components/math/index.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./velocity": [
+    {
+      "id": "./node_modules/aframe-physics-system/src/components/math/velocity.js",
+      "name": "./node_modules/aframe-physics-system/src/components/math/velocity.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./src/components/shape/shape": [
+    {
+      "id": "./node_modules/aframe-physics-system/src/components/shape/shape.js",
+      "name": "./node_modules/aframe-physics-system/src/components/shape/shape.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./src/components/spring": [
+    {
+      "id": "./node_modules/aframe-physics-system/src/components/spring.js",
+      "name": "./node_modules/aframe-physics-system/src/components/spring.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./constants": [
+    {
+      "id": "./node_modules/aframe-physics-system/src/constants.js",
+      "name": "./node_modules/aframe-physics-system/src/constants.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./drivers/ammo-driver": [
+    {
+      "id": "./node_modules/aframe-physics-system/src/drivers/ammo-driver.js",
+      "name": "./node_modules/aframe-physics-system/src/drivers/ammo-driver.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./driver": [
+    {
+      "id": "./node_modules/aframe-physics-system/src/drivers/driver.js",
+      "name": "./node_modules/aframe-physics-system/src/drivers/driver.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./event": [
+    {
+      "id": "./node_modules/aframe-physics-system/src/drivers/event.js",
+      "name": "./node_modules/aframe-physics-system/src/drivers/event.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./drivers/local-driver": [
+    {
+      "id": "./node_modules/aframe-physics-system/src/drivers/local-driver.js",
+      "name": "./node_modules/aframe-physics-system/src/drivers/local-driver.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./drivers/network-driver": [
+    {
+      "id": "./node_modules/aframe-physics-system/src/drivers/network-driver.js",
+      "name": "./node_modules/aframe-physics-system/src/drivers/network-driver.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./webworkify-debug": [
+    {
+      "id": "./node_modules/aframe-physics-system/src/drivers/webworkify-debug.js",
+      "name": "./node_modules/aframe-physics-system/src/drivers/webworkify-debug.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./drivers/worker-driver": [
+    {
+      "id": "./node_modules/aframe-physics-system/src/drivers/worker-driver.js",
+      "name": "./node_modules/aframe-physics-system/src/drivers/worker-driver.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./worker": [
+    {
+      "id": "./node_modules/aframe-physics-system/src/drivers/worker.js",
+      "name": "./node_modules/aframe-physics-system/src/drivers/worker.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./src/system": [
+    {
+      "id": "./node_modules/aframe-physics-system/src/system.js",
+      "name": "./node_modules/aframe-physics-system/src/system.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./math": [
+    {
+      "id": "./node_modules/aframe-physics-system/src/utils/math.js",
+      "name": "./node_modules/aframe-physics-system/src/utils/math.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "../utils/protocol": [
+    {
+      "id": "./node_modules/aframe-physics-system/src/utils/protocol.js",
+      "name": "./node_modules/aframe-physics-system/src/utils/protocol.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "../package.json": [
+    {
+      "id": "./node_modules/cannon/package.json",
+      "name": "./node_modules/cannon/package.json",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "cannon": [
+    {
+      "id": "./node_modules/cannon/src/Cannon.js",
+      "name": "./node_modules/cannon/src/Cannon.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./collision/AABB": [
+    {
+      "id": "./node_modules/cannon/src/collision/AABB.js",
+      "name": "./node_modules/cannon/src/collision/AABB.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./collision/ArrayCollisionMatrix": [
+    {
+      "id": "./node_modules/cannon/src/collision/ArrayCollisionMatrix.js",
+      "name": "./node_modules/cannon/src/collision/ArrayCollisionMatrix.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./collision/Broadphase": [
+    {
+      "id": "./node_modules/cannon/src/collision/Broadphase.js",
+      "name": "./node_modules/cannon/src/collision/Broadphase.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./collision/GridBroadphase": [
+    {
+      "id": "./node_modules/cannon/src/collision/GridBroadphase.js",
+      "name": "./node_modules/cannon/src/collision/GridBroadphase.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./collision/NaiveBroadphase": [
+    {
+      "id": "./node_modules/cannon/src/collision/NaiveBroadphase.js",
+      "name": "./node_modules/cannon/src/collision/NaiveBroadphase.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./collision/ObjectCollisionMatrix": [
+    {
+      "id": "./node_modules/cannon/src/collision/ObjectCollisionMatrix.js",
+      "name": "./node_modules/cannon/src/collision/ObjectCollisionMatrix.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "../collision/OverlapKeeper": [
+    {
+      "id": "./node_modules/cannon/src/collision/OverlapKeeper.js",
+      "name": "./node_modules/cannon/src/collision/OverlapKeeper.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./collision/Ray": [
+    {
+      "id": "./node_modules/cannon/src/collision/Ray.js",
+      "name": "./node_modules/cannon/src/collision/Ray.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./collision/RaycastResult": [
+    {
+      "id": "./node_modules/cannon/src/collision/RaycastResult.js",
+      "name": "./node_modules/cannon/src/collision/RaycastResult.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./collision/SAPBroadphase": [
+    {
+      "id": "./node_modules/cannon/src/collision/SAPBroadphase.js",
+      "name": "./node_modules/cannon/src/collision/SAPBroadphase.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./constraints/ConeTwistConstraint": [
+    {
+      "id": "./node_modules/cannon/src/constraints/ConeTwistConstraint.js",
+      "name": "./node_modules/cannon/src/constraints/ConeTwistConstraint.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./constraints/Constraint": [
+    {
+      "id": "./node_modules/cannon/src/constraints/Constraint.js",
+      "name": "./node_modules/cannon/src/constraints/Constraint.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./constraints/DistanceConstraint": [
+    {
+      "id": "./node_modules/cannon/src/constraints/DistanceConstraint.js",
+      "name": "./node_modules/cannon/src/constraints/DistanceConstraint.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./constraints/HingeConstraint": [
+    {
+      "id": "./node_modules/cannon/src/constraints/HingeConstraint.js",
+      "name": "./node_modules/cannon/src/constraints/HingeConstraint.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./constraints/LockConstraint": [
+    {
+      "id": "./node_modules/cannon/src/constraints/LockConstraint.js",
+      "name": "./node_modules/cannon/src/constraints/LockConstraint.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./constraints/PointToPointConstraint": [
+    {
+      "id": "./node_modules/cannon/src/constraints/PointToPointConstraint.js",
+      "name": "./node_modules/cannon/src/constraints/PointToPointConstraint.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "../equations/ConeEquation": [
+    {
+      "id": "./node_modules/cannon/src/equations/ConeEquation.js",
+      "name": "./node_modules/cannon/src/equations/ConeEquation.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./equations/ContactEquation": [
+    {
+      "id": "./node_modules/cannon/src/equations/ContactEquation.js",
+      "name": "./node_modules/cannon/src/equations/ContactEquation.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./equations/Equation": [
+    {
+      "id": "./node_modules/cannon/src/equations/Equation.js",
+      "name": "./node_modules/cannon/src/equations/Equation.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./equations/FrictionEquation": [
+    {
+      "id": "./node_modules/cannon/src/equations/FrictionEquation.js",
+      "name": "./node_modules/cannon/src/equations/FrictionEquation.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./equations/RotationalEquation": [
+    {
+      "id": "./node_modules/cannon/src/equations/RotationalEquation.js",
+      "name": "./node_modules/cannon/src/equations/RotationalEquation.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./equations/RotationalMotorEquation": [
+    {
+      "id": "./node_modules/cannon/src/equations/RotationalMotorEquation.js",
+      "name": "./node_modules/cannon/src/equations/RotationalMotorEquation.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./material/ContactMaterial": [
+    {
+      "id": "./node_modules/cannon/src/material/ContactMaterial.js",
+      "name": "./node_modules/cannon/src/material/ContactMaterial.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./material/Material": [
+    {
+      "id": "./node_modules/cannon/src/material/Material.js",
+      "name": "./node_modules/cannon/src/material/Material.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "../math/JacobianElement": [
+    {
+      "id": "./node_modules/cannon/src/math/JacobianElement.js",
+      "name": "./node_modules/cannon/src/math/JacobianElement.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./math/Mat3": [
+    {
+      "id": "./node_modules/cannon/src/math/Mat3.js",
+      "name": "./node_modules/cannon/src/math/Mat3.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./math/Quaternion": [
+    {
+      "id": "./node_modules/cannon/src/math/Quaternion.js",
+      "name": "./node_modules/cannon/src/math/Quaternion.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./math/Transform": [
+    {
+      "id": "./node_modules/cannon/src/math/Transform.js",
+      "name": "./node_modules/cannon/src/math/Transform.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./math/Vec3": [
+    {
+      "id": "./node_modules/cannon/src/math/Vec3.js",
+      "name": "./node_modules/cannon/src/math/Vec3.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./objects/Body": [
+    {
+      "id": "./node_modules/cannon/src/objects/Body.js",
+      "name": "./node_modules/cannon/src/objects/Body.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./objects/RaycastVehicle": [
+    {
+      "id": "./node_modules/cannon/src/objects/RaycastVehicle.js",
+      "name": "./node_modules/cannon/src/objects/RaycastVehicle.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./objects/RigidVehicle": [
+    {
+      "id": "./node_modules/cannon/src/objects/RigidVehicle.js",
+      "name": "./node_modules/cannon/src/objects/RigidVehicle.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./objects/SPHSystem": [
+    {
+      "id": "./node_modules/cannon/src/objects/SPHSystem.js",
+      "name": "./node_modules/cannon/src/objects/SPHSystem.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./objects/Spring": [
+    {
+      "id": "./node_modules/cannon/src/objects/Spring.js",
+      "name": "./node_modules/cannon/src/objects/Spring.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "../objects/WheelInfo": [
+    {
+      "id": "./node_modules/cannon/src/objects/WheelInfo.js",
+      "name": "./node_modules/cannon/src/objects/WheelInfo.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./shapes/Box": [
+    {
+      "id": "./node_modules/cannon/src/shapes/Box.js",
+      "name": "./node_modules/cannon/src/shapes/Box.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./shapes/ConvexPolyhedron": [
+    {
+      "id": "./node_modules/cannon/src/shapes/ConvexPolyhedron.js",
+      "name": "./node_modules/cannon/src/shapes/ConvexPolyhedron.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./shapes/Cylinder": [
+    {
+      "id": "./node_modules/cannon/src/shapes/Cylinder.js",
+      "name": "./node_modules/cannon/src/shapes/Cylinder.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./shapes/Heightfield": [
+    {
+      "id": "./node_modules/cannon/src/shapes/Heightfield.js",
+      "name": "./node_modules/cannon/src/shapes/Heightfield.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./shapes/Particle": [
+    {
+      "id": "./node_modules/cannon/src/shapes/Particle.js",
+      "name": "./node_modules/cannon/src/shapes/Particle.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./shapes/Plane": [
+    {
+      "id": "./node_modules/cannon/src/shapes/Plane.js",
+      "name": "./node_modules/cannon/src/shapes/Plane.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./shapes/Shape": [
+    {
+      "id": "./node_modules/cannon/src/shapes/Shape.js",
+      "name": "./node_modules/cannon/src/shapes/Shape.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./shapes/Sphere": [
+    {
+      "id": "./node_modules/cannon/src/shapes/Sphere.js",
+      "name": "./node_modules/cannon/src/shapes/Sphere.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./shapes/Trimesh": [
+    {
+      "id": "./node_modules/cannon/src/shapes/Trimesh.js",
+      "name": "./node_modules/cannon/src/shapes/Trimesh.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./solver/GSSolver": [
+    {
+      "id": "./node_modules/cannon/src/solver/GSSolver.js",
+      "name": "./node_modules/cannon/src/solver/GSSolver.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./solver/Solver": [
+    {
+      "id": "./node_modules/cannon/src/solver/Solver.js",
+      "name": "./node_modules/cannon/src/solver/Solver.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./solver/SplitSolver": [
+    {
+      "id": "./node_modules/cannon/src/solver/SplitSolver.js",
+      "name": "./node_modules/cannon/src/solver/SplitSolver.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./utils/EventTarget": [
+    {
+      "id": "./node_modules/cannon/src/utils/EventTarget.js",
+      "name": "./node_modules/cannon/src/utils/EventTarget.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "../utils/Octree": [
+    {
+      "id": "./node_modules/cannon/src/utils/Octree.js",
+      "name": "./node_modules/cannon/src/utils/Octree.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./utils/Pool": [
+    {
+      "id": "./node_modules/cannon/src/utils/Pool.js",
+      "name": "./node_modules/cannon/src/utils/Pool.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "../utils/TupleDictionary": [
+    {
+      "id": "./node_modules/cannon/src/utils/TupleDictionary.js",
+      "name": "./node_modules/cannon/src/utils/TupleDictionary.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "../utils/Utils": [
+    {
+      "id": "./node_modules/cannon/src/utils/Utils.js",
+      "name": "./node_modules/cannon/src/utils/Utils.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./utils/Vec3Pool": [
+    {
+      "id": "./node_modules/cannon/src/utils/Vec3Pool.js",
+      "name": "./node_modules/cannon/src/utils/Vec3Pool.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./world/Narrowphase": [
+    {
+      "id": "./node_modules/cannon/src/world/Narrowphase.js",
+      "name": "./node_modules/cannon/src/world/Narrowphase.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./world/World": [
+    {
+      "id": "./node_modules/cannon/src/world/World.js",
+      "name": "./node_modules/cannon/src/world/World.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "three-to-cannon": [
+    {
+      "id": "./node_modules/three-to-cannon/index.js",
+      "name": "./node_modules/three-to-cannon/index.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "./lib/THREE.quickhull": [
+    {
+      "id": "./node_modules/three-to-cannon/lib/THREE.quickhull.js",
+      "name": "./node_modules/three-to-cannon/lib/THREE.quickhull.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "webworkify": [
+    {
+      "id": "./node_modules/webworkify/index.js",
+      "name": "./node_modules/webworkify/index.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
   ]
 }

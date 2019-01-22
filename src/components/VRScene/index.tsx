@@ -1,23 +1,17 @@
-// A-frame Components by community
-import "aframe";
-import "aframe-teleport-controls";
-import "super-hands";
+import * as React from "react";
 
-// Libraries used by MathworldVR (Three.js, out custom A-Frame components, etc.)
-import "lib";
+export class VRScene extends React.Component {
+  componentDidMount() {
+    // A-frame Components by community
+    require("aframe");
+    require("aframe-teleport-controls");
+    require("super-hands");
 
-import React from "react";
-import PropTypes from "prop-types";
-import physics from "aframe-physics-system";
+    // Libraries used by MathworldVR (Three.js, out custom A-Frame components, etc.)
+    require("../../lib");
 
-class VRScene extends React.Component {
-  static propTypes = {
-    children: PropTypes.any.isRequired
-  };
-
-  componentWillMount() {
     // Initialize aframe-physics-system
-    physics.registerAll();
+    import("aframe-physics-system");
   }
 
   render() {
@@ -29,5 +23,3 @@ class VRScene extends React.Component {
     return <a-scene physics="gravity: 0">{this.props.children}</a-scene>;
   }
 }
-
-export default VRScene;

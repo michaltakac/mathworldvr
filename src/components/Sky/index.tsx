@@ -13,7 +13,7 @@ export function Sky(props: any) {
       }}
       material={{
         shader: "flat",
-        src: "url(sky.jpg)",
+        src: "url(/static/sky.jpg)",
         side: "back",
         height: 2048,
         width: 2048

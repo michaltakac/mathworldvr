@@ -112,6 +112,7 @@ AFRAME.registerComponent("datguicontroller", {
     }
   },
   init() {
+    console.log(this);
     const canvas = this.el.sceneEl.canvas;
 
     // Wait for canvas to load.

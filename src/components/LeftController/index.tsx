@@ -1,9 +1,9 @@
 import React from "react";
-// import { Entity } from "aframe-react";
+import { Entity } from "aframe-react";
 
 export const LeftController = (props: any) => {
   return (
-    <a-entity
+    <Entity
       id="leftController"
       hand-controls="left"
       sphere-collider={{ objects: ".interactive", radius: 0.05 }}

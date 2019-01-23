@@ -20,6 +20,7 @@ class App extends React.Component {
     injectGlobal`
       body {
         margin: 0;
+        background-color: #030404;
       }
       .a-canvas {
         position: relative;

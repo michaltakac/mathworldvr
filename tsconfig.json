@@ -2,7 +2,7 @@
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "jsx": "preserve",
+    "jsx": "react",
     "lib": ["dom", "es2017"],
     "module": "esnext",
     "moduleResolution": "node",
@@ -15,5 +15,5 @@
     "sourceMap": true,
     "target": "esnext"
   },
-  "exclude": ["out", ".next"]
+  "exclude": ["out", ".next", "old", "coverage", "build"]
 }

@@ -3,12 +3,6 @@ module.exports =
 /******/ 	// The module cache
 /******/ 	var installedModules = require('../../../ssr-module-cache.js');
 /******/
-/******/ 	// object to store loaded chunks
-/******/ 	// "0" means "already loaded"
-/******/ 	var installedChunks = {
-/******/ 		"static\\development\\pages\\index.js": 0
-/******/ 	};
-/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/
@@ -92,13 +86,6 @@ module.exports =
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
-/******/ 	// uncaught error handler for webpack runtime
-/******/ 	__webpack_require__.oe = function(err) {
-/******/ 		process.nextTick(function() {
-/******/ 			throw err; // catch this error by using import().catch()
-/******/ 		});
-/******/ 	};
-/******/
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 3);
@@ -120,12 +107,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _src_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/components */ "./src/components/index.tsx");
-var _jsxFileName = "D:\\Projects\\mathworldvr\\pages\\index.tsx";
+var _jsxFileName = "/Users/michaltakac/Projects/vr/mathworld/pages/index.tsx";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n      body {\n        margin: 0;\n      }\n      .a-canvas {\n        position: relative;\n      }\n    "]);
+  var data = _taggedTemplateLiteral(["\n      body {\n        margin: 0;\n        background-color: #030404;\n      }\n      .a-canvas {\n        position: relative;\n      }\n    "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -178,43 +165,43 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_2__["VRScene"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 33
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_2__["AttentionBox"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 34
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_2__["LeftController"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 35
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_2__["RightController"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 36
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_2__["FunctionBox"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 38
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_2__["ParametricFunction"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 40
         },
         __self: this
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_2__["Calculator"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 42
+          lineNumber: 43
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_2__["SettingsPanel"], {
@@ -236,19 +223,19 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 44
+          lineNumber: 45
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_2__["Sky"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 51
+          lineNumber: 52
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_2__["Plane"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 52
+          lineNumber: 53
         },
         __self: this
       }));
@@ -276,7 +263,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "D:\\Projects\\mathworldvr\\src\\components\\AttentionBox\\index.tsx";
+var _jsxFileName = "/Users/michaltakac/Projects/vr/mathworld/src/components/AttentionBox/index.tsx";
 
 function _templateObject7() {
   var data = _taggedTemplateLiteral(["\n  color: #fff;\n  textalign: right;\n  right: 10;\n"]);
@@ -497,7 +484,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! aframe-react */ "aframe-react");
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(aframe_react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Text__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Text */ "./src/components/Text/index.tsx");
-var _jsxFileName = "D:\\Projects\\mathworldvr\\src\\components\\CalcButton\\index.tsx";
+var _jsxFileName = "/Users/michaltakac/Projects/vr/mathworld/src/components/CalcButton/index.tsx";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -659,7 +646,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! aframe-react */ "aframe-react");
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(aframe_react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var ___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ */ "./src/components/index.tsx");
-var _jsxFileName = "D:\\Projects\\mathworldvr\\src\\components\\Calculator\\index.tsx";
+var _jsxFileName = "/Users/michaltakac/Projects/vr/mathworld/src/components/Calculator/index.tsx";
 
 
 
@@ -1241,7 +1228,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! aframe-react */ "aframe-react");
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(aframe_react__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "D:\\Projects\\mathworldvr\\src\\components\\Camera\\index.tsx";
+var _jsxFileName = "/Users/michaltakac/Projects/vr/mathworld/src/components/Camera/index.tsx";
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -1275,7 +1262,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! aframe-react */ "aframe-react");
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(aframe_react__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "D:\\Projects\\mathworldvr\\src\\components\\FunctionBox\\index.tsx";
+var _jsxFileName = "/Users/michaltakac/Projects/vr/mathworld/src/components/FunctionBox/index.tsx";
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
@@ -1320,14 +1307,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LeftController", function() { return LeftController; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "D:\\Projects\\mathworldvr\\src\\components\\LeftController\\index.tsx";
+/* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! aframe-react */ "aframe-react");
+/* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(aframe_react__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "/Users/michaltakac/Projects/vr/mathworld/src/components/LeftController/index.tsx";
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
- // import { Entity } from "aframe-react";
+
 
 var LeftController = function LeftController(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a-entity", _extends({
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(aframe_react__WEBPACK_IMPORTED_MODULE_1__["Entity"], _extends({
     id: "leftController",
     "hand-controls": "left",
     "sphere-collider": {
@@ -1368,7 +1357,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! aframe-react */ "aframe-react");
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(aframe_react__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "D:\\Projects\\mathworldvr\\src\\components\\Lights\\index.tsx";
+var _jsxFileName = "/Users/michaltakac/Projects/vr/mathworld/src/components/Lights/index.tsx";
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -1443,7 +1432,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! aframe-react */ "aframe-react");
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(aframe_react__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "D:\\Projects\\mathworldvr\\src\\components\\ParametricFunction\\index.tsx";
+var _jsxFileName = "/Users/michaltakac/Projects/vr/mathworld/src/components/ParametricFunction/index.tsx";
 
 
 var ParametricFunction = function ParametricFunction(_ref) {
@@ -1494,7 +1483,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! aframe-react */ "aframe-react");
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(aframe_react__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "D:\\Projects\\mathworldvr\\src\\components\\Plane\\index.tsx";
+var _jsxFileName = "/Users/michaltakac/Projects/vr/mathworld/src/components/Plane/index.tsx";
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -1507,7 +1496,7 @@ var Plane = function Plane(props) {
       radius: 12
     },
     material: {
-      src: "url(floor.jpg)",
+      src: "url(/static/floor.jpg)",
       shader: "flat",
       roughness: 0
     },
@@ -1538,7 +1527,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! aframe-react */ "aframe-react");
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(aframe_react__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "D:\\Projects\\mathworldvr\\src\\components\\RightController\\index.tsx";
+var _jsxFileName = "/Users/michaltakac/Projects/vr/mathworld/src/components/RightController/index.tsx";
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -1591,7 +1580,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! aframe-react */ "aframe-react");
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(aframe_react__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "D:\\Projects\\mathworldvr\\src\\components\\SettingsController\\index.tsx";
+var _jsxFileName = "/Users/michaltakac/Projects/vr/mathworld/src/components/SettingsController/index.tsx";
 
 
 var defaultProps = {
@@ -1650,7 +1639,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! aframe-react */ "aframe-react");
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(aframe_react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var ___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ */ "./src/components/index.tsx");
-var _jsxFileName = "D:\\Projects\\mathworldvr\\src\\components\\SettingsPanel\\index.tsx";
+var _jsxFileName = "/Users/michaltakac/Projects/vr/mathworld/src/components/SettingsPanel/index.tsx";
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -1823,7 +1812,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! aframe-react */ "aframe-react");
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(aframe_react__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "D:\\Projects\\mathworldvr\\src\\components\\Sky\\index.tsx";
+var _jsxFileName = "/Users/michaltakac/Projects/vr/mathworld/src/components/Sky/index.tsx";
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -1840,7 +1829,7 @@ function Sky(props) {
     },
     material: {
       shader: "flat",
-      src: "url(sky.jpg)",
+      src: "url(/static/sky.jpg)",
       side: "back",
       height: 2048,
       width: 2048
@@ -1870,7 +1859,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! aframe-react */ "aframe-react");
 /* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(aframe_react__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "D:\\Projects\\mathworldvr\\src\\components\\Text\\index.tsx";
+var _jsxFileName = "/Users/michaltakac/Projects/vr/mathworld/src/components/Text/index.tsx";
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -1938,7 +1927,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VRScene", function() { return VRScene; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "D:\\Projects\\mathworldvr\\src\\components\\VRScene\\index.tsx";
+/* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! aframe-react */ "aframe-react");
+/* harmony import */ var aframe_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(aframe_react__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "/Users/michaltakac/Projects/vr/mathworld/src/components/VRScene/index.tsx";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1959,6 +1950,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
+
 var VRScene =
 /*#__PURE__*/
 function (_React$Component) {
@@ -1976,15 +1968,16 @@ function (_React$Component) {
       // A-frame Components by community
       __webpack_require__(/*! aframe */ "aframe");
 
-      __webpack_require__(/*! aframe-teleport-controls */ "aframe-teleport-controls");
-
-      __webpack_require__(/*! super-hands */ "super-hands"); // Libraries used by MathworldVR (Three.js, out custom A-Frame components, etc.)
+      __webpack_require__(/*! aframe-teleport-controls */ "aframe-teleport-controls"); // Libraries used by MathworldVR (Three.js, out custom A-Frame components, etc.)
 
 
       __webpack_require__(/*! ../../lib */ "./src/lib/index.js"); // Initialize aframe-physics-system
 
 
-      Promise.resolve(/*! import() */).then(__webpack_require__.t.bind(null, /*! aframe-physics-system */ "aframe-physics-system", 7));
+      __webpack_require__(/*! aframe-physics-system */ "aframe-physics-system"); // require("aframe-extras");
+
+
+      __webpack_require__(/*! super-hands */ "super-hands");
     }
   }, {
     key: "render",
@@ -1994,11 +1987,11 @@ function (_React$Component) {
       // is not applied before components are rendered, so they fall...
       // https://github.com/facebook/react/issues/5737#issuecomment-167352763
       // TODO: use React.Suspense
-      return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("a-scene", {
+      return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](aframe_react__WEBPACK_IMPORTED_MODULE_1__["Scene"], {
         physics: "gravity: 0",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 23
+          lineNumber: 25
         },
         __self: this
       }, this.props.children);
@@ -2014,7 +2007,7 @@ function (_React$Component) {
 /*!**********************************!*\
   !*** ./src/components/index.tsx ***!
   \**********************************/
-/*! exports provided: AttentionBox, CalcButton, Calculator, Camera, FunctionBox, LeftController, Lights, ParametricFunction, Plane, RightController, SettingsController, SettingsPanel, Sky, Text, VRScene */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2217,6 +2210,7 @@ aframe__WEBPACK_IMPORTED_MODULE_0___default.a.registerComponent("datguicontrolle
   init: function init() {
     var _this = this;
 
+    console.log(this);
     var canvas = this.el.sceneEl.canvas; // Wait for canvas to load.
 
     if (!canvas) {

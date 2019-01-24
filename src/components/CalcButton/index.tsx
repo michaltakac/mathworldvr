@@ -82,6 +82,7 @@ export class CalcButton extends React.Component<CalcButtonProps, any> {
         hoverable
         clickable
         events={{
+          mousedown: e => console.log("clicked", e),
           "hover-start": this.startIntersection,
           "hover-end": this.endIntersection
         }}

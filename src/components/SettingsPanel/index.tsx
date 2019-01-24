@@ -1,5 +1,6 @@
-import React from "react";
+import * as React from "react";
 import { Entity } from "aframe-react";
+import { SettingsContainer } from "../../containers/Settings";
 import { SettingsController } from "../";
 
 const colors = ["#bada55", "red", "green", "purple", "blue", "cyan"];
@@ -7,16 +8,10 @@ const colors = ["#bada55", "red", "green", "purple", "blue", "cyan"];
 export type SettingsPanelProps = {
   controllerLeft?: string;
   controllerRight?: string;
-  children: any;
   name?: string;
-  setXMin: () => Promise<void>;
-  setYMin: () => Promise<void>;
-  setZMin: () => Promise<void>;
-  setXMax: () => Promise<void>;
-  setYMax: () => Promise<void>;
-  setZMax: () => Promise<void>;
-  setSegments: () => Promise<void>;
-  setFunctionColor: () => Promise<void>;
+  position?: { x: number; y: number; z: number };
+  rotation?: { x: number; y: number; z: number };
+  scale?: { x: number; y: number; z: number };
 };
 
 const defaultProps = {
@@ -29,16 +24,19 @@ const SettingsPanel = ({
   name,
   controllerLeft,
   controllerRight,
-  setXMin,
-  setYMin,
-  setZMin,
-  setXMax,
-  setYMax,
-  setZMax,
-  setSegments,
-  setFunctionColor,
   ...props
 }: SettingsPanelProps) => {
+  const {
+    settings,
+    setXmin,
+    setYmin,
+    setZmin,
+    setXmax,
+    setYmax,
+    setZmax,
+    setSegments,
+    setColor
+  } = React.useContext(SettingsContainer.Context);
   return (
     <Entity {...props}>
       <Entity datgui={{ name, controllerLeft, controllerRight }} />
@@ -48,70 +46,76 @@ const SettingsPanel = ({
         step={0.01}
         min={-20}
         max={20}
-        initialState={-1}
-        actionToTrigger={setXMin}
+        initialState={settings.xMin}
+        actionToTrigger={setXmin}
       />
+
       <SettingsController
         type="slider"
         name="yMin"
         step={0.01}
         min={-20}
         max={20}
-        initialState={-1}
-        actionToTrigger={setYMin}
+        initialState={settings.yMin}
+        actionToTrigger={setYmin}
       />
+
       <SettingsController
         type="slider"
         name="zMin"
         step={0.01}
         min={-20}
         max={20}
-        initialState={-4}
-        actionToTrigger={setZMin}
+        initialState={settings.zMin}
+        actionToTrigger={setZmin}
       />
+
       <SettingsController
         type="slider"
         name="xMax"
         step={0.01}
         min={-20}
         max={20}
-        initialState={1}
-        actionToTrigger={setXMax}
+        initialState={settings.xMax}
+        actionToTrigger={setXmax}
       />
+
       <SettingsController
         type="slider"
         name="yMax"
         step={0.01}
         min={-20}
         max={20}
-        initialState={1}
-        actionToTrigger={setYMax}
+        initialState={settings.yMax}
+        actionToTrigger={setYmax}
       />
+
       <SettingsController
         type="slider"
         name="zMax"
         step={0.01}
         min={-20}
         max={20}
-        initialState={4}
-        actionToTrigger={setZMax}
+        initialState={settings.zMax}
+        actionToTrigger={setZmax}
       />
+
       <SettingsController
         type="slider"
         name="segments"
         step={1}
         min={1}
         max={50}
-        initialState={30}
+        initialState={settings.segments}
         actionToTrigger={setSegments}
       />
 
       <SettingsController
         type="dropdown"
         name="functionColor"
-        initialState="#bada55"
         options={colors}
-        actionToTrigger={setFunctionColor}
+        initialState={settings.functionColor}
+        actionToTrigger={setColor}
       />
     </Entity>
   );

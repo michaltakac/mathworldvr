@@ -9,6 +9,7 @@
     "jsx": "react",
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
     "noImplicitReturns": true,
     "noImplicitThis": false,
     "noImplicitAny": true,

@@ -1,3 +1,5 @@
+declare var dat: any;
+
 let gui;
 
 function bindInput(el, input) {
@@ -5,6 +7,13 @@ function bindInput(el, input) {
     input.pressed(true);
   });
   el.addEventListener("triggerup", function() {
+    input.pressed(false);
+  });
+  el.addEventListener("mousedown", function() {
+    console.log("onmousedown");
+    input.pressed(true);
+  });
+  el.addEventListener("mouseup", function() {
     input.pressed(false);
   });
   el.addEventListener("gripdown", function() {
@@ -110,7 +119,6 @@ AFRAME.registerComponent("datguicontroller", {
     }
   },
   init() {
-    console.log(this);
     const canvas = this.el.sceneEl.canvas;
 
     // Wait for canvas to load.

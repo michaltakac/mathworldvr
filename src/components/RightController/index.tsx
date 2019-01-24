@@ -9,8 +9,6 @@ export const RightController = (props: any) => {
       sphere-collider={{ objects: ".interactive", radius: 0.05 }}
       if-no-vr-headset={{ visible: false }}
       super-hands
-      gearvr-controls={{ hand: "right" }}
-      daydream-controls={{ hand: "right" }}
       static-body={{ shape: "sphere", sphereRadius: 0.05 }}
       {...props}
     />

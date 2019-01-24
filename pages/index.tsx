@@ -1,7 +1,6 @@
 import React from "react";
 import { injectGlobal } from "styled-components";
 import {
-  Lights,
   Sky,
   VRScene,
   LeftController,
@@ -13,8 +12,17 @@ import {
   FunctionBox,
   ParametricFunction,
   SettingsPanel,
-  Loading
+  Loading,
+  Camera
 } from "../src/components";
+import {
+  SettingsContainer,
+  SETTINGS_INITIAL_STATE
+} from "../src/containers/Settings";
+import {
+  CalculatorContainer,
+  CALCULATOR_INITIAL_STATE
+} from "../src/containers/Calculator";
 
 class App extends React.Component {
   state = { ready: false };
@@ -41,19 +49,26 @@ class App extends React.Component {
       <div>
         <VRScene>
           <AttentionBox />
+          <Camera />
           <LeftController />
           <RightController />
-          <FunctionBox>
-            {/* Function mesh with grid */}
-            <ParametricFunction />
-          </FunctionBox>
-          <Calculator />
-          <SettingsPanel
-            name="Function settings"
-            position={{ x: -0.37, y: 1.93, z: -0.34 }}
-            rotation={{ x: 10, y: 30, z: 0 }}
-            scale={{ x: 0.5, y: 0.5, z: 0.5 }}
-          />
+          <SettingsContainer.Provider initialState={SETTINGS_INITIAL_STATE}>
+            <CalculatorContainer.Provider
+              initialState={CALCULATOR_INITIAL_STATE}
+            >
+              <FunctionBox position={{ x: 0.4, y: 1.52, z: -0.76 }}>
+                {/* Function mesh with grid */}
+                <ParametricFunction />
+              </FunctionBox>
+              <Calculator />
+            </CalculatorContainer.Provider>
+            <SettingsPanel
+              name="Function settings"
+              position={{ x: -0.37, y: 1.93, z: -0.34 }}
+              rotation={{ x: 10, y: 30, z: 0 }}
+              scale={{ x: 0.5, y: 0.5, z: 0.5 }}
+            />
+          </SettingsContainer.Provider>
           <Sky />
           <Plane />
         </VRScene>

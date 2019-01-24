@@ -1,22 +1,18 @@
 import React from "react";
 import { Entity } from "aframe-react";
 import { CalcButton, Text } from "../";
+import { CalculatorContainer } from "../../containers/Calculator";
 
-export type CalculatorProps = {
-  displayText: string;
-  writeText: () => Promise<void>;
-  backspace: () => Promise<void>;
-  clearText: () => Promise<void>;
-  updateEquation: () => Promise<void>;
-};
+export function Calculator() {
+  const { settings, updateEquation } = React.useContext(
+    CalculatorContainer.Context
+  );
+  const [expression, setExpression] = React.useState(settings.expression);
 
-export function Calculator({
-  displayText,
-  writeText,
-  backspace,
-  clearText,
-  updateEquation
-}: CalculatorProps) {
+  const writeText = (value: string) => setExpression(`${expression}${value}`);
+  const backSpace = () => setExpression(expression.slice(0, -1));
+  const clearText = () => setExpression("");
+
   return (
     <Entity
       className="interactive calculator"
@@ -33,7 +29,7 @@ export function Calculator({
       {/* Calculator display */}
       <Text
         id="calc-display"
-        value={displayText}
+        value={settings.expression}
         align="center"
         color="#fff"
         position={{ x: 0, y: 0.26, z: 0 }}
@@ -47,7 +43,6 @@ export function Calculator({
         <CalcButton
           id="calc-update"
           text="Update"
-          value={displayText}
           position={{ x: -0.28, y: -0.19, z: 0.03 }}
           width={0.43}
           actionToTrigger={updateEquation}
@@ -263,7 +258,7 @@ export function Calculator({
           text="<-"
           position={{ x: 0.37, y: 0.09, z: 0.03 }}
           id="calc-backspace"
-          actionToTrigger={backspace}
+          actionToTrigger={backSpace}
         />
         <CalcButton
           text="clr"

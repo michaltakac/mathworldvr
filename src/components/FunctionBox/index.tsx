@@ -16,7 +16,6 @@ export const FunctionBox = ({ position, ...props }: FunctionBoxProps) => (
     position={position}
     grabbable
     stretchable
-    dynamic-body
     stop-flying
   >
     {props.children}

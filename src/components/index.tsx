@@ -5,6 +5,7 @@ export * from "./Camera";
 export * from "./FunctionBox";
 export * from "./LeftController";
 export * from "./Lights";
+export * from "./Loading";
 export * from "./ParametricFunction";
 export * from "./Plane";
 export * from "./RightController";

@@ -14,7 +14,8 @@ export type CalcButtonProps = {
   textWidth?: number;
   value?: string;
 };
-export class CalcButton extends React.Component {
+
+export class CalcButton extends React.Component<CalcButtonProps, any> {
   static defaultProps: CalcButtonProps = {
     value: "",
     width: 0.15,

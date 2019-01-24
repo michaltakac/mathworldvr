@@ -1,19 +1,22 @@
 {
   "compilerOptions": {
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "jsx": "react",
-    "lib": ["dom", "es2017"],
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noEmit": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "preserveConstEnums": true,
-    "removeComments": false,
-    "skipLibCheck": true,
+    "outDir": "build/dist",
+    "module": "es6",
+    "target": "es5",
+    "lib": ["es6", "dom"],
     "sourceMap": true,
-    "target": "esnext"
+    "allowJs": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": false,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": false,
+    "skipDefaultLibCheck": true,
+    "allowSyntheticDefaultImports": true
   },
-  "exclude": ["out", ".next", "old", "coverage", "build"]
+  "exclude": ["out", ".next", "old", "coverage", "node_modules", "build"]
 }

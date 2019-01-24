@@ -1,7 +1,6 @@
 /**
  * @author alteredq / http://alteredqualia.com/
  */
-import { THREE } from "aframe";
 
 THREE.SceneUtils = {
   createMultiMaterialObject: function(geometry, materials) {

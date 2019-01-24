@@ -12,7 +12,7 @@ export type TextProps = {
   align?: string;
   opacity?: number;
   zOffset?: number;
-  position: { x: number; y: number; z: number };
+  position?: { x: number; y: number; z: number };
 };
 
 const defaultProps = {

@@ -1,5 +1,3 @@
-// import AFRAME, { THREE } from "aframe";
-
 /**
  * Grid component.
  */

@@ -10,7 +10,6 @@ function bindInput(el, input) {
     input.pressed(false);
   });
   el.addEventListener("mousedown", function() {
-    console.log("onmousedown");
     input.pressed(true);
   });
   el.addEventListener("mouseup", function() {

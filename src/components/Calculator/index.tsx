@@ -3,11 +3,11 @@ import { Entity } from "aframe-react";
 import { CalcButton, Text } from "../";
 import { CalculatorContainer } from "../../containers/Calculator";
 
-export function Calculator() {
-  const { settings, updateEquation } = React.useContext(
+export function Calculator(props: any) {
+  const { calculatorData, updateEquation } = React.useContext(
     CalculatorContainer.Context
   );
-  const [expression, setExpression] = React.useState(settings.expression);
+  const [expression, setExpression] = React.useState(calculatorData.expression);
 
   const writeText = (value: string) => setExpression(`${expression}${value}`);
   const backSpace = () => setExpression(expression.slice(0, -1));
@@ -19,9 +19,9 @@ export function Calculator() {
       id="text-box"
       geometry="primitive: box; width: 0.88; height: 0.65; depth: 0.01;"
       material="shader: flat; side: double; color: #8d8547; "
-      position="-0.03 1.2 -0.26"
+      position={props.position || "-0.03 1.2 -0.26"}
       rotation="-45 0 0"
-      scale="1 1 1"
+      scale="0.7 0.7 0.7"
       grabbable
       stretchable
       dynamic-body
@@ -29,7 +29,7 @@ export function Calculator() {
       {/* Calculator display */}
       <Text
         id="calc-display"
-        value={settings.expression}
+        value={expression}
         align="center"
         color="#fff"
         position={{ x: 0, y: 0.26, z: 0 }}
@@ -43,9 +43,10 @@ export function Calculator() {
         <CalcButton
           id="calc-update"
           text="Update"
+          value={calculatorData.expression}
           position={{ x: -0.28, y: -0.19, z: 0.03 }}
           width={0.43}
-          actionToTrigger={updateEquation}
+          actionToTrigger={() => updateEquation(expression)}
         />
 
         <CalcButton

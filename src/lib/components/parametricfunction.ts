@@ -15,9 +15,8 @@ AFRAME.registerComponent("parametricfunction", {
     functionColor: { type: "string", default: "#bada55" }
   },
 
-  init: function() {
+  init() {
     const el = this.el;
-    console.log(this, el);
     const canvas = el.sceneEl && el.sceneEl.canvas;
     // Wait for canvas to load.
     if (!canvas) {
@@ -26,7 +25,7 @@ AFRAME.registerComponent("parametricfunction", {
     }
   },
 
-  update: function(oldData) {
+  update() {
     var scene = this.el.object3D;
     // Equation parser
     var equation = "f(x,y) = " + this.data.equation;
@@ -109,7 +108,7 @@ AFRAME.registerComponent("parametricfunction", {
     scene.add(graphMesh);
   },
 
-  remove: function() {
+  remove() {
     var scene = this.el.object3D;
     this.el.object3D.remove(scene.getObjectByName("parametricfunction"));
   }

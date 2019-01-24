@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from "react";
 import styled from "styled-components";
 
@@ -51,12 +50,13 @@ const Span = styled.span`
   right: 10;
 `;
 
-export function AttentionBox({ attentionBoxVisible, toggleAttentionBox }) {
+export function AttentionBox() {
+  const [visible, setVisibility] = React.useState(true);
   return (
     <Wrapper>
       <Panel>
         <Span>
-          <Anchor href="#" onClick={toggleAttentionBox}>
+          <Anchor href="#" onClick={() => setVisibility(!visible)}>
             Close [x]
           </Anchor>
         </Span>

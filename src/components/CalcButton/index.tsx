@@ -40,13 +40,13 @@ export class CalcButton extends React.Component<CalcButtonProps, any> {
   }
 
   startIntersection() {
-    const { actionToTrigger, value } = this.props;
-    this.setState({ depth: 0, opacity: 0.2 });
-    actionToTrigger(value);
+    this.setState({ depth: 0.01, opacity: 0.2 });
   }
 
   endIntersection() {
+    const { actionToTrigger, value } = this.props;
     this.setState({ depth: 0.02, opacity: 1 });
+    actionToTrigger(value);
   }
 
   render() {
@@ -65,12 +65,7 @@ export class CalcButton extends React.Component<CalcButtonProps, any> {
       <Entity
         id={id}
         className="interactive"
-        geometry={{
-          primitive: "box",
-          height,
-          width,
-          depth
-        }}
+        geometry={{ primitive: "box", height, width, depth }}
         material={{
           shader: "flat",
           side: "double",
@@ -82,9 +77,10 @@ export class CalcButton extends React.Component<CalcButtonProps, any> {
         hoverable
         clickable
         events={{
-          mousedown: e => console.log("clicked", e),
-          "hover-start": this.startIntersection,
-          "hover-end": this.endIntersection
+          mousedown: this.startIntersection,
+          mouseup: this.endIntersection
+          // "hover-start": this.startIntersection,
+          // "hover-end": this.endIntersection
         }}
       >
         <Text

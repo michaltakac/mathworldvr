@@ -16,7 +16,7 @@ export const FunctionBox = ({ position, ...props }: FunctionBoxProps) => (
     position={position}
     grabbable
     stretchable
-    stop-flying
+    shadow
   >
     {props.children}
   </Entity>

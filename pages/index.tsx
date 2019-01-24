@@ -15,14 +15,8 @@ import {
   Loading,
   Camera
 } from "../src/components";
-import {
-  SettingsContainer,
-  SETTINGS_INITIAL_STATE
-} from "../src/containers/Settings";
-import {
-  CalculatorContainer,
-  CALCULATOR_INITIAL_STATE
-} from "../src/containers/Calculator";
+import { SettingsContainer } from "../src/containers/Settings";
+import { CalculatorContainer } from "../src/containers/Calculator";
 
 class App extends React.Component {
   state = { ready: false };
@@ -52,11 +46,9 @@ class App extends React.Component {
           <Camera />
           <LeftController />
           <RightController />
-          <SettingsContainer.Provider initialState={SETTINGS_INITIAL_STATE}>
-            <CalculatorContainer.Provider
-              initialState={CALCULATOR_INITIAL_STATE}
-            >
-              <FunctionBox position={{ x: 0.4, y: 1.52, z: -0.76 }}>
+          <SettingsContainer.Provider>
+            <CalculatorContainer.Provider>
+              <FunctionBox position={{ x: 0.45, y: 1.52, z: -1 }}>
                 {/* Function mesh with grid */}
                 <ParametricFunction />
               </FunctionBox>

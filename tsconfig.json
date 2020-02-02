@@ -1,12 +1,15 @@
 {
   "compilerOptions": {
     "outDir": "build/dist",
-    "module": "es6",
+    "module": "esnext",
     "target": "es5",
-    "lib": ["es6", "dom"],
+    "lib": [
+      "es6",
+      "dom"
+    ],
     "sourceMap": true,
     "allowJs": true,
-    "jsx": "react",
+    "jsx": "preserve",
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
@@ -17,7 +20,24 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": false,
     "skipDefaultLibCheck": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
-  "exclude": ["out", ".next", "old", "coverage", "node_modules", "build"]
+  "exclude": [
+    "out",
+    ".next",
+    "old",
+    "coverage",
+    "node_modules",
+    "build"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }

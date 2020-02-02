@@ -1,8 +1,10 @@
+import AFRAME from "aframe"
+
 declare var dat: any;
 
-let gui;
+let gui: any;
 
-function bindInput(el, input) {
+function bindInput(el: any, input: any) {
   el.addEventListener("triggerdown", function() {
     input.pressed(true);
   });
@@ -156,7 +158,7 @@ AFRAME.registerComponent("datguicontroller", {
     }
 
     if (this.controller && this.controller.onChange) {
-      this.controller.onChange(v => {
+      this.controller.onChange((v: any) => {
         this.data.actionToTrigger(v);
       });
     }

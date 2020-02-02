@@ -1,5 +1,5 @@
 import React from "react";
-import { injectGlobal } from "styled-components";
+import styled, { createGlobalStyle, css } from 'styled-components';
 import {
   Sky,
   VRScene,
@@ -18,19 +18,25 @@ import {
 import { SettingsContainer } from "../src/containers/Settings";
 import { CalculatorContainer } from "../src/containers/Calculator";
 
+const StyledApp = createGlobalStyle`
+  body {
+    margin: 0;
+    background-color: #030404;
+  }
+  .a-canvas {
+    position: relative;
+  }
+  .a-enter-vr {
+    right: 0;
+    top: 0;
+    height: 48px;
+  }
+`;
+
 class App extends React.Component {
   state = { ready: false };
-  componentDidMount() {
-    injectGlobal`
-      body {
-        margin: 0;
-        background-color: #030404;
-      }
-      .a-canvas {
-        position: relative;
-      }
-    `;
 
+  componentDidMount() {
     this.setState({ ready: true });
   }
 
@@ -40,7 +46,7 @@ class App extends React.Component {
     }
 
     return (
-      <div>
+      <StyledApp>
         <VRScene>
           <AttentionBox />
           <Camera />
@@ -64,7 +70,7 @@ class App extends React.Component {
           <Sky />
           <Plane />
         </VRScene>
-      </div>
+      </StyledApp>
     );
   }
 }

@@ -1,3 +1,5 @@
+import AFRAME from "aframe"
+
 /**
  * Grid component.
  */

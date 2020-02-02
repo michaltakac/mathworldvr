@@ -22,7 +22,8 @@ const defaultProps = {
   letterSpacing: 0,
   align: "left",
   opacity: 1,
-  zOffset: 0
+  zOffset: 0,
+  value: ""
 };
 
 function Text({

@@ -12,7 +12,7 @@ export type CalcButtonProps = {
   text?: string;
   textColor?: string;
   textWidth?: number;
-  value?: string;
+  value: string;
 };
 
 export class CalcButton extends React.Component<CalcButtonProps, any> {
@@ -46,7 +46,8 @@ export class CalcButton extends React.Component<CalcButtonProps, any> {
   endIntersection() {
     const { actionToTrigger, value } = this.props;
     this.setState({ depth: 0.02, opacity: 1 });
-    actionToTrigger(value);
+
+    // actionToTrigger(value);
   }
 
   render() {

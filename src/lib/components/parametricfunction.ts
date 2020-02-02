@@ -1,6 +1,6 @@
-import math from "mathjs";
+import { parser, Parser } from "mathjs";
 
-var graphMesh;
+var graphMesh: any;
 
 AFRAME.registerComponent("parametricfunction", {
   schema: {
@@ -30,7 +30,7 @@ AFRAME.registerComponent("parametricfunction", {
     // Equation parser
     var equation = "f(x,y) = " + this.data.equation;
 
-    var parser = math.parser();
+    var parser: any = parser();
     try {
       parser.eval(equation);
     } catch (error) {
@@ -67,7 +67,7 @@ AFRAME.registerComponent("parametricfunction", {
     });
     this.functionMaterial = [this.mainMaterial, this.wireframeMaterial];
 
-    function meshFunction(x, y) {
+    function meshFunction(x: number, y: number) {
       x = xRange * x + xMin;
       y = yRange * y + yMin;
       var z = f1(x, y);

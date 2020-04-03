@@ -102,6 +102,7 @@
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-redux": "^4.0.8",
+    "react-spring-three": "^1.0.4",
     "react-three-fiber": "^4.0.25",
     "redux": "^3.6.0",
     "redux-logger": "^3.0.6",

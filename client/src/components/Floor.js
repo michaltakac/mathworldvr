@@ -1,13 +1,13 @@
 import React from "react";
 import * as THREE from "three";
 
-export function Sky(props) {
+export function Floor(props) {
   return (
     <mesh {...props}>
-      <sphereGeometry attach="geometry" args={[30, 32, 16]} />
-      <meshLambertMaterial
+      <planeBufferGeometry attach="geometry" args={[4, 4]} />
+      <meshStandardMaterial
         attach="material"
-        color="green"
+        color={props.color}
         side={THREE.DoubleSide}
       />
     </mesh>

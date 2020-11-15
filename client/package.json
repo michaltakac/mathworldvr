@@ -10,6 +10,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "mathjs": "^8.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.0",
@@ -17,7 +18,10 @@
     "react-three-fiber": "^5.2.1",
     "recoil": "^0.1.2",
     "three": "^0.122.0",
-    "web-vitals": "^0.2.4"
+    "tweakpane": "^1.5.6",
+    "use-tweaks": "^0.3.0",
+    "web-vitals": "^0.2.4",
+    "zustand": "^3.1.4"
   },
   "scripts": {
     "start": "react-scripts start",

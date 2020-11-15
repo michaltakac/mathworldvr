@@ -4,8 +4,8 @@ import { Select, Hover } from "@react-three/xr";
 import { Text } from "@react-three/drei";
 import { Color, Box3 } from "three/build/three.module";
 
-const MAIN_COLOR = new Color(0x444444);
-const HOVERED_COLOR = new Color(0xffffff);
+const MAIN_COLOR = new Color(0x3b3b3b);
+const HOVERED_COLOR = new Color(0x005f15);
 
 export function Key({
   name,
@@ -23,10 +23,10 @@ export function Key({
     /* noop */
   };
 
-  const onHover = useCallback(() => {
+  const onHover = () => {
     setHover(!hover);
     setColor(hover ? HOVERED_COLOR : MAIN_COLOR);
-  }, [hover, color]);
+  };
 
   const mesh = useRef();
 
@@ -89,7 +89,7 @@ export function Key({
           <Text
             position={[0, 0.003, keySize / 10]}
             fontSize={fontSize}
-            color={hover ? "#000" : "#282c34"}
+            color="#ffffff"
           >
             {name}
           </Text>

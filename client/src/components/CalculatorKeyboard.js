@@ -2,14 +2,12 @@ import React, { useState, useCallback, useEffect } from "react";
 import { Select } from "@react-three/xr";
 import { Text } from "@react-three/drei";
 import { Key } from "./Key";
-
-function updateGraph() {
-  console.log("graph would be updated now!")
-}
+import { useStore } from "../lib/store";
 
 export function CalculatorKeyboard() {
+  const { equation, updateEquation } = useStore();
   const [state, setState] = useState({
-    equation: "",
+    equation,
   });
 
   const [toggleCursor, setToggleCursor] = useState(false);
@@ -34,9 +32,11 @@ export function CalculatorKeyboard() {
     });
   };
 
+  const updateGraph = useCallback(() => updateEquation(state.equation), [state.equation])
+
   return (
     <group position={[-0.2, 1.14, -0.4]} rotation={[0, 0, 0]} scale={[0.5, 0.5, 0.5]}>
-      <Text key="display" position={[0.2, 0.1, 0]} fontSize={0.04}>
+      <Text key="display" position={[0.2, 0.1, 0]} fontSize={0.04} color="#000">
         {state.equation + (toggleCursor ? "|" : "")}
       </Text>
       <group position={[-0.1, 0, 0]} rotation={[0, 0, 0]}>

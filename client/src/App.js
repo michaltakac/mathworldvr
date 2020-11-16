@@ -26,6 +26,8 @@ function App() {
         <Hands />
         <DefaultXRControllers />
 
+        <Player />
+
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
         <CalculatorKeyboard

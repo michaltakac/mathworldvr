@@ -21,6 +21,7 @@ export function ParametricFunctionMesh({
         color: 0x00008,
         wireframe: true,
         transparent: true,
+        opacity: 0.2
       }),
     ];
     return new SceneUtils.createMultiMaterialObject(geom, materials);

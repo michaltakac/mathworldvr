@@ -5,10 +5,9 @@ import { Key } from "./Key";
 import { useStore } from "../lib/store";
 
 export function CalculatorKeyboard() {
-  const { equation, updateEquation } = useStore();
-  const [state, setState] = useState({
-    equation,
-  });
+  const { updateEquation } = useStore((state) => state.api);
+  const equation = useStore((state) => state.equation);
+  const [tempEquation, setTempEquation] = useState(equation);
 
   const [toggleCursor, setToggleCursor] = useState(false);
 
@@ -19,25 +18,27 @@ export function CalculatorKeyboard() {
     };
   }, [toggleCursor]);
 
-  const onSelect = (operation) => {
-    setState(() => {
-      switch (operation.value) {
-        case "backspace":
-          return { equation: state.equation.substring(0, state.equation.length - 1) }
-        case "clear":
-          return { equation: "" }
-        default:
-          return { equation: `${state.equation}${operation.value}` }
-      }
-    });
+  const keyPressed = (operation) => {
+    switch (operation.value) {
+      case "backspace":
+        return setTempEquation(tempEquation.substring(0, tempEquation.length - 1));
+      case "clear":
+        return setTempEquation("");
+      default:
+        return setTempEquation(`${tempEquation}${operation.value}`);
+    }
   };
 
-  const updateGraph = useCallback(() => updateEquation(state.equation), [state.equation])
+  const updateGraph = useCallback(() => updateEquation(tempEquation), [tempEquation]);
 
   return (
-    <group position={[-0.2, 1.14, -0.4]} rotation={[0, 0, 0]} scale={[0.5, 0.5, 0.5]}>
+    <group
+      position={[-0.2, 1.14, -0.4]}
+      rotation={[0, 0, 0]}
+      scale={[0.5, 0.5, 0.5]}
+    >
       <Text key="display" position={[0.2, 0.1, 0]} fontSize={0.04} color="#000">
-        {state.equation + (toggleCursor ? "|" : "")}
+        {tempEquation + (toggleCursor ? "|" : "")}
       </Text>
       <group position={[-0.1, 0, 0]} rotation={[0, 0, 0]}>
         {[
@@ -45,7 +46,7 @@ export function CalculatorKeyboard() {
           { text: "cos", value: "cos(" },
           { text: "tan", value: "tan(" },
         ].map((op, i) => (
-          <Select key={op.text} onSelect={() => onSelect(op)}>
+          <Select key={op.text} onSelect={() => keyPressed(op)}>
             <Key name={op.text} pos={[i, 0]} calcKey />
           </Select>
         ))}
@@ -54,7 +55,7 @@ export function CalculatorKeyboard() {
           { text: "log", value: "log(" },
           { text: "ln", value: "ln(" },
         ].map((op, i) => (
-          <Select key={op.text} onSelect={() => onSelect(op)}>
+          <Select key={op.text} onSelect={() => keyPressed(op)}>
             <Key name={op.text} pos={[i, 1]} calcKey />
           </Select>
         ))}
@@ -63,7 +64,7 @@ export function CalculatorKeyboard() {
           { text: "abs", value: "abs(" },
           { text: "^", value: "^" },
         ].map((op, i) => (
-          <Select key={op.text} onSelect={() => onSelect(op)}>
+          <Select key={op.text} onSelect={() => keyPressed(op)}>
             <Key name={op.text} pos={[i, 2]} calcKey />
           </Select>
         ))}
@@ -75,7 +76,7 @@ export function CalculatorKeyboard() {
           { text: "8", value: "8" },
           { text: "9", value: "9" },
         ].map((op, i) => (
-          <Select key={op.text} onSelect={() => onSelect(op)}>
+          <Select key={op.text} onSelect={() => keyPressed(op)}>
             <Key name={op.text} pos={[i, 0]} calcKey />
           </Select>
         ))}
@@ -84,7 +85,7 @@ export function CalculatorKeyboard() {
           { text: "5", value: "5" },
           { text: "6", value: "6" },
         ].map((op, i) => (
-          <Select key={op.text} onSelect={() => onSelect(op)}>
+          <Select key={op.text} onSelect={() => keyPressed(op)}>
             <Key name={op.text} pos={[i, 1]} calcKey />
           </Select>
         ))}
@@ -93,7 +94,7 @@ export function CalculatorKeyboard() {
           { text: "2", value: "2" },
           { text: "3", value: "3" },
         ].map((op, i) => (
-          <Select key={op.text} onSelect={() => onSelect(op)}>
+          <Select key={op.text} onSelect={() => keyPressed(op)}>
             <Key name={op.text} pos={[i, 2]} calcKey />
           </Select>
         ))}
@@ -102,7 +103,7 @@ export function CalculatorKeyboard() {
           { text: "0", value: "0" },
           { text: ",", value: "," },
         ].map((op, i) => (
-          <Select key={op.text} onSelect={() => onSelect(op)}>
+          <Select key={op.text} onSelect={() => keyPressed(op)}>
             <Key name={op.text} pos={[i, 3]} calcKey />
           </Select>
         ))}
@@ -114,7 +115,7 @@ export function CalculatorKeyboard() {
           { text: "+", value: "+" },
           { text: "Del", value: "backspace" },
         ].map((op, i) => (
-          <Select key={op.text} onSelect={() => onSelect(op)}>
+          <Select key={op.text} onSelect={() => keyPressed(op)}>
             <Key name={op.text} pos={[i, 0]} calcKey />
           </Select>
         ))}
@@ -123,7 +124,7 @@ export function CalculatorKeyboard() {
           { text: "-", value: "-" },
           { text: "C", value: "clear" },
         ].map((op, i) => (
-          <Select key={op.text} onSelect={() => onSelect(op)}>
+          <Select key={op.text} onSelect={() => keyPressed(op)}>
             <Key name={op.text} pos={[i, 1]} calcKey />
           </Select>
         ))}
@@ -132,7 +133,7 @@ export function CalculatorKeyboard() {
           { text: "*", value: "*" },
           { text: "x", value: "x" },
         ].map((op, i) => (
-          <Select key={op.text} onSelect={() => onSelect(op)}>
+          <Select key={op.text} onSelect={() => keyPressed(op)}>
             <Key name={op.text} pos={[i, 2]} calcKey />
           </Select>
         ))}
@@ -141,14 +142,20 @@ export function CalculatorKeyboard() {
           { text: "/", value: "/" },
           { text: "y", value: "y" },
         ].map((op, i) => (
-          <Select key={op.text} onSelect={() => onSelect(op)}>
+          <Select key={op.text} onSelect={() => keyPressed(op)}>
             <Key name={op.text} pos={[i, 3]} calcKey />
           </Select>
         ))}
       </group>
 
       <Select onSelect={() => updateGraph()}>
-        <Key name={"Update graph"} pos={[-0.1, 3]} width={3.7} fontSize={0.03} calcKey />
+        <Key
+          name={"Update graph"}
+          pos={[-0.1, 3]}
+          width={3.7}
+          fontSize={0.03}
+          calcKey
+        />
       </Select>
     </group>
   );

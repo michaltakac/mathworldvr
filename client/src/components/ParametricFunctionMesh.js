@@ -25,6 +25,7 @@ export function ParametricFunctionMesh({
   const graph = useRef();
   const graphBoundingBox = useRef();
   const graphGroup = useRef();
+  const refFrame = useRef();
 
   const [isGrabbed, setGrabbed] = useState(false);
 
@@ -51,26 +52,8 @@ export function ParametricFunctionMesh({
     return { geom, mesh, boxHelper };
   }, [equation, parametricFunction, segments, showWireframe]);
 
-  useFrame(() => {
-    if (!rightController) return;
-
-    if (isGrabbed) {
-      const { controller } = rightController;
-      graphGroup.current.position.x = controller.position.x;
-      graphGroup.current.position.y = controller.position.y;
-      graphGroup.current.position.z = controller.position.z;
-      graphGroup.current.rotation.x = controller.rotation.x;
-      graphGroup.current.rotation.y = controller.rotation.y;
-      graphGroup.current.rotation.z = controller.rotation.z;
-    }
-  });
-
   const grabStart = (event) => {
-    // tempVec.copy(graphGroup.current.position);
-    // console.log(tempVec)
-    // setGrabbed(!isGrabbed);
-    console.log(event)
-    const { controller } = event.controller
+    const { controller } = event.controller;
     boxHelper.updateMatrixWorld();
     controller.updateMatrixWorld();
     controller.children[0].geometry.computeBoundingBox();
@@ -82,22 +65,24 @@ export function ParametricFunctionMesh({
     const graphBounding = boxHelper.geometry.boundingBox.clone();
     graphBounding.applyMatrix4(boxHelper.matrixWorld);
 
-    const isIntersecting = graphBounding.intersectsBox(ctrlBoundingBox)
+    const isIntersecting = graphBounding.intersectsBox(ctrlBoundingBox);
 
     if (!isGrabbed && isIntersecting) {
-      setGrabbed(true)
+      setGrabbed(true);
+      controller.attach(graphGroup.current);
     }
   };
 
   const grabEnd = () => {
     setGrabbed(false);
+    refFrame.current.attach(graphGroup.current)
   };
 
   useXREvent("squeezestart", grabStart);
   useXREvent("squeezeend", grabEnd);
 
   return (
-    <Select onSelect={() => {}}>
+    <group ref={refFrame}>
       <group {...props} ref={graphGroup}>
         <primitive object={mesh} ref={graph} />
         <primitive
@@ -114,6 +99,6 @@ export function ParametricFunctionMesh({
           originInCenter={true}
         />
       </group>
-    </Select>
+    </group>
   );
 }

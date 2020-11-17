@@ -47,12 +47,15 @@ function positionAtT(inVec, t, p, v, g) {
   return inVec;
 }
 
+const tempMatrix = new THREE.Matrix4()
+
 export function Player() {
   const [guidingController, setGuidingController] = useState(null);
   const mesh = useRef();
-  const { gl, camera } = useThree();
+  const { gl, camera, raycaster } = useThree();
 
   const leftController = useController("left");
+  const rightController = useController("right");
   console.log(leftController);
 
   function locomotion(offset, camera) {

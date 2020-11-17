@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect } from "react";
 import { Select } from "@react-three/xr";
 import { Text } from "@react-three/drei";
 import { Key } from "./Key";
+import { Display } from "./Display";
 import { useStore } from "../lib/store";
 
 export function CalculatorKeyboard() {
@@ -9,19 +10,12 @@ export function CalculatorKeyboard() {
   const equation = useStore((state) => state.equation);
   const [tempEquation, setTempEquation] = useState(equation);
 
-  const [toggleCursor, setToggleCursor] = useState(false);
-
-  useEffect(() => {
-    let interval = setInterval(() => setToggleCursor(!toggleCursor), 500);
-    return () => {
-      clearInterval(interval);
-    };
-  }, [toggleCursor]);
-
   const keyPressed = (operation) => {
     switch (operation.value) {
       case "backspace":
-        return setTempEquation(tempEquation.substring(0, tempEquation.length - 1));
+        return setTempEquation(
+          tempEquation.substring(0, tempEquation.length - 1)
+        );
       case "clear":
         return setTempEquation("");
       default:
@@ -29,7 +23,9 @@ export function CalculatorKeyboard() {
     }
   };
 
-  const updateGraph = useCallback(() => updateEquation(tempEquation), [tempEquation]);
+  const updateGraph = useCallback(() => updateEquation(tempEquation), [
+    tempEquation,
+  ]);
 
   return (
     <group
@@ -37,9 +33,13 @@ export function CalculatorKeyboard() {
       rotation={[0, 0, 0]}
       scale={[0.5, 0.5, 0.5]}
     >
-      <Text key="display" position={[0.2, 0.1, 0]} fontSize={0.04} color="#000">
-        {tempEquation + (toggleCursor ? "|" : "")}
-      </Text>
+      <Display
+        text={tempEquation}
+        position={[0.2, 0.1, 0]}
+        fontSize={0.04}
+        color="#000"
+        flashingDelay={500}
+      />
       <group position={[-0.1, 0, 0]} rotation={[0, 0, 0]}>
         {[
           { text: "sin", value: "sin(" },

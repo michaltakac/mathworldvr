@@ -2,7 +2,7 @@
 
 <p align="center"><a href="https://mathworldvr.com/" target="_blank"><img width="500" alt="MathworldVR" src="https://raw.githubusercontent.com/michaltakac/mathworldvr/master/public/mathworldvr.jpg"></a></p>
 
-<p align="center">WebVR math platform made with A-Frame, Three.js, React, Redux.</p>
+<p align="center">WebVR math platform made with Three.js and React (react-three-fiber)</p>
 
 <p align="center">
   <a href="https://travis-ci.org/michaltakac/mathworldvr"><img src="https://img.shields.io/travis/michaltakac/mathworldvr.svg?style=flat-square" alt="Build Status"></a>
@@ -17,82 +17,14 @@
 
 ## Usage
 
-- Download and install a [WebVR-enabled browser](https://webvr.info/get-chrome/). Currently only Firefox, Firefox Nightly and experimental versions of Chromium supports the Vive controllers. (You will need to enable these flags for WebVR and Gamepad Extensions: `chrome://flags#enable-webvr` and `chrome://flags#enable-gamepad-extensions`.)
-- Visit [https://mathworldvr.com/](https://mathworldvr.com/) and play with the math functions.
+- Download and install a [WebXR-enabled browser](https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API#Browser_compatibility). Currently only Chrome and Firefox supports it.
+- ~~Visit [https://mathworldvr.com/](https://mathworldvr.com/) and play with the math functions.~~
 
 ## Libraries
 
 - [react](https://facebook.github.io/react/)
-- [redux](http://reactjs.github.io/redux/)
-- [aframe](https://github.com/aframevr/aframe/)
-- [aframe-react](https://github.com/aframevr/aframe-react/)
-- [aframe-teleport-controls](https://github.com/fernandojsg/aframe-teleport-controls)
-- [super-hands](https://github.com/wmurphyrd/aframe-super-hands-component)
 - [jest](https://facebook.github.io/jest/) Painless JavaScript Testing.
 - And much more. Explore the repository.
-
-## App state in predictable state container
-
-MathworldVR uses Redux for all the stuff around the app's state. It helps you write applications that behave consistently. On top of that, it provides a great developer experience, such as live code editing combined with a time traveling debugger. For example, CalcButton component
-used as a backspace on calculator is dispatching Redux action when user "clicks it" with VR hand-controller!
-
-Stateless Calculator component:
-
-```javascript
-const Calculator = ({ backspace }) => {
-  return (
-    <Entity className="interactive calculator">
-      // ...
-      <CalcButton value="<-" id="calc-backspace" actionToTrigger={backspace} />
-      // ...
-    </Entity>
-  )
-}
-```
-
-Calculator container:
-
-```javascript
-import { connect } from 'react-redux'
-import { Calculator } from 'components'
-import { calculatorBackspace } from 'actions'
-
-// ...
-const mapDispatchToProps = (dispatch) => ({
-  backspace: () => dispatch(calculatorBackspace()),
-})
-
-export default connect(mapDispatchToProps)(Calculator)
-```
-
-CalcButton nicely dispatching Redux action that we are passing to it dynamically on 'hover-start' event:
-
-```javascript
-export default class CalcButton extends React.Component {
-  startIntersection = () => {
-    const { actionToTrigger } = this.props
-    // Dispatching Redux action from within WebVR
-    // by touching the CalcButton with VR hand-controller
-    actionToTrigger()
-  }
-
-  render() {
-    return (
-      <Entity
-        id={this.props.id}
-        className="interactive button"
-        hoverable
-        clickable
-        events={{
-          'hover-start': this.startIntersection
-        }}
-      >
-        <Text value={this.props.value} />
-      </Entity>
-    )
-  }
-}
-```
 
 ## Local Development
 
@@ -105,11 +37,17 @@ First, fork the project. Then:
 
 ```bash
 git clone git@github.com:yourusername/mathworldvr && cd mathworldvr
+git checkout webxr-three-ecs
+cd client
 npm install // or yarn install
 npm start
 ```
 
 Then, load [`http://localhost:3000`](http://localhost:3000) in your browser.
+
+### "I don't own VR headset, how can I help with development?"
+
+You can use [WebXR emulator](https://blog.mozvr.com/webxr-emulator-extension/).
 
 ### Generating Builds
 
@@ -124,12 +62,6 @@ For questions and support, [ask on StackOverflow](http://stackoverflow.com/quest
 ## Stay in Touch
 
 - [Follow @michaltakac on Twitter](https://twitter.com/michaltakac).
-
-## A-Frame Community
-
-- To hang out with the community, [join the A-Frame Slack](https://aframevr-slack.herokuapp.com).
-- [Follow `A Week of A-Frame` on the A-Frame blog](https://aframe.io/blog).
-- [Follow @aframevr on Twitter](https://twitter.com/aframevr).
 
 ## Contributing
 

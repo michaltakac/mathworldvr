@@ -4,13 +4,24 @@ import { Text } from "@react-three/drei";
 import { Key } from "./Key";
 import { Display } from "./Display";
 import { useStore } from "../lib/store";
+import useChannel from "../useChannel";
 
 export function CalculatorKeyboard() {
+  const [worldChannel] = useChannel("world:lobby");
+
   const { updateEquation } = useStore((state) => state.api);
   const equation = useStore((state) => state.equation);
   const [tempEquation, setTempEquation] = useState(equation);
 
+  const sendMsg = (key) => {
+    console.log(worldChannel)
+    if (!worldChannel) return;
+    worldChannel.push("message", { body: "Clicked " + key, author: "Mike"}, 500)
+  }
+
   const keyPressed = (operation) => {
+    console.log(operation)
+    sendMsg(operation.value);
     switch (operation.value) {
       case "backspace":
         return setTempEquation(

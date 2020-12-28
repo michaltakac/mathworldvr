@@ -1,6 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { VRCanvas, DefaultXRControllers, Hands } from "@react-three/xr";
 import { OrbitControls, Text, Plane, Sky, Loader } from "@react-three/drei";
+import { PhoenixSocketProvider } from "./PhoenixSocketContext";
+import { Communication } from "./components/Communication";
 import { Player } from "./components/Player";
 import { Box } from "./components/Box";
 // import { Sky } from "./components/Sky";
@@ -51,12 +53,6 @@ function App() {
     }),
   });
 
-  // useEffect(() => {
-  //   effect
-  //   return () => {
-  //     cleanup
-  //   }
-  // }, [equation])
   return (
     <>
       <VRCanvas
@@ -66,17 +62,24 @@ function App() {
           camera: { position: [0, 1.6, 0] },
         }}
       >
-        <Hands />
-        <DefaultXRControllers />
+        <PhoenixSocketProvider>
+          <>
+            <Communication />
+            <Hands />
+            <DefaultXRControllers />
 
-        <Player />
+            <Player />
+
+            <CalculatorKeyboard
+              position={[-0.2, 1.14, -0.4]}
+              rotation={[0, 0, 0]}
+            />
+          </>
+        </PhoenixSocketProvider>
 
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
-        <CalculatorKeyboard
-          position={[-0.2, 1.14, -0.4]}
-          rotation={[0, 0, 0]}
-        />
+
         <OrbitControls />
 
         <Grid position={[0, -1, -2]} divisions={20} />

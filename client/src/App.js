@@ -1,6 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { VRCanvas, DefaultXRControllers, Hands } from "@react-three/xr";
-import { OrbitControls, Text, Plane, Sky, Loader } from "@react-three/drei";
+import {
+  OrbitControls,
+  Text,
+  Plane,
+  Sky,
+  Loader,
+} from "@react-three/drei";
 import { PhoenixSocketProvider } from "./PhoenixSocketContext";
 import { Communication } from "./components/Communication";
 import { Player } from "./components/Player";
@@ -11,6 +17,7 @@ import { Grid } from "./components/Grid";
 import { ParametricFunction } from "./components/ParametricFunction";
 import { makeButton, makeSeparator, useTweaks } from "use-tweaks";
 import { useStore } from "./lib/store";
+import { CarWorld } from "./components/CarWorld";
 
 function App() {
   const eq = useStore((state) => state.equation);
@@ -70,6 +77,8 @@ function App() {
 
             <Player />
 
+            <CarWorld />
+
             <CalculatorKeyboard
               position={[-0.2, 1.14, -0.4]}
               rotation={[0, 0, 0]}
@@ -82,7 +91,7 @@ function App() {
 
         <OrbitControls />
 
-        <Grid position={[0, -1, -2]} divisions={20} />
+        <Grid position={[0, 0, 0]} divisions={40} />
 
         <ParametricFunction
           position={[posX, posZ, posY]}

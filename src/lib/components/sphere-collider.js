@@ -1,90 +1,79 @@
-import AFRAME, { THREE } from 'aframe';
+import * as THREE from 'three'
 
 AFRAME.registerComponent('sphere-collider', {
   schema: {
-    objects: {default: ''},
-    state: {default: 'collided'},
-    radius: {default: 0.09}
+    objects: { default: '' },
+    state: { default: 'collided' },
+    radius: { default: 0.05 }
   },
 
-  init: function () {
-    this.els = [];
-    this.collisions = [];
+  init: function() {
+    this.els = []
+    this.collisions = []
   },
 
-  /**
-   * Update list of entities to test for collision.
-   */
-  update: function () {
-    var data = this.data;
-    var objectEls;
+  update: function() {
+    const data = this.data
+    let objectEls
 
-    // Push entities into list of els to intersect.
     if (data.objects) {
-      objectEls = this.el.sceneEl.querySelectorAll(data.objects);
+      objectEls = this.el.sceneEl.querySelectorAll(data.objects)
     } else {
-      // If objects not defined, intersect with everything.
-      objectEls = this.el.sceneEl.children;
+      objectEls = this.el.sceneEl.children
     }
-    // Convert from NodeList to Array
-    this.els = Array.prototype.slice.call(objectEls);
+    this.els = Array.prototype.slice.call(objectEls)
   },
 
-  tick: (function () {
-    var position = new THREE.Vector3(),
-        meshPosition = new THREE.Vector3();
-    return function () {
-      var el = this.el,
-          data = this.data,
-          mesh = el.getObject3D('mesh'),
-          collisions = [];
+  tick: (function() {
+    const position = new THREE.Vector3()
+    const meshPosition = new THREE.Vector3()
+    
+    return function() {
+      const el = this.el
+      const data = this.data
+      const mesh = el.getObject3D('mesh')
+      const collisions = []
 
-      if (!mesh) { return; }
+      if (!mesh) return
 
-      position.copy(el.getAttribute('position'));
+      el.object3D.getWorldPosition(position)
 
-      // Update collisions.
-      this.els.forEach(intersect);
-      // Emit events.
-      collisions.forEach(handleHit);
-      // No collisions.
+      this.els.forEach(intersect)
+      collisions.forEach(handleHit)
+      
       if (collisions.length === 0) {
-        el.emit('hit', {el: null});
+        el.emit('hit', { el: null })
       }
-      // Updated the state of the elements that are not intersected anymore.
-      this.collisions.filter(function (el) {
-        return collisions.indexOf(el) === -1;
-      }).forEach(function removeState (el) {
-        el.removeState(data.state);
-      });
-      // Store new collisions
-      this.collisions = collisions;
+      
+      this.collisions.filter(el => collisions.indexOf(el) === -1).forEach(el => {
+        el.removeState(data.state)
+        el.emit('hitend')
+      })
+      
+      this.collisions = collisions
 
-      // AABB collision detection
-      function intersect (el) {
-        var radius,
-            mesh = el.getObject3D('mesh');
+      function intersect(targetEl) {
+        const targetMesh = targetEl.getObject3D('mesh')
+        if (!targetMesh) return
 
-        if (!mesh) return;
+        targetMesh.getWorldPosition(meshPosition)
+        
+        let radius = data.radius
+        if (targetMesh.geometry?.boundingSphere) {
+          targetMesh.geometry.computeBoundingSphere()
+          radius += targetMesh.geometry.boundingSphere.radius * targetEl.object3D.scale.x
+        }
 
-        mesh.getWorldPosition(meshPosition);
-        mesh.geometry.computeBoundingSphere();
-        radius = mesh.geometry.boundingSphere.radius;
-        var scaleMultiplicator = el.object3D.scale.getComponent(0);
-
-        const isButtonOrCalculator = (el.classList.contains('button') || el.classList.contains('calculator'));
-        var totalRadius = isButtonOrCalculator ? data.radius : ((radius * scaleMultiplicator) + data.radius);
-
-        if (position.distanceTo(meshPosition) < totalRadius) {
-          collisions.push(el);
+        if (position.distanceTo(meshPosition) < radius) {
+          collisions.push(targetEl)
         }
       }
 
-      function handleHit (hitEl) {
-        hitEl.emit('hit');
-        hitEl.addState(data.state);
-        el.emit('hit', {el: hitEl});
+      function handleHit(hitEl) {
+        hitEl.emit('hit')
+        hitEl.addState(data.state)
+        el.emit('hit', { el: hitEl })
       }
-    };
+    }
   })()
-});
+})

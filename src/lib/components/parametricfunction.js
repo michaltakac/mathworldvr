@@ -1,100 +1,91 @@
-import AFRAME, { THREE } from 'aframe';
-import math from 'mathjs';
+import * as THREE from 'three'
+import * as math from 'mathjs'
 
-var graphMesh;
-
-AFRAME.registerComponent('parametricfunction', {
+// Register as a geometry, not a component
+AFRAME.registerGeometry('parametricfunction', {
   schema: {
-    equation: { type: 'string', default: '' },
-    segments: { type: 'number', default: 20 },
-    xMin: { type: 'number', default: -5 },
-    xMax: { type: 'number', default: 5 },
-    yMin: { type: 'number', default: -5 },
-    yMax: { type: 'number', default: 5 },
-    zMin: { type: 'number', default: -5 },
-    zMax: { type: 'number', default: 5 },
-    functionColor: { type: 'string', default: '#bada55' }
+    equation: { default: 'x^2 + y^2' },
+    segments: { default: 20 },
+    xMin: { default: -3 },
+    xMax: { default: 3 },
+    yMin: { default: -3 },
+    yMax: { default: 3 },
+    zMin: { default: -3 },
+    zMax: { default: 3 }
   },
 
-  init: function() {
-    const el = this.el;
-    const canvas = el.sceneEl.canvas;
-    // Wait for canvas to load.
-    if (!canvas) {
-      el.sceneEl.addEventListener('render-target-loaded', this.init.bind(this));
-      return;
-    }
-  },
-
-  update: function(oldData) {
-    var scene = this.el.object3D;
-    // Equation parser
-    var equation = 'f(x,y) = ' + this.data.equation;
-
-    var parser = math.parser();
+  init: function(data) {
+    const geometry = new THREE.BufferGeometry()
+    
     try {
-      parser.eval(equation);
+      const parsed = math.parse(data.equation)
+      const compiled = parsed.compile()
+      
+      const xRange = data.xMax - data.xMin
+      const yRange = data.yMax - data.yMin
+      
+      const vertices = []
+      const indices = []
+      const uvs = []
+      const normals = []
+      
+      // Generate vertices
+      for (let i = 0; i <= data.segments; i++) {
+        for (let j = 0; j <= data.segments; j++) {
+          const x = data.xMin + (i / data.segments) * xRange
+          const y = data.yMin + (j / data.segments) * yRange
+          
+          let z = 0
+          try {
+            z = compiled.evaluate({ x, y })
+            if (isNaN(z) || !isFinite(z)) z = 0
+            z = Math.max(data.zMin, Math.min(data.zMax, z))
+          } catch {
+            z = 0
+          }
+          
+          vertices.push(x, z, y)
+          uvs.push(i / data.segments, j / data.segments)
+        }
+      }
+      
+      // Generate indices for triangles
+      for (let i = 0; i < data.segments; i++) {
+        for (let j = 0; j < data.segments; j++) {
+          const a = i * (data.segments + 1) + j
+          const b = a + 1
+          const c = a + data.segments + 1
+          const d = c + 1
+          
+          indices.push(a, b, c)
+          indices.push(b, d, c)
+        }
+      }
+      
+      // Set geometry attributes
+      geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3))
+      geometry.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2))
+      geometry.setIndex(indices)
+      geometry.computeVertexNormals()
+      
     } catch (error) {
-      return;
+      console.error('Error creating parametric function geometry:', error)
+      // Create a simple plane as fallback
+      const vertices = [
+        -1, 0, -1,
+         1, 0, -1,
+         1, 0,  1,
+        -1, 0,  1
+      ]
+      const indices = [0, 1, 2, 0, 2, 3]
+      const uvs = [0, 0, 1, 0, 1, 1, 0, 1]
+      
+      geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3))
+      geometry.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2))
+      geometry.setIndex(indices)
+      geometry.computeVertexNormals()
     }
-    //parser.eval(equation);
-    const f1 = parser.get('f');
-    parser.clear();
-
-    var segments = this.data.segments;
-
-    var xMin = this.data.xMin;
-    var xMax = this.data.xMax;
-    var yMin = this.data.yMin;
-    var yMax = this.data.yMax;
-    var zMin = this.data.zMin;
-    var zMax = this.data.zMax;
-
-    var xRange = xMax - xMin;
-    var yRange = yMax - yMin;
-    // var zRange = zMax - zMin;
-
-    xRange = xMax - xMin;
-    yRange = yMax - yMin;
-
-    this.mainMaterial = new THREE.MeshBasicMaterial( { color: this.data.functionColor, side: THREE.DoubleSide } );
-    this.wireframeMaterial = new THREE.MeshBasicMaterial( { color: 0x00008, wireframe: true, transparent: true } );
-    this.functionMaterial = [ this.mainMaterial, this.wireframeMaterial ];
-
-    function meshFunction(x, y) {
-      x = (xRange * x) + xMin;
-      y = (yRange * y) + yMin;
-      var z = f1(x, y);
-      // console.log('x is ' + x + ', y is ' + y + ', and f(x,y) = ' + z);
-      if (isNaN(z)) {
-        return new THREE.Vector3(0, 0, 0); // TODO: better fix
-      }
-
-      if (z < zMin) {
-        return new THREE.Vector3(x, zMin, y);
-      }
-
-      if (z > zMax) {
-        return new THREE.Vector3(x, zMax, y);
-      }
-
-      return new THREE.Vector3(x, z, y);
-    };
-
-    // true => sensible image tile repeat...
-    var graphGeometry = new THREE.ParametricGeometry( meshFunction, segments, segments, true );
-
-    if (graphMesh) {
-      scene.remove(graphMesh);
-      // renderer.deallocateObject( graphMesh );
-    }
-
-    graphMesh = new THREE.SceneUtils.createMultiMaterialObject(graphGeometry, this.functionMaterial);
-    graphMesh.doubleSided = true;
-    scene.add(graphMesh);
-  },
-
-  remove: function() {
-    this.el.object3D.remove(scene.getObjectByName('parametricfunction'));
+    
+    this.geometry = geometry
   }
-});
+})

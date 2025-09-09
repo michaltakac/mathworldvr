@@ -1,37 +1,38 @@
-import AFRAME, { THREE } from 'aframe';
+import * as THREE from 'three'
 
-/**
- * Grid component.
- */
 AFRAME.registerComponent('grid', {
   schema: {
     size: { default: 10 },
-    step: { default: 1 },
-    colorCenterLine: { default: 'red' },
-    colorGrid: { default: '0x808080' },
+    divisions: { default: 10 },
+    colorCenterLine: { default: '#ff0000' },
+    colorGrid: { default: '#808080' }
   },
 
-  init() {
-    const scene = this.el.object3D;
-    const data = this.data;
-
-    const size = data.size;
-    const step = data.step;
-    const colorCenterLine = data.colorCenterLine;
-    const colorGrid = data.colorGrid;
-
-    const gridHelperXY = new THREE.GridHelper(size, step, colorCenterLine, colorGrid);
-    gridHelperXY.name = 'gridXY';
-    scene.add(gridHelperXY);
-
-    const gridHelperXZ = new THREE.GridHelper(size, step, colorCenterLine, colorGrid);
-    gridHelperXZ.name = 'gridXZ';
-    gridHelperXZ.rotation.z = Math.PI / 2;
-    scene.add(gridHelperXZ);
+  init: function() {
+    this.gridHelper = null
   },
 
-  remove() {
-    const scene = this.el.object3D;
-    scene.remove(scene.getObjectByName('grid'));
+  update: function() {
+    const scene = this.el.object3D
+    const data = this.data
+
+    if (this.gridHelper) {
+      scene.remove(this.gridHelper)
+    }
+
+    this.gridHelper = new THREE.GridHelper(
+      data.size, 
+      data.divisions, 
+      data.colorCenterLine, 
+      data.colorGrid
+    )
+    this.gridHelper.name = 'grid'
+    scene.add(this.gridHelper)
+  },
+
+  remove: function() {
+    if (this.gridHelper) {
+      this.el.object3D.remove(this.gridHelper)
+    }
   }
-});
+})

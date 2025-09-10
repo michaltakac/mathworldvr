@@ -3,21 +3,20 @@ import { useFrame } from '@react-three/fiber'
 import { Text, Box } from '@react-three/drei'
 import { useSettingsStore } from '../store'
 
-function AttentionBox3D({ position = [0, 1.5, -2] }) {
+function CalculatorToggle3D({ position = [-2, 1.5, -2] }) {
   const meshRef = useRef()
   const [hovered, setHovered] = useState(false)
-  const toggleSettings = useSettingsStore((state) => state.toggleSettings)
+  const toggleCalculator = useSettingsStore((state) => state.toggleCalculator)
   
   useFrame((state) => {
     if (meshRef.current) {
       meshRef.current.rotation.y += 0.01
-      meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime) * 0.1
+      meshRef.current.rotation.z = Math.sin(state.clock.elapsedTime) * 0.1
     }
   })
   
   const handleClick = () => {
-    // Toggle the settings panel visibility
-    toggleSettings()
+    toggleCalculator()
   }
   
   return (
@@ -30,8 +29,8 @@ function AttentionBox3D({ position = [0, 1.5, -2] }) {
         onPointerOut={() => setHovered(false)}
       >
         <meshStandardMaterial 
-          color={hovered ? '#ff6b6b' : '#4ecdc4'}
-          emissive={hovered ? '#ff6b6b' : '#4ecdc4'}
+          color={hovered ? '#ff00ff' : '#9b59b6'}
+          emissive={hovered ? '#ff00ff' : '#9b59b6'}
           emissiveIntensity={0.2}
           metalness={0.8}
           roughness={0.2}
@@ -45,10 +44,10 @@ function AttentionBox3D({ position = [0, 1.5, -2] }) {
         anchorX="center"
         anchorY="middle"
       >
-        Settings
+        Calculator
       </Text>
     </group>
   )
 }
 
-export default AttentionBox3D
+export default CalculatorToggle3D

@@ -11,6 +11,8 @@ const useSettingsStore = create((set) => ({
   functionColor: '#3498db',
   wireframe: false,
   showGrid: true,
+  showSettings: true,
+  showCalculator: true,
   
   setXMin: (xMin) => set({ xMin }),
   setYMin: (yMin) => set({ yMin }),
@@ -22,6 +24,8 @@ const useSettingsStore = create((set) => ({
   setFunctionColor: (functionColor) => set({ functionColor }),
   setWireframe: (wireframe) => set({ wireframe }),
   setShowGrid: (showGrid) => set({ showGrid }),
+  toggleSettings: () => set((state) => ({ showSettings: !state.showSettings })),
+  toggleCalculator: () => set((state) => ({ showCalculator: !state.showCalculator })),
   
   updateSettings: (updates) => set((state) => ({
     ...state,

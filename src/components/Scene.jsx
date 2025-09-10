@@ -1,16 +1,28 @@
 import React from 'react'
-import { Sky, Environment, Grid } from '@react-three/drei'
+import { Sky, Environment } from '@react-three/drei'
+import { Root } from '@react-three/uikit'
+import { Defaults } from '@react-three/uikit-default'
+import { Calculator, Settings, Grid3x3 } from '@react-three/uikit-lucide'
 import Lights from './Lights'
 import Floor from './Floor'
 import ParametricSurface from './ParametricSurface'
 import Calculator3D from './Calculator3D'
-import AttentionBox3D from './AttentionBox3D'
 import FunctionBox3D from './FunctionBox3D'
 import SettingsPanel3D from './SettingsPanel3D'
 import VRControllers from './VRControllers'
 import CameraController from './CameraController'
+import CoordinateSystem from './CoordinateSystem'
+import ToggleButton3D from './ToggleButton3D'
+import { useSettingsStore, useUIStore } from '../store'
 
 function Scene() {
+  const showCalculator = useSettingsStore((state) => state.showCalculator)
+  const showGrid = useSettingsStore((state) => state.showGrid)
+  const showSettings = useSettingsStore((state) => state.showSettings)
+  const toggleCalculator = useSettingsStore((state) => state.toggleCalculator)
+  const toggleSettings = useSettingsStore((state) => state.toggleSettings)
+  const setShowGrid = useSettingsStore((state) => state.setShowGrid)
+  
   return (
     <>
       {/* Camera and Controls */}
@@ -29,36 +41,76 @@ function Scene() {
       />
       <Environment preset="sunset" />
       
-      {/* Floor and Grid */}
+      {/* Floor at ground level */}
       <Floor />
-      <Grid 
-        args={[20, 20]}
-        position={[0, 0, 0]}
-        cellSize={1}
-        cellThickness={0.5}
-        cellColor={'#6f6f6f'}
-        sectionSize={5}
-        sectionThickness={1}
-        sectionColor={'#9d4b4b'}
-        fadeDistance={30}
-        fadeStrength={1}
-        followCamera={false}
-        infiniteGrid={true}
-      />
       
-      {/* Main Components */}
-      <AttentionBox3D position={[0, 1.5, -2]} />
+      {/* 3D Coordinate System elevated to match the main content */}
+      {showGrid && (
+        <group position={[0, 2, -3]}>
+          <CoordinateSystem size={10} divisions={10} />
+        </group>
+      )}
       
-      <FunctionBox3D position={[0, 1, 0]}>
-        <ParametricSurface />
-      </FunctionBox3D>
+      {/* Main Components - elevated for VR viewing */}
+      <group position={[0, 2, -3]}>
+        {/* Central parametric surface */}
+        <FunctionBox3D position={[0, 0, 0]}>
+          <ParametricSurface />
+        </FunctionBox3D>
+      </group>
       
-      <Calculator3D position={[2, 1.5, -1]} />
+      {/* Toggle buttons - each in their own Root */}
+      <group position={[-1.5, 3.5, -3]}>
+        <Root>
+          <Defaults>
+            <ToggleButton3D 
+              position={[0, 0, 0]}
+              onClick={toggleCalculator}
+              icon={Calculator}
+              label="Calculator"
+              isActive={showCalculator}
+            />
+          </Defaults>
+        </Root>
+      </group>
       
-      <SettingsPanel3D 
-        position={[-2, 1.5, -1]}
-        rotation={[0, Math.PI / 6, 0]}
-      />
+      <group position={[0, 3.5, -3]}>
+        <Root>
+          <Defaults>
+            <ToggleButton3D 
+              position={[0, 0, 0]}
+              onClick={toggleSettings}
+              icon={Settings}
+              label="Settings"
+              isActive={showSettings}
+            />
+          </Defaults>
+        </Root>
+      </group>
+      
+      <group position={[1.5, 3.5, -3]}>
+        <Root>
+          <Defaults>
+            <ToggleButton3D 
+              position={[0, 0, 0]}
+              onClick={() => setShowGrid(!showGrid)}
+              icon={Grid3x3}
+              label="Grid"
+              isActive={showGrid}
+            />
+          </Defaults>
+        </Root>
+      </group>
+      
+      {/* Calculator Panel - left side */}
+      {showCalculator && (
+        <Calculator3D position={[-4.5, 2, -3]} />
+      )}
+      
+      {/* Settings Panel - right side */}
+      {showSettings && (
+        <SettingsPanel3D position={[4.5, 2, -3]} />
+      )}
     </>
   )
 }

@@ -26,7 +26,8 @@ export default defineConfig({
       '@react-three/drei',
       '@react-three/rapier',
       '@pmndrs/xr',
-      'leva'
+      '@react-three/uikit',
+      '@react-three/uikit-default'
     ],
     exclude: ['three-to-cannon'],
     esbuildOptions: {

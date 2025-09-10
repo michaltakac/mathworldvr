@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { useThree, useFrame } from '@react-three/fiber'
 import { useKeyboardControls } from '@react-three/drei'
+import * as THREE from 'three'
 import { useUIStore } from '../store'
 
 // Define keyboard controls
@@ -25,8 +26,18 @@ function CameraController() {
   const setSettingsPanelVisible = useUIStore((state) => state.setSettingsPanelVisible)
   const settingsPanelVisible = useUIStore((state) => state.settingsPanelVisible)
   
+  // Initialize keyboard shortcuts as enabled by default
+  useEffect(() => {
+    window.keyboardShortcutsEnabled = true;
+  }, [])
+  
   useEffect(() => {
     const handleKeyDown = (event) => {
+      // Skip if keyboard shortcuts are disabled (e.g., when input is focused)
+      if (window.keyboardShortcutsEnabled === false) {
+        return;
+      }
+      
       const speed = 0.1
       const rotSpeed = 0.02
       
@@ -71,6 +82,11 @@ function CameraController() {
     }
     
     const handleKeyUp = (event) => {
+      // Skip if keyboard shortcuts are disabled (e.g., when input is focused)
+      if (window.keyboardShortcutsEnabled === false) {
+        return;
+      }
+      
       // Use event.key directly for arrow keys, lowercase for letters
       const key = event.key.startsWith('Arrow') ? event.key : event.key.toLowerCase()
       
@@ -108,14 +124,27 @@ function CameraController() {
   }, [settingsPanelVisible, setSettingsPanelVisible])
   
   useFrame(() => {
-    // Apply movement
-    camera.position.x += velocity.current.x
-    camera.position.y += velocity.current.y
-    camera.position.z += velocity.current.z
-    
-    // Apply rotation
+    // Apply rotation first
     camera.rotation.x += rotation.current.x
     camera.rotation.y += rotation.current.y
+    
+    // Apply movement relative to camera's current orientation
+    // Create direction vectors based on camera's rotation
+    const forward = new THREE.Vector3(0, 0, -1)
+    const right = new THREE.Vector3(1, 0, 0)
+    const up = new THREE.Vector3(0, 1, 0)
+    
+    // Apply camera's rotation to direction vectors
+    forward.applyQuaternion(camera.quaternion)
+    right.applyQuaternion(camera.quaternion)
+    
+    // Move based on velocity
+    // Forward/backward movement
+    camera.position.add(forward.multiplyScalar(velocity.current.z))
+    // Left/right strafe movement
+    camera.position.add(right.multiplyScalar(-velocity.current.x))
+    // Up/down movement (world space)
+    camera.position.y += velocity.current.y
   })
   
   return null

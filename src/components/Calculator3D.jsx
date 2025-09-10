@@ -1,8 +1,13 @@
-import React, { useEffect } from 'react'
-import { Box, Text, RoundedBox } from '@react-three/drei'
-import { useCalculatorStore, useParametricFunctionStore } from '../store'
+import React, { useEffect, useState, useRef } from 'react';
+import { Container, Text, Root } from '@react-three/uikit';
+import { 
+  Card, CardHeader, CardTitle, CardContent,
+  Button, Input, Defaults
+} from '@react-three/uikit-default';
+import { Calculator, Delete } from '@react-three/uikit-lucide';
+import { useCalculatorStore, useParametricFunctionStore } from '../store';
 
-function Calculator3D({ position = [2, 1.5, -1] }) {
+function Calculator3D({ position = [-2, 0, 0] }) {
   const { 
     displayValue, 
     appendNumber, 
@@ -11,144 +16,206 @@ function Calculator3D({ position = [2, 1.5, -1] }) {
     clear,
     addFunction,
     backspace,
-    setParametricFunctionStore: setParamStore
-  } = useCalculatorStore()
+    setParametricFunctionStore: setParamStore,
+    equation
+  } = useCalculatorStore();
   
-  const parametricStore = useParametricFunctionStore()
-  const setEquation = useCalculatorStore((state) => state.setEquation)
+  const parametricStore = useParametricFunctionStore();
+  const setEquation = useCalculatorStore((state) => state.setEquation);
+  const [isInputFocused, setIsInputFocused] = useState(false);
+  const lastActionTimeRef = useRef(0);
   
   // Connect the stores and initialize with current expression
   useEffect(() => {
-    setParamStore(parametricStore)
+    setParamStore(parametricStore);
     // Initialize calculator with current expression
     if (parametricStore.expression) {
-      setEquation(parametricStore.expression)
+      setEquation(parametricStore.expression);
     }
-  }, [setParamStore, parametricStore, setEquation])
+  }, [setParamStore, parametricStore, setEquation]);
   
   // Scientific calculator layout with x and y variables
   const buttons = [
     ['sin', 'cos', 'tan', 'ln', 'log'],
     ['√', '^', 'π', 'e', '(', ')'],
-    ['x', 'y', '9', '÷', 'C'],
-    ['7', '8', '6', '×', '⌫'],
-    ['4', '5', '3', '-', ''],
-    ['1', '2', '0', '+', ''],
-    ['.', '', '', '=', '']
-  ]
+    ['x', 'y', '÷', 'C', '⌫'],
+    ['7', '8', '9', '×'],
+    ['4', '5', '6', '-'],
+    ['1', '2', '3', '+'],
+    ['.', '0', '=']
+  ];
   
   const handleButtonClick = (value) => {
+    // Debounce to prevent double clicks
+    const now = Date.now();
+    if (now - lastActionTimeRef.current < 100) {
+      return; // Ignore if clicked too quickly
+    }
+    lastActionTimeRef.current = now;
+    
+    // Focus management is handled by the Input component's onFocus/onBlur handlers
+    
     if (value === '=') {
-      calculate()
+      calculate();
+      // Also update the parametric function directly
+      const hasVariables = /[xy]/.test(equation);
+      if (hasVariables) {
+        // Convert display symbols to math.js compatible ones
+        let expression = equation
+          .replace(/π/g, 'pi')
+          .replace(/×/g, '*')
+          .replace(/÷/g, '/')
+          .replace(/√/g, 'sqrt');
+        parametricStore.setExpression(expression);
+      }
     } else if (value === 'C') {
-      clear()
+      clear();
     } else if (value === '⌫') {
-      backspace()
+      // Use preventDefault and only call backspace once
+      backspace();
     } else if (['+', '-', '×', '÷'].includes(value)) {
-      setOperation(value)
+      setOperation(value);
     } else if (['sin', 'cos', 'tan', 'ln', 'log', '√', '^', 'π', 'e', '(', ')'].includes(value)) {
-      addFunction(value)
+      addFunction(value);
     } else if (['x', 'y'].includes(value)) {
       // Add x or y as variables
-      appendNumber(value)
+      appendNumber(value);
     } else if (value !== '') {
-      appendNumber(value)
+      appendNumber(value);
     }
-  }
+  };
   
-  const getButtonColor = (button) => {
-    if (button === 'C') return '#ff4444'
-    if (button === '⌫') return '#ff8844'
-    if (button === '=') return '#44ff44'
-    if (['+', '-', '×', '÷'].includes(button)) return '#4CAF50'
-    if (['sin', 'cos', 'tan', 'ln', 'log', '√', '^', 'π', 'e', '(', ')'].includes(button)) return '#2196F3'
-    if (['x', 'y'].includes(button)) return '#ff00ff'  // Purple for variables
-    return '#3a3a3a'
-  }
+  const handleInputChange = (value) => {
+    setEquation(value);
+  };
   
-  const getButtonWidth = (button, rowIndex, colIndex) => {
-    // Make some buttons wider
-    if (button === '0' && rowIndex === 5) return 0.75
-    if (button === '=' && rowIndex === 5) return 0.75
-    return 0.35
-  }
+  const handleInputFocus = () => {
+    setIsInputFocused(true);
+    // Disable keyboard shortcuts when input is focused
+    if (window.keyboardShortcutsEnabled !== undefined) {
+      window.keyboardShortcutsEnabled = false;
+    }
+  };
+  
+  const handleInputBlur = () => {
+    setIsInputFocused(false);
+    // Re-enable keyboard shortcuts when input loses focus
+    if (window.keyboardShortcutsEnabled !== undefined) {
+      window.keyboardShortcutsEnabled = true;
+    }
+  };
+  
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      calculate();
+      // Apply to parametric surface if it has variables
+      const hasVariables = /[xy]/.test(equation);
+      if (hasVariables) {
+        let expression = equation
+          .replace(/π/g, 'pi')
+          .replace(/×/g, '*')
+          .replace(/÷/g, '/')
+          .replace(/√/g, 'sqrt');
+        parametricStore.setExpression(expression);
+      }
+    }
+  };
+  
+  const getButtonVariant = (button) => {
+    if (button === 'C') return 'destructive';
+    if (button === '⌫') return 'destructive';
+    if (button === '=') return 'default';
+    if (['+', '-', '×', '÷'].includes(button)) return 'secondary';
+    if (['sin', 'cos', 'tan', 'ln', 'log', '√', '^', 'π', 'e', '(', ')'].includes(button)) return 'outline';
+    if (['x', 'y'].includes(button)) return 'secondary';
+    return 'outline';
+  };
+  
+  const getButtonWidth = (button) => {
+    if (button === '0') return 120;
+    if (button === '=') return 120;
+    return 55;
+  };
   
   return (
     <group position={position}>
-      {/* Calculator Body */}
-      <RoundedBox args={[3, 3.5, 0.3]} radius={0.05} smoothness={4}>
-        <meshStandardMaterial color="#1a1a1a" metalness={0.8} roughness={0.2} />
-      </RoundedBox>
-      
-      {/* Display */}
-      <RoundedBox 
-        args={[2.7, 0.5, 0.1]} 
-        position={[0, 1.4, 0.16]}
-        radius={0.02}
-      >
-        <meshStandardMaterial color="#2a2a2a" />
-      </RoundedBox>
-      
-      <Text
-        position={[0, 1.4, 0.22]}
-        fontSize={0.15}
-        color="white"
-        anchorX="center"
-        anchorY="middle"
-        maxWidth={2.5}
-      >
-        {displayValue || '0'}
-      </Text>
-      
-      {/* Buttons */}
-      {buttons.map((row, rowIndex) => (
-        row.map((button, colIndex) => {
-          if (button === '') return null
-          
-          const buttonWidth = getButtonWidth(button, rowIndex, colIndex)
-          const spacing = 0.4
-          const startX = -1.2
-          const x = startX + colIndex * spacing + (buttonWidth > 0.35 ? (buttonWidth - 0.35) / 2 : 0)
-          const y = 0.9 - rowIndex * 0.4
-          
-          return (
-            <group key={`${rowIndex}-${colIndex}`}>
-              <RoundedBox
-                args={[buttonWidth, 0.35, 0.1]}
-                position={[x, y, 0.16]}
-                radius={0.02}
-                onClick={() => handleButtonClick(button)}
-                onPointerOver={(e) => {
-                  e.stopPropagation()
-                  document.body.style.cursor = 'pointer'
-                }}
-                onPointerOut={(e) => {
-                  e.stopPropagation()
-                  document.body.style.cursor = 'auto'
-                }}
-              >
-                <meshStandardMaterial 
-                  color={getButtonColor(button)}
-                  metalness={0.6}
-                  roughness={0.3}
-                />
-              </RoundedBox>
-              
-              <Text
-                position={[x, y, 0.22]}
-                fontSize={button.length > 2 ? 0.1 : 0.13}
-                color="white"
-                anchorX="center"
-                anchorY="middle"
-              >
-                {button}
-              </Text>
-            </group>
-          )
-        })
-      ))}
+      <Root>
+        <Defaults>
+          <Card width={320} height={450}>
+        <CardHeader>
+          <CardTitle>
+            <Container flexDirection="row" alignItems="center" gap={8}>
+              <Calculator width={20} height={20} />
+              <Text>Scientific Calculator</Text>
+            </Container>
+          </CardTitle>
+        </CardHeader>
+        
+        <CardContent>
+          <Container flexDirection="column" gap={12}>
+            {/* Display */}
+            <Input 
+              value={displayValue || ''} 
+              onValueChange={handleInputChange}
+              onFocus={handleInputFocus}
+              onBlur={handleInputBlur}
+              onKeyPress={handleKeyPress}
+              placeholder="Enter expression..."
+              width="100%"
+              height={50}
+              fontSize={18}
+              fontWeight="bold"
+              textAlign="right"
+            />
+            
+            {/* Button Grid */}
+            <Container flexDirection="column" gap={8}>
+              {buttons.map((row, rowIndex) => (
+                <Container 
+                  key={rowIndex} 
+                  flexDirection="row" 
+                  gap={8}
+                  justifyContent="center"
+                >
+                  {row.map((button, colIndex) => {
+                    const width = getButtonWidth(button);
+                    
+                    return (
+                      <Button
+                        key={`${rowIndex}-${colIndex}`}
+                        variant={getButtonVariant(button)}
+                        onClick={() => {
+                          handleButtonClick(button);
+                        }}
+                        width={width}
+                        height={40}
+                        padding={0}
+                      >
+                        {button === '⌫' ? (
+                          <Delete width={16} height={16} />
+                        ) : (
+                          <Text fontSize={button.length > 2 ? 12 : 14}>
+                            {button}
+                          </Text>
+                        )}
+                      </Button>
+                    );
+                  })}
+                </Container>
+              ))}
+            </Container>
+            
+            {/* Info text */}
+            <Text fontSize={10} opacity={0.7} textAlign="center">
+              Variables: x, y | Press = to apply to surface
+            </Text>
+          </Container>
+        </CardContent>
+      </Card>
+        </Defaults>
+      </Root>
     </group>
-  )
+  );
 }
 
-export default Calculator3D
+export default Calculator3D;

@@ -3,7 +3,7 @@ import { create } from 'zustand'
 const useUIStore = create((set) => ({
   attentionBoxVisible: true,
   calculatorVisible: true,
-  settingsPanelVisible: true,
+  settingsPanelVisible: true,  // Start visible by default
   vrMode: false,
   handTracking: false,
   
@@ -22,6 +22,10 @@ const useUIStore = create((set) => ({
   toggleSettingsPanel: () => set((state) => ({ 
     settingsPanelVisible: !state.settingsPanelVisible 
   })),
+  
+  setSettingsPanelVisible: (visible) => set({ 
+    settingsPanelVisible: visible 
+  }),
   
   setVRMode: (vrMode) => set({ vrMode }),
   

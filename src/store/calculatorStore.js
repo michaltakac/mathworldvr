@@ -117,11 +117,15 @@ const useCalculatorStore = create((set, get) => ({
   }),
   
   backspace: () => set((state) => {
-    const newEquation = state.equation.slice(0, -1)
+    // Only remove one character at a time
+    if (!state.equation || state.equation.length === 0) {
+      return state;
+    }
+    const newEquation = state.equation.slice(0, -1);
     return {
       equation: newEquation,
       displayValue: newEquation
-    }
+    };
   }),
   
   setEquation: (equation) => set({
@@ -134,10 +138,6 @@ const useCalculatorStore = create((set, get) => ({
   
   writeText: (text) => set((state) => ({ 
     displayText: state.displayText + text 
-  })),
-  
-  backspace: () => set((state) => ({ 
-    displayText: state.displayText.slice(0, -1) 
   })),
   
   clearText: () => set({ 

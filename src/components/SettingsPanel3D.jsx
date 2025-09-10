@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Text, Root } from '@react-three/uikit';
 import { 
   Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter,
@@ -12,6 +12,13 @@ function SettingsPanel3D({ position = [2, 0, 0] }) {
   const settings = useSettingsStore();
   const parametric = useParametricFunctionStore();
   const setCalculatorEquation = useCalculatorStore((state) => state.setEquation);
+  
+  // Local state for color inputs
+  const [localColors, setLocalColors] = useState({
+    functionColor: settings.functionColor || '#4CAF50',
+    gradientColor1: settings.gradientColor1 || '#4CAF50',
+    gradientColor2: settings.gradientColor2 || '#2196F3'
+  });
 
   // Ensure numeric values with defaults
   const xMin = typeof settings.xMin === 'number' ? settings.xMin : -3;
@@ -98,7 +105,7 @@ function SettingsPanel3D({ position = [2, 0, 0] }) {
             </TabsContent>
             
             <TabsContent value="display">
-              <Container flexDirection="column" gap={16} paddingTop={16}>
+              <Container flexDirection="column" gap={16} paddingTop={16} height={350} overflowY="auto">
                 <Container flexDirection="row" alignItems="center" justifyContent="space-between">
                   <Label>
                     <Text fontSize={14}>Wireframe</Text>
@@ -137,6 +144,159 @@ function SettingsPanel3D({ position = [2, 0, 0] }) {
                     step={5}
                     width="100%"
                   />
+                </Container>
+                
+                {/* Color Settings */}
+                <Container flexDirection="column" gap={12}>
+                  <Text fontSize={14} fontWeight="bold">Colors</Text>
+                  
+                  <Container flexDirection="row" alignItems="center" justifyContent="space-between">
+                    <Label>
+                      <Text fontSize={14}>Use Gradient</Text>
+                    </Label>
+                    <Switch 
+                      checked={!!settings.useGradient} 
+                      onCheckedChange={(checked) => settings.setUseGradient(!!checked)} 
+                    />
+                  </Container>
+                  
+                  {!settings.useGradient ? (
+                    <Container flexDirection="column" gap={8}>
+                      <Label>
+                        <Text fontSize={12}>Function Color</Text>
+                      </Label>
+                      <Container flexDirection="row" gap={8} alignItems="center">
+                        <Input 
+                          type="color"
+                          value={localColors.functionColor}
+                          onValueChange={(value) => {
+                            if (value.match(/^#[0-9A-Fa-f]{6}$/)) {
+                              setLocalColors({...localColors, functionColor: value});
+                            }
+                          }}
+                          width={60}
+                          height={30}
+                        />
+                        <Input 
+                          value={localColors.functionColor}
+                          onValueChange={(value) => setLocalColors({...localColors, functionColor: value})}
+                          width={100}
+                          height={30}
+                          fontSize={12}
+                        />
+                      </Container>
+                    </Container>
+                  ) : (
+                    <Container flexDirection="column" gap={12}>
+                      <Container flexDirection="column" gap={8}>
+                        <Label>
+                          <Text fontSize={12}>Gradient Start</Text>
+                        </Label>
+                        <Container flexDirection="row" gap={8} alignItems="center">
+                          <Input 
+                            type="color"
+                            value={localColors.gradientColor1}
+                            onValueChange={(value) => {
+                              if (value.match(/^#[0-9A-Fa-f]{6}$/)) {
+                                setLocalColors({...localColors, gradientColor1: value});
+                              }
+                            }}
+                            width={60}
+                            height={30}
+                          />
+                          <Input 
+                            value={localColors.gradientColor1}
+                            onValueChange={(value) => setLocalColors({...localColors, gradientColor1: value})}
+                            width={100}
+                            height={30}
+                            fontSize={12}
+                          />
+                        </Container>
+                      </Container>
+                      
+                      <Container flexDirection="column" gap={8}>
+                        <Label>
+                          <Text fontSize={12}>Gradient End</Text>
+                        </Label>
+                        <Container flexDirection="row" gap={8} alignItems="center">
+                          <Input 
+                            type="color"
+                            value={localColors.gradientColor2}
+                            onValueChange={(value) => {
+                              if (value.match(/^#[0-9A-Fa-f]{6}$/)) {
+                                setLocalColors({...localColors, gradientColor2: value});
+                              }
+                            }}
+                            width={60}
+                            height={30}
+                          />
+                          <Input 
+                            value={localColors.gradientColor2}
+                            onValueChange={(value) => setLocalColors({...localColors, gradientColor2: value})}
+                            width={100}
+                            height={30}
+                            fontSize={12}
+                          />
+                        </Container>
+                      </Container>
+                      
+                      <Container flexDirection="column" gap={8}>
+                        <Label>
+                          <Text fontSize={12}>Gradient Direction</Text>
+                        </Label>
+                        <Container flexDirection="row" gap={4}>
+                          <Button 
+                            variant={settings.gradientDirection === 'vertical' ? 'default' : 'outline'}
+                            onClick={() => settings.setGradientDirection('vertical')}
+                            width={80}
+                            height={30}
+                          >
+                            <Text fontSize={11}>Vertical</Text>
+                          </Button>
+                          <Button 
+                            variant={settings.gradientDirection === 'horizontal' ? 'default' : 'outline'}
+                            onClick={() => settings.setGradientDirection('horizontal')}
+                            width={90}
+                            height={30}
+                          >
+                            <Text fontSize={11}>Horizontal</Text>
+                          </Button>
+                          <Button 
+                            variant={settings.gradientDirection === 'radial' ? 'default' : 'outline'}
+                            onClick={() => settings.setGradientDirection('radial')}
+                            width={70}
+                            height={30}
+                          >
+                            <Text fontSize={11}>Radial</Text>
+                          </Button>
+                        </Container>
+                      </Container>
+                    </Container>
+                  )}
+                  
+                  {/* Apply button for color changes */}
+                  <Button 
+                    onClick={() => {
+                      // Validate colors before applying
+                      const isValidColor = (color) => /^#[0-9A-Fa-f]{6}$/.test(color);
+                      
+                      if (!settings.useGradient && isValidColor(localColors.functionColor)) {
+                        settings.setFunctionColor(localColors.functionColor);
+                      } else if (settings.useGradient) {
+                        if (isValidColor(localColors.gradientColor1)) {
+                          settings.setGradientColor1(localColors.gradientColor1);
+                        }
+                        if (isValidColor(localColors.gradientColor2)) {
+                          settings.setGradientColor2(localColors.gradientColor2);
+                        }
+                      }
+                    }}
+                    variant="default"
+                    width="100%"
+                    height={35}
+                  >
+                    <Text fontSize={12}>Apply Colors</Text>
+                  </Button>
                 </Container>
               </Container>
             </TabsContent>

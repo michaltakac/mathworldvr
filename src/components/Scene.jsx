@@ -1,4 +1,3 @@
-import React from 'react'
 import { Sky, Environment } from '@react-three/drei'
 import { Root } from '@react-three/uikit'
 import { Defaults } from '@react-three/uikit-default'
@@ -7,13 +6,12 @@ import Lights from './Lights'
 import Floor from './Floor'
 import ParametricSurface from './ParametricSurface'
 import Calculator3D from './Calculator3D'
-import FunctionBox3D from './FunctionBox3D'
 import SettingsPanel3D from './SettingsPanel3D'
 import VRControllers from './VRControllers'
 import CameraController from './CameraController'
 import CoordinateSystem from './CoordinateSystem'
 import ToggleButton3D from './ToggleButton3D'
-import { useSettingsStore, useUIStore } from '../store'
+import { useSettingsStore } from '../store'
 
 function Scene() {
   const showCalculator = useSettingsStore((state) => state.showCalculator)
@@ -46,17 +44,15 @@ function Scene() {
       
       {/* 3D Coordinate System elevated to match the main content */}
       {showGrid && (
-        <group position={[0, 2, -3]}>
+        <group position={[0, 2, -8]}>
           <CoordinateSystem size={10} divisions={10} />
         </group>
       )}
       
-      {/* Main Components - elevated for VR viewing */}
-      <group position={[0, 2, -3]}>
-        {/* Central parametric surface */}
-        <FunctionBox3D position={[0, 0, 0]}>
-          <ParametricSurface />
-        </FunctionBox3D>
+      {/* Main Components - elevated for VR viewing, pushed back */}
+      <group position={[0, 2, -8]}>
+        {/* Central parametric surface - no container box */}
+        <ParametricSurface />
       </group>
       
       {/* Toggle buttons - each in their own Root */}

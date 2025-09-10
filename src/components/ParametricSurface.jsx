@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from 'react'
+import React, { useMemo, useRef, useEffect } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { useSettingsStore, useParametricFunctionStore } from '../store'
@@ -6,7 +6,10 @@ import { evaluate } from 'mathjs'
 
 function ParametricSurface() {
   const meshRef = useRef()
-  const { xMin, xMax, yMin, yMax, segments, wireframe, showGrid } = useSettingsStore()
+  const { 
+    xMin, xMax, yMin, yMax, segments, wireframe, 
+    functionColor, useGradient, gradientColor1, gradientColor2, gradientDirection 
+  } = useSettingsStore()
   const { expression } = useParametricFunctionStore()
   
   const geometry = useMemo(() => {
@@ -32,11 +35,41 @@ function ParametricSurface() {
     return geo
   }, [xMin, xMax, yMin, yMax, segments, expression])
   
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y += 0.001
+  // Create gradient texture if needed
+  const gradientTexture = useMemo(() => {
+    if (!useGradient) return null
+    
+    // Validate colors
+    const isValidColor = (color) => /^#[0-9A-Fa-f]{6}$/.test(color)
+    const safeColor1 = isValidColor(gradientColor1) ? gradientColor1 : '#4CAF50'
+    const safeColor2 = isValidColor(gradientColor2) ? gradientColor2 : '#2196F3'
+    
+    const canvas = document.createElement('canvas')
+    canvas.width = 256
+    canvas.height = 256
+    const context = canvas.getContext('2d')
+    
+    let gradient
+    if (gradientDirection === 'radial') {
+      gradient = context.createRadialGradient(128, 128, 0, 128, 128, 128)
+    } else if (gradientDirection === 'horizontal') {
+      gradient = context.createLinearGradient(0, 0, 256, 0)
+    } else {
+      gradient = context.createLinearGradient(0, 0, 0, 256)
     }
-  })
+    
+    gradient.addColorStop(0, safeColor1)
+    gradient.addColorStop(1, safeColor2)
+    
+    context.fillStyle = gradient
+    context.fillRect(0, 0, 256, 256)
+    
+    const texture = new THREE.CanvasTexture(canvas)
+    texture.needsUpdate = true
+    return texture
+  }, [useGradient, gradientColor1, gradientColor2, gradientDirection])
+  
+  // Remove automatic rotation - controlled by user interaction only
   
   return (
     <group>
@@ -47,21 +80,19 @@ function ParametricSurface() {
         receiveShadow
       >
         <meshPhysicalMaterial
-          color="#4CAF50"
+          color={useGradient ? '#ffffff' : (functionColor && /^#[0-9A-Fa-f]{6}$/.test(functionColor) ? functionColor : '#4CAF50')}
+          map={gradientTexture}
           wireframe={wireframe}
           roughness={0.4}
           metalness={0.6}
           clearcoat={0.3}
           clearcoatRoughness={0.2}
           side={THREE.DoubleSide}
+          vertexColors={false}
         />
       </mesh>
       
-      {showGrid && (
-        <lineSegments geometry={geometry}>
-          <lineBasicMaterial color="#ffffff" opacity={0.2} transparent />
-        </lineSegments>
-      )}
+      {/* Wireframe is now controlled by the wireframe prop in material */}
     </group>
   )
 }

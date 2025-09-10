@@ -6,16 +6,16 @@ function Floor() {
     <RigidBody type="fixed" colliders="cuboid">
       <mesh 
         rotation={[-Math.PI / 2, 0, 0]} 
-        position={[0, -0.01, 0]}
+        position={[0, 0, 0]}
         receiveShadow
       >
-        <planeGeometry args={[100, 100]} />
+        <planeGeometry args={[200, 200]} />
         <meshStandardMaterial 
-          color="#777777" 
+          color="#555555" 
           transparent 
-          opacity={0.2}
-          roughness={0.9}
-          metalness={0.1}
+          opacity={0.3}
+          roughness={0.95}
+          metalness={0.05}
         />
       </mesh>
     </RigidBody>
